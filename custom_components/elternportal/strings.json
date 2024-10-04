@@ -1,0 +1,24 @@
+{
+  "title": "Eltern-Portal",
+  "config": {
+    "step": {
+      "user": {
+        "description": "Einrichtung einer Schülerin bzw. eines Schülers",
+        "data": {
+          "school": "Kürzel der Schule (xxx.eltern-portal.org)",
+          "username": "E-Mail Adresse",
+          "password": "Passwort"
+        }
+      }
+    },
+    "error": {
+      "register_failed": "Failed to register, please try again",
+      "linking": "Unknown linking error occurred."
+    },
+    "abort": {
+      "unknown": "Unknown error occurred",
+      "cannot_connect": "Unable to connect to the bridge",
+      "already_configured": "School is already configured"
+    }
+  }
+}

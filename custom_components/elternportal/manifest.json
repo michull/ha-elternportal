@@ -1,0 +1,13 @@
+{
+  "domain": "elternportal",
+  "name": "Eltern-Portal",
+  "codeowners": ["@michull"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://www.ullrich.bayern",
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "loggers": ["elternportal"],
+  "requirements": [],
+  "version": "0.1.0"
+}
