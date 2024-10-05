@@ -21,22 +21,40 @@ Sensor name                               | Description
 `sensor.elternportal_name_schwarzesbrett` | Bulletin board [planned]
 
 
-## Installation
+# Setup
+
+## Installation via HACS
+1. Ensure that HACS is installed
+1. Open HACS
+1. Click on the 3 dots in the top right corner.
+1. Select "Custom repositories"
+1. Set the repository to `michull/ha-elternportal`.
+1. Select the type `integration`
+1. Click the `ADD` button.
+1. Search for and install the "elternportal" integration
+1. **Restart Home Assistant**
+
+## Manual installation
 
 1. Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
 1. If you do not have a `custom_components` directory (folder) there, you need to create it.
 1. In the `custom_components` directory (folder) create a new folder called `elternportal`.
 1. Download _all_ the files from the `custom_components/elternportal/` directory (folder) in this repository.
 1. Place the files you downloaded in the new directory (folder) you created.
-1. Restart Home Assistant
-1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Elternportal"
-
+1. **Restart Home Assistant**
 
 ## Configuration is done in the UI
 
-Please have a look at the [list of instances](INSTANCES.md)
+1. After the restart, in the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Elternportal"
+1. Follow the configuration flow.
 
-***
+    Field name | Content
+    :--------- | :------------------------------
+    `school`   | School identifier (https://xxxxxx.eltern-portal.org)
+    `username` | E-mail address of your account
+    `password` | Password of your account
+
+Note: please have a look at the [list of instances](INSTANCES.md)
 
 [commits-link]: https://github.com/michull/ha-elternportal/commits/main
 [commits-shield]: https://img.shields.io/github/commit-activity/y/michull/ha-elternportal.svg?style=for-the-badge
