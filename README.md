@@ -1,24 +1,24 @@
-# Integration Blueprint
-
-[![GitHub Release][releases-shield]][releases]
-[![GitHub Activity][commits-shield]][commits]
-[![License][license-shield]](LICENSE)
+# Integration for Eltern-Portal
 
 ![Project Maintenance][maintenance-shield]
-[![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
+[![GitHub Release][releases-shield]][releases-link]
+[![GitHub Activity][commits-shield]][commits-link]
+[![License][license-shield]](LICENSE)
 
-[![Discord][discord-shield]][discord]
-[![Community Forum][forum-shield]][forum]
+Unofficial integration for eltern-portal.org (by [art soft and more GmbH](https://artsoftandmore.com/))
 
-_Integration to integrate with [elternportal][elternportal]._
+**This integration will set up the sensor platform.**
 
-**This integration will set up the following platforms.**
+Sensor name                               | Description
+------------------------------------------|------------------------------------
+`sensor.elternportal_name`                | Provide data from Eltern-Portal
+`sensor.elternportal_name_elternbrief`    | Parent letters
+`sensor.elternportal_name_fundsachen`     | Lost and found [planned]
+`sensor.elternportal_name_klassenbuch`    | Class book (homework)
+`sensor.elternportal_name_stundenplan`    | Timetable [planned]
+`sensor.elternportal_name_termin`         | School calendar (school test)
+`sensor.elternportal_name_schwarzesbrett` | Bulletin board [planned]
 
-Platform | Description
--- | --
-`binary_sensor` | Show something `True` or `False`.
-`sensor` | Show info from blueprint API.
-`switch` | Switch something `True` or `False`.
 
 ## Installation
 
@@ -30,27 +30,17 @@ Platform | Description
 1. Restart Home Assistant
 1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Elternportal"
 
+
 ## Configuration is done in the UI
 
-<!---->
-
-## Contributions are welcome!
-
-If you want to contribute to this please read the [Contribution guidelines](CONTRIBUTING.md)
+Please have a look at the [list of instances](INSTANCES.md)
 
 ***
 
-[elternportal]: https://github.com/michull/elternportal
-[buymecoffee]: https://www.buymeacoffee.com/michull
-[buymecoffeebadge]: https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=for-the-badge
-[commits-shield]: https://img.shields.io/github/commit-activity/y/michull/elternportal.svg?style=for-the-badge
-[commits]: https://github.com/michull/elternportal/commits/main
-[discord]: https://discord.gg/Qa5fW2R
-[discord-shield]: https://img.shields.io/discord/330944238910963714.svg?style=for-the-badge
-[exampleimg]: example.png
-[forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
-[forum]: https://community.home-assistant.io/
-[license-shield]: https://img.shields.io/github/license/michull/elternportal.svg?style=for-the-badge
-[maintenance-shield]: https://img.shields.io/badge/maintainer-Joakim%20Sørensen%20%40michull-blue.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/michull/elternportal.svg?style=for-the-badge
-[releases]: https://github.com/michull/elternportal/releases
+[commits-link]: https://github.com/michull/ha-elternportal/commits/main
+[commits-shield]: https://img.shields.io/github/commit-activity/y/michull/ha-elternportal.svg?style=for-the-badge
+[elternportal]: https://www.eltern-portal.org
+[license-shield]: https://img.shields.io/github/license/michull/ha-elternportal.svg?style=for-the-badge
+[maintenance-shield]: https://img.shields.io/badge/maintainer-Michael_Ullrich_%40michull-blue.svg?style=for-the-badge
+[releases-link]: https://github.com/michull/ha-elternportal/releases
+[releases-shield]: https://img.shields.io/github/release/michull/ha-elternportal.svg?style=for-the-badge
