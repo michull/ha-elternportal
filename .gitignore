@@ -1,4 +1,11 @@
+# artifacts
 __pycache__
+
+# misc
 .vs/
 *.pyproj
 *.sln
+
+# Home Assistant configuration
+config/*
+!config/configuration.yaml

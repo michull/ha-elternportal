@@ -3,11 +3,9 @@
   "name": "Eltern-Portal",
   "codeowners": ["@michull"],
   "config_flow": true,
-  "dependencies": [],
-  "documentation": "https://www.ullrich.bayern",
+  "documentation": "https://github.com/michull/ha-elternportal",
   "integration_type": "hub",
   "iot_class": "cloud_polling",
-  "loggers": ["elternportal"],
-  "requirements": [],
+  "issue_tracker": "https://github.com/michull/ha-elternportal/issues",
   "version": "0.1.0"
 }
