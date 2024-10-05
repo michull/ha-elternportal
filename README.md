@@ -24,6 +24,13 @@ Sensor name                               | Description
 # Setup
 
 ## Installation via HACS
+
+To add this integration, you can use this My button:
+
+[![Open HACS repository on my HA](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=michull&repository=ha-elternportal&category=integration)
+
+or do the following steps:
+
 1. Ensure that HACS is installed
 1. Open HACS
 1. Click on the 3 dots in the top right corner.
@@ -33,6 +40,7 @@ Sensor name                               | Description
 1. Click the `ADD` button.
 1. Search for and install the "elternportal" integration
 1. **Restart Home Assistant**
+
 
 ## Manual installation
 
@@ -45,12 +53,18 @@ Sensor name                               | Description
 
 ## Configuration is done in the UI
 
+After the restart, to add a school via the UI, you can use this My button:
+
+[![Add integration to my HA](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=elternportal)
+
+or do the following steps:
+
 1. After the restart, in the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Elternportal"
 1. Follow the configuration flow.
 
     Field name | Content
     :--------- | :------------------------------
-    `school`   | School identifier (https://xxxxxx.eltern-portal.org)
+    `school`   | School identifier (prefix of the official url: ________.eltern-portal.org)
     `username` | E-mail address of your account
     `password` | Password of your account
 
@@ -62,4 +76,5 @@ Note: please have a look at the [list of instances](INSTANCES.md)
 [license-shield]: https://img.shields.io/github/license/michull/ha-elternportal.svg?style=for-the-badge
 [maintenance-shield]: https://img.shields.io/badge/maintainer-%40michull-blue.svg?style=for-the-badge
 [releases-link]: https://github.com/michull/ha-elternportal/releases
-[releases-shield]: https://img.shields.io/github/release/michull/ha-elternportal.svg?style=for-the-badge
+[releases-shield]: https://img.shields.io/github/release/michull/ha-elternportal.svg?style=for-the-badge&include_prereleases
+
