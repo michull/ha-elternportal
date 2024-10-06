@@ -324,7 +324,8 @@ class ElternPortalAPI:
 
         registers = []
         date_current = datetime.date.today() - datetime.timedelta(days=7)
-        while date_current <= datetime.date.today():
+        date_until = datetime.date.today() + datetime.timedelta(days=7)
+        while date_current <= date_until:
 
             url = "/service/klassenbuch?cur_date=" + date_current.strftime("%d.%m.%Y")
             _LOGGER.debug(f"klassenbuch.url={url}")
@@ -368,25 +369,26 @@ class ElternPortalAPI:
                     lines = table_cells[1].find_all(string=True)
                     description = lines[0] if len(lines)>0 else ""
 
-                    date_done = date_current
-                    if len(lines)>2:
-                        match = re.search(r"\d{2}\.\d{2}\.\d{4}", lines[2])
-                        if match is not None:
-                            date_done = datetime.datetime.strptime(match[0], "%d.%m.%Y").date()
+                    if description != "Keine Hausaufgabe eingetragen.":
+                        date_done = date_current
+                        if len(lines)>2:
+                            match = re.search(r"\d{2}\.\d{2}\.\d{4}", lines[2])
+                            if match is not None:
+                                date_done = datetime.datetime.strptime(match[0], "%d.%m.%Y").date()
 
-                    register = {
-                        "subject": subject,
-                        "subject_short": subject_short,
-                        "teacher": teacher,
-                        "teacher_short": teacher_short,
-                        "lesson": lesson,
-                        "substitution": substitution,
-                        "type": rtype,
-                        "start": date_current,
-                        "done": date_done,
-                        "description": description,
-                    }
-                    registers.append(register)
+                        register = {
+                            "subject": subject,
+                            "subject_short": subject_short,
+                            "teacher": teacher,
+                            "teacher_short": teacher_short,
+                            "lesson": lesson,
+                            "substitution": substitution,
+                            "type": rtype,
+                            "start": date_current,
+                            "done": date_done,
+                            "description": description,
+                        }
+                        registers.append(register)
 
             date_current += datetime.timedelta(days=1)
 

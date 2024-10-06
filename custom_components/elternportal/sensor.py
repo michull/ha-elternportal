@@ -24,20 +24,20 @@ _LOGGER = logging.getLogger(__name__)
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback) -> None:
     """Set up entities from config entry."""
     
-    _LOGGER.info("Setup entities from config entry started")
+    _LOGGER.debug("Setup entities from config entry started")
 
     coordinator: ElternPortalCoordinator = hass.data[DOMAIN][entry.entry_id]
 
     entities = []
     for pupil_id in coordinator.api.pupils:
-        _LOGGER.info(f"pupil_id={pupil_id}")
+        _LOGGER.debug(f"pupil_id={pupil_id}")
         entities.append(ElternPortalSensor(coordinator, pupil_id))
         entities.append(ElternPortalElternbriefSensor(coordinator, pupil_id))
         entities.append(ElternPortalKlassenbuchSensor(coordinator, pupil_id))
         entities.append(ElternPortalTerminSensor(coordinator, pupil_id))
     
     async_add_entities(entities)
-    _LOGGER.info("Setup entities from config entry ended")
+    _LOGGER.debug("Setup entities from config entry ended")
 
 
 class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntity):
@@ -46,7 +46,7 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
     _attr_has_entity_name = True
 
     def __init__(self, coordinator: ElternPortalCoordinator, pupil_id: str) -> None:
-        _LOGGER.info(f"Setup sensor entry started")
+        _LOGGER.debug(f"Setup sensor entry started")
         super().__init__(coordinator)
         self.api = coordinator.api
         self.pupil_id = pupil_id
@@ -59,7 +59,7 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
         self._attr_device_class = None
         self._attr_state_class = SensorStateClass.MEASUREMENT
 
-        _LOGGER.info("Setup sensor entry ended")
+        _LOGGER.debug("Setup sensor entry ended")
 
     @property
     def available(self) -> bool:
@@ -85,7 +85,7 @@ class ElternPortalElternbriefSensor(CoordinatorEntity[ElternPortalCoordinator], 
     _attr_has_entity_name = True
 
     def __init__(self, coordinator: ElternPortalCoordinator, pupil_id: str) -> None:
-        _LOGGER.info(f"Setup sensor elternbrief started")
+        _LOGGER.debug(f"Setup sensor elternbrief started")
         super().__init__(coordinator)
         self.api = coordinator.api
         self.pupil_id = pupil_id
@@ -98,7 +98,7 @@ class ElternPortalElternbriefSensor(CoordinatorEntity[ElternPortalCoordinator], 
         self._attr_device_class = None
         self._attr_state_class = SensorStateClass.MEASUREMENT
 
-        _LOGGER.info("Setup sensor elternbrief ended")
+        _LOGGER.debug("Setup sensor elternbrief ended")
 
     @property
     def available(self) -> bool:
@@ -134,7 +134,7 @@ class ElternPortalKlassenbuchSensor(CoordinatorEntity[ElternPortalCoordinator], 
     _attr_has_entity_name = True
 
     def __init__(self, coordinator: ElternPortalCoordinator, pupil_id: str) -> None:
-        _LOGGER.info(f"Setup sensor klassenbuch started")
+        _LOGGER.debug(f"Setup sensor klassenbuch started")
         super().__init__(coordinator)
         self.api = coordinator.api
         self.pupil_id = pupil_id
@@ -147,7 +147,7 @@ class ElternPortalKlassenbuchSensor(CoordinatorEntity[ElternPortalCoordinator], 
         self._attr_device_class = None
         self._attr_state_class = SensorStateClass.MEASUREMENT
 
-        _LOGGER.info("Setup sensor klassenbuch ended")
+        _LOGGER.debug("Setup sensor klassenbuch ended")
 
     @property
     def available(self) -> bool:
@@ -188,7 +188,7 @@ class ElternPortalTerminSensor(CoordinatorEntity[ElternPortalCoordinator], Senso
     _attr_has_entity_name = True
 
     def __init__(self, coordinator: ElternPortalCoordinator, pupil_id: str) -> None:
-        _LOGGER.info(f"Setup sensor termin started")
+        _LOGGER.debug(f"Setup sensor termin started")
         super().__init__(coordinator)
         self.api = coordinator.api
         self.pupil_id = pupil_id
@@ -202,7 +202,7 @@ class ElternPortalTerminSensor(CoordinatorEntity[ElternPortalCoordinator], Senso
         self._attr_device_class = None
         self._attr_state_class = SensorStateClass.MEASUREMENT
 
-        _LOGGER.info("Setup sensor termin ended")
+        _LOGGER.debug("Setup sensor termin ended")
 
     @property
     def available(self) -> bool:

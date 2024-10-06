@@ -31,12 +31,12 @@ To add this integration, you can use this My button:
 
 or do the following steps:
 
-1. Ensure that HACS is installed
-1. Open HACS
+1. Ensure you have [HACS](https://hacs.xyz/) installed in your Home Assistant instance.
+1. In the HACS panel, click on "Integrations".
 1. Click on the 3 dots in the top right corner.
-1. Select "Custom repositories"
+1. Select "Custom repositories".
 1. Set the repository to `michull/ha-elternportal`.
-1. Select the type `integration`
+1. Set the type to `integration`
 1. Click the `ADD` button.
 1. Search for and install the "elternportal" integration
 1. **Restart Home Assistant**
@@ -59,7 +59,7 @@ After the restart, to add a school via the UI, you can use this My button:
 
 or do the following steps:
 
-1. After the restart, in the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Elternportal"
+1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Elternportal"
 1. Follow the configuration flow.
 
     Field name | Content
@@ -68,7 +68,11 @@ or do the following steps:
     `username` | E-mail address of your account
     `password` | Password of your account
 
-Note: please have a look at the [list of instances](INSTANCES.md)
+
+# Legal Notice
+
+This integration is not built, maintained, provided or associated with art soft and more GmbH in any way.
+
 
 [commits-link]: https://github.com/michull/ha-elternportal/commits/main
 [commits-shield]: https://img.shields.io/github/commit-activity/y/michull/ha-elternportal.svg?style=for-the-badge

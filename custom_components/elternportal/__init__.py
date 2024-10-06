@@ -6,7 +6,6 @@ import logging
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
-    CONF_SCAN_INTERVAL,
     CONF_PASSWORD,
     CONF_USERNAME
 )
@@ -28,7 +27,7 @@ _LOGGER = logging.getLogger(__name__)
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up a config entry."""
     
-    _LOGGER.info(f"Setup a config entry {entry.entry_id} started")
+    _LOGGER.debug(f"Setup a config entry {entry.entry_id} started")
     school: str = entry.data[CONF_SCHOOL]
     username: str = entry.data[CONF_USERNAME]
     password: str = entry.data[CONF_PASSWORD]
@@ -49,7 +48,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     
-    _LOGGER.info("Setup a config entry ended")
+    _LOGGER.debug("Setup a config entry ended")
     return True
 
 
@@ -68,8 +67,8 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
 
-    _LOGGER.info("Unload a config entry started")
+    _LOGGER.debug("Unload a config entry started")
     if unload_ok := await hass.config_entries.async_unload_platforms(entry, PLATFORMS):
         hass.data[DOMAIN].pop(entry.entry_id)
-    _LOGGER.info("Unload a config entry ended")
+    _LOGGER.debug("Unload a config entry ended")
     return unload_ok
