@@ -12,13 +12,13 @@
       }
     },
     "error": {
-      "register_failed": "Failed to register, please try again",
-      "linking": "Unknown linking error occurred."
+      "register_failed": "Registrierung fehlgeschlagen, bitte versuchen Sie es erneut.",
+      "linking": "Unbekannter Verknüpfungsfehler aufgetreten."
     },
     "abort": {
-      "unknown": "Unknown error occurred",
-      "cannot_connect": "Unable to connect to the bridge",
-      "already_configured": "School is already configured"
+      "unknown": "Unbekannter Fehler aufgetreten",
+      "cannot_connect": "Verbindung zum Portal kann nicht hergestellt werden",
+      "already_configured": "Schule ist bereits konfiguriert"
     }
   }
 }

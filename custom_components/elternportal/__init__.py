@@ -15,9 +15,9 @@ from homeassistant.core import HomeAssistant
 #from homeassistant.helpers.typing import ConfigType
 
 from .const import (
-	DOMAIN,
-	CONF_SCHOOL,
-	PLATFORMS,
+    DOMAIN,
+    CONF_SCHOOL,
+    PLATFORMS,
 )
 from .api import ElternPortalAPI
 from .coordinator import ElternPortalCoordinator

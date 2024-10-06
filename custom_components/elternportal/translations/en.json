@@ -1,0 +1,24 @@
+{
+  "title": "Eltern-Portal",
+  "config": {
+    "step": {
+      "user": {
+        "description": "Establishment of a pupil",
+        "data": {
+          "school": "School code (xxx.eltern-portal.org)",
+          "username": "E-mail address",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "register_failed": "Failed to register, please try again",
+      "linking": "Unknown linking error occurred."
+    },
+    "abort": {
+      "unknown": "Unknown error occurred",
+      "cannot_connect": "Unable to connect to the portal",
+      "already_configured": "School is already configured"
+    }
+  }
+}
