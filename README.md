@@ -73,7 +73,7 @@ Note: please have a look at the [list of instances](INSTANCES.md)
 [commits-link]: https://github.com/michull/ha-elternportal/commits/main
 [commits-shield]: https://img.shields.io/github/commit-activity/y/michull/ha-elternportal.svg?style=for-the-badge
 [elternportal]: https://www.eltern-portal.org
-[license-shield]: https://img.shields.io/github/license/michull/ha-elternportal.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/michull/ha-elternportal?style=for-the-badge
 [maintenance-shield]: https://img.shields.io/badge/maintainer-%40michull-blue.svg?style=for-the-badge
 [releases-link]: https://github.com/michull/ha-elternportal/releases
 [releases-shield]: https://img.shields.io/github/release/michull/ha-elternportal.svg?style=for-the-badge&include_prereleases
