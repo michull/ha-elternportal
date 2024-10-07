@@ -10,15 +10,15 @@ Unofficial integration for eltern-portal.org (by [art soft and more GmbH](https:
 
 **This integration will set up the sensor platform.**
 
-Sensor name                               | Description
-:---------------------------------------- | :------------------------------
-`sensor.elternportal_name`                | Provide data from Eltern-Portal
-`sensor.elternportal_name_elternbrief`    | Parent letters
-`sensor.elternportal_name_fundsachen`     | Lost and found [planned]
-`sensor.elternportal_name_klassenbuch`    | Class book (homework)
-`sensor.elternportal_name_stundenplan`    | Timetable [planned]
-`sensor.elternportal_name_termin`         | School calendar (school test)
-`sensor.elternportal_name_schwarzesbrett` | Bulletin board [planned]
+Sensor name                                  | Description
+:------------------------------------------- | :------------------------------
+`sensor.elternportal_vorname`                | Provide data from Eltern-Portal
+`sensor.elternportal_vorname_elternbrief`    | Parent letters
+`sensor.elternportal_vorname_fundsachen`     | Lost and found [planned]
+`sensor.elternportal_vorname_klassenbuch`    | Class book (homework)
+`sensor.elternportal_vorname_stundenplan`    | Timetable [planned]
+`sensor.elternportal_vorname_termin`         | School calendar (school test)
+`sensor.elternportal_vorname_schwarzesbrett` | Bulletin board [planned]
 
 
 # Setup
@@ -67,6 +67,11 @@ or do the following steps:
     `school`   | School identifier (prefix of the official url: ________.eltern-portal.org)
     `username` | E-mail address of your account
     `password` | Password of your account
+
+
+# Dashboard
+
+The data of the sensor can be displayed on a dashboard with the help of markdown cards. See some examples [here](DASHBOARD.md)
 
 
 # Legal Notice

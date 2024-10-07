@@ -112,7 +112,7 @@ class ElternPortalElternbriefSensor(CoordinatorEntity[ElternPortalCoordinator], 
         """Return the state of the sensor."""
 
         pupil = self.api.pupils.get(self.pupil_id)
-        letters = list(filter(lambda r: r["new"], pupil["letters"]))
+        letters = list(filter(lambda letter: letter["new"], pupil["letters"]))
         return len(letters)
 
     @property
@@ -120,8 +120,8 @@ class ElternPortalElternbriefSensor(CoordinatorEntity[ElternPortalCoordinator], 
         """Return the state attributes of the sensor."""
 
         pupil = self.api.pupils.get(self.pupil_id)
-        letters = list(filter(lambda r: r["new"], pupil["letters"]))
-        letters.sort(key=lambda r: r["number"])
+        letters = list(filter(lambda letter: letter["new"], pupil["letters"]))
+        letters.sort(key=lambda letter: letter["number"])
         return {
             "list": letters,
             "last_update": self.api.last_update,
@@ -164,7 +164,7 @@ class ElternPortalKlassenbuchSensor(CoordinatorEntity[ElternPortalCoordinator], 
         pupil = self.api.pupils.get(self.pupil_id)
         registers = pupil["registers"]
         treshold = datetime.date.today()
-        registers = list(filter(lambda r: r["done"] > treshold, registers))
+        registers = list(filter(lambda register: register["done"] > treshold, registers))
         return len(registers)
 
     @property
@@ -174,8 +174,8 @@ class ElternPortalKlassenbuchSensor(CoordinatorEntity[ElternPortalCoordinator], 
         pupil = self.api.pupils.get(self.pupil_id)
         registers = pupil["registers"]
         treshold = datetime.date.today()
-        registers = list(filter(lambda r: r["done"] > treshold, registers))
-        registers.sort(key=lambda r: r["done"])
+        registers = list(filter(lambda register: register["done"] > treshold, registers))
+        registers.sort(key=lambda register: register["done"])
         return {
             "list": registers,
             "last_update": self.api.last_update,

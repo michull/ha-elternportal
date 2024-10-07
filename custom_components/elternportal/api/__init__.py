@@ -3,15 +3,17 @@
 from __future__ import annotations
 
 import aiohttp
-import logging
+# from bs4 import BeautifulSoup
+import bs4
 import datetime
-import re
+import logging
 import pytz
-
-from bs4 import BeautifulSoup
-from requests import Session
+import re
+import urllib.parse
 
 _LOGGER = logging.getLogger(__name__)
+
+BeautifulSoupParser = "html5lib"
 
 FACHS = [
     {
@@ -137,7 +139,7 @@ class ElternPortalAPI:
             async with session.get("/") as response:
                 #_LOGGER.debug(f"status={response.status}")
                 html = await response.text()
-                soup = BeautifulSoup(html, "html.parser")                
+                soup = bs4.BeautifulSoup(html, BeautifulSoupParser)                
                 tag = soup.find("h2", {"id": "schule"})
                 school_name = tag.get_text()
                 #_LOGGER.debug(f"school_name={school_name}")
@@ -157,14 +159,13 @@ class ElternPortalAPI:
                 self.pupil_id = pupil["id"]
                 await self.async_set_child()
                 await self.async_aktuelles_elternbriefe()
+                await self.async_meldungen_krankmeldung()
                 await self.async_service_klassenbuch()
                 await self.async_service_stundenplan()
                 # await self.async_service_termine()
                 await self.async_ws_termine()
 
-                pupil = self.pupils[self.pupil_id]
-                native_value = len(pupil["letters"]) + len(pupil["registers"])
-                self.pupils[self.pupil_id]["native_value"] = native_value
+                pupil["native_value"] = len(pupil["appointments"]) + len(pupil["lessons"]) + len(pupil["letters"]) + len(pupil["registers"]) + len(pupil["sicks"])
 
             await self.async_logout()
             self.last_update = datetime.datetime.now()
@@ -177,7 +178,7 @@ class ElternPortalAPI:
         async with self.session.get(url) as response:
             _LOGGER.debug(f"base.status={response.status}")
             html = await response.text()
-            soup = BeautifulSoup(html, "html.parser")                
+            soup = bs4.BeautifulSoup(html, BeautifulSoupParser)                
 
             tag = soup.find("input", {"name": "csrf"})
             csrf = tag["value"]
@@ -203,7 +204,7 @@ class ElternPortalAPI:
         async with self.session.post(url, data=login_data) as response:
             _LOGGER.debug(f"login.status={response.status}")
             html = await response.text()
-            soup = BeautifulSoup(html, "html.parser")
+            soup = bs4.BeautifulSoup(html, BeautifulSoupParser)
 
             pupils = {}
             tags = soup.select(".pupil-selector select option")
@@ -211,14 +212,16 @@ class ElternPortalAPI:
                 #_LOGGER.debug(tag)
                 pupil_id = tag["value"]
                 fullname = tag.get_text()
-                firstname = None
-                lastname = None
-                classname = None
-                match = re.search(r"(.*) (.*) \((.*)\)", fullname)
-                if match is not None:
+                try:
+                    match = re.search(r"^(\S+)\s+(.*)\s+\((\S+)\)$", fullname)
                     firstname = match[1]
                     lastname = match[2]
                     classname = match[3]
+                except:
+                    firstname = f"PID{pupil_id}"
+                    lastname = None
+                    classname = None
+                    
                 pupil = {
                     "id": pupil_id,
                     "fullname": fullname,
@@ -230,6 +233,7 @@ class ElternPortalAPI:
                     "lessons": [],
                     "letters": [],
                     "registers": [],
+                    "sicks": [],
                 }
                 pupils[pupil_id] = pupil
                     
@@ -252,7 +256,7 @@ class ElternPortalAPI:
         async with self.session.get(url) as response:
             _LOGGER.debug(f"elternbriefe.status={response.status}")
             html = await response.text()
-            soup = BeautifulSoup(html, "html.parser")
+            soup = bs4.BeautifulSoup(html, BeautifulSoupParser)
 
             tags = soup.select(".link_nachrichten")
             for tag in tags:
@@ -318,6 +322,74 @@ class ElternPortalAPI:
                 letters.append(letter)
 
         self.pupils[self.pupil_id]["letters"] = letters
+        self.pupils[self.pupil_id]["letters_new"] = len(list(filter(lambda letter: letter["new"], letters)))
+
+    async def async_meldungen_krankmeldung(self) -> None:
+        """Elternportal meldungen krankmeldung."""
+
+        sicks = []
+        url = "/meldungen/krankmeldung"
+        _LOGGER.debug(f"krankmeldung.url={url}")
+        async with self.session.get(url) as response:
+            _LOGGER.debug(f"krankmeldung.status={response.status}")
+            html = await response.text()
+
+            soup = bs4.BeautifulSoup(html, BeautifulSoupParser)
+
+            rows = soup.select("#asam_content table.ui.table tr")
+            for row in rows:
+                cells = row.select("td")
+
+                # link, query
+                try:
+                    tag = cells[0].find("a")
+                    link = tag["href"]
+                except TypeError:
+                    link = None
+
+                result = urllib.parse.urlparse(link)
+                query = urllib.parse.parse_qs(result.query)
+                #_LOGGER.debug(f"query={query}")
+
+                # date_from
+                try:
+                    df = int(query["df"][0])
+                    date_from = datetime.datetime.fromtimestamp(df, self.timezone).date()
+                except KeyError:
+                    try:
+                        lines = cells[1].find_all(string=True)
+                        match = re.search(r"\d{2}\.\d{2}\.\d{4}", lines[0])
+                        date_from = datetime.datetime.strptime(match[0], "%d.%m.%Y").date()
+                    except TypeError:
+                        date_from = None
+                #_LOGGER.debug(f"date_from={date_from}")
+
+                # date_to
+                try:
+                    dt = int(query["dt"][0])
+                    date_to = datetime.datetime.fromtimestamp(dt, self.timezone).date()
+                except KeyError:
+                    date_to = date_from
+                #_LOGGER.debug(f"date_to={date_to}")
+
+                try:
+                    comment = str(query["k"][0])
+                except KeyError:
+                    try:
+                        comment = cells[2].get_text()
+                    except IndexError:
+                        comment = None
+                #_LOGGER.debug(f"comment={comment}")
+
+                sick = {
+                    "date_from": date_from,
+                    "date_to": date_to,
+                    "comment": comment
+                }
+                _LOGGER.debug(f"sick={sick}")
+                sicks.append(sick)
+
+        self.pupils[self.pupil_id]["sicks"] = sicks
 
     async def async_service_klassenbuch(self) -> None:
         """Elternportal service klassenbuch."""
@@ -332,7 +404,7 @@ class ElternPortalAPI:
             async with self.session.get(url) as response:
                 _LOGGER.debug(f"klassenbuch.status={response.status}")
                 html = await response.text()
-                soup = BeautifulSoup(html, "html.parser")
+                soup = bs4.BeautifulSoup(html, BeautifulSoupParser)
 
                 tags = soup.select("#asam_content table.table.table-bordered")
                 for tag in tags:
@@ -393,6 +465,7 @@ class ElternPortalAPI:
             date_current += datetime.timedelta(days=1)
 
         self.pupils[self.pupil_id]["registers"] = registers
+        self.pupils[self.pupil_id]["registers_upcoming"] = len(list(filter(lambda register: register["done"] > datetime.date.today(), registers)))
 
     async def async_service_stundenplan(self) -> None:
         """Elternportal service stundenplan."""
@@ -402,7 +475,7 @@ class ElternPortalAPI:
         async with self.session.get(url) as response:
             _LOGGER.debug(f"stundenplan.status={response.status}")
             html = await response.text()
-            soup = BeautifulSoup(html, "html.parser")
+            soup = bs4.BeautifulSoup(html, BeautifulSoupParser)
 
             lessons = []
             table_rows = soup.select("#asam_content div.table-responsive table tr")
@@ -443,7 +516,7 @@ class ElternPortalAPI:
         async with self.session.get(url) as response:
             _LOGGER.debug(f"termine.status={response.status}")
             html = await response.text()
-            soup = BeautifulSoup(html, "html.parser")
+            soup = bs4.BeautifulSoup(html, BeautifulSoupParser)
 
             appointments = []
             table_rows = soup.select("#asam_content .table2 tr")
@@ -457,7 +530,6 @@ class ElternPortalAPI:
                     match = re.search(r"\d{2}\.\d{2}\.\d{4}", table_cells[0].get_text())
                     if match is not None:
                         date = datetime.datetime.strptime(match[0], "%d.%m.%Y").date()
-                        #date = self.timezone.localize(date)
 
                     # Column 2 (subject)
                     subject = table_cells[2].get_text()
@@ -487,11 +559,9 @@ class ElternPortalAPI:
             appointments = []
             for result in results:
                 start = int(str(result["start"])[0:-3])
-                start = datetime.datetime.fromtimestamp(start, self.timezone)
+                start = datetime.datetime.fromtimestamp(start, self.timezone).date()
                 end = int(str(result["end"])[0:-3])
-                end = datetime.datetime.fromtimestamp(end, self.timezone)
-
-                # day events ends after 78400s instead of 86400s
+                end = datetime.datetime.fromtimestamp(end, self.timezone).date()
 
                 appointment = {
                     "id": result["id"],
@@ -504,6 +574,10 @@ class ElternPortalAPI:
                 appointments.append(appointment)
 
             self.pupils[self.pupil_id]["appointments"] = appointments
+
+            end = datetime.date.today() - datetime.timedelta(days=1)
+            start = datetime.date.today() + datetime.timedelta(days=6)
+            self.pupils[self.pupil_id]["appointments_upcoming_6"] = len(list(filter(lambda a: a["start"] <= start and a["end"] > end, appointments)))
 
     async def async_logout(self) -> None:
         """Elternportal logout."""
