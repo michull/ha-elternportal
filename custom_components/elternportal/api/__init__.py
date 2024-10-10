@@ -11,6 +11,15 @@ import pytz
 import re
 import urllib.parse
 
+from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
+from ..const import (
+    CONF_SCHOOL,
+    CONF_REGISTER_START_MIN,
+    CONF_REGISTER_START_MAX,
+    DEFAULT_REGISTER_START_MIN,
+    DEFAULT_REGISTER_START_MAX,
+)
+
 _LOGGER = logging.getLogger(__name__)
 
 BeautifulSoupParser = "html5lib"
@@ -116,12 +125,16 @@ LEHRERS = [
 class ElternPortalAPI:
     """API to retrieve the data."""
 
-    def __init__(self, school: str, username: str, password: str):
+    def __init__(self, config_data, option_data):
         """Initialize the API."""
 
-        self.school = school
-        self.username = username
-        self.password = password
+        #_LOGGER.debug(f"config_data={config_data}")
+        #_LOGGER.debug(f"option_data={option_data}")
+        self.school = config_data.get(CONF_SCHOOL)
+        self.username = config_data.get(CONF_USERNAME)
+        self.password = config_data.get(CONF_PASSWORD)
+        self.register_start_min = option_data.get(CONF_REGISTER_START_MIN, DEFAULT_REGISTER_START_MIN)
+        self.register_start_max = option_data.get(CONF_REGISTER_START_MAX, DEFAULT_REGISTER_START_MAX)
         self.base_url = f"https://{self.school}.eltern-portal.org"
         self.timezone = pytz.timezone("Europe/Berlin")
         
@@ -149,7 +162,29 @@ class ElternPortalAPI:
     async def async_update(self) -> None:
         """Elternportal start page."""
         
-        _LOGGER.debug(f"ElternPortalAPI.async_online")
+        offline = False
+        if offline:
+            _LOGGER.debug(f"ElternPortalAPI.async_update (offline)")
+            self.pupils = {
+                "demo": {
+                    "id": "demo",
+                    "fullname": "Erika Mustermann (1a)",
+                    "firstname": "Erika",
+                    "lastname": "Mustermann",
+                    "class": "1a",
+                    "native_value": 0,
+                    "appointments": [],
+                    "lessons": [],
+                    "letters": [],
+                    "registers": [],
+                    "sicknotes": [],
+                }
+            }
+            self.last_update = datetime.datetime.now()
+            return
+
+        _LOGGER.debug(f"ElternPortalAPI.async_update")
+
         async with aiohttp.ClientSession(self.base_url) as self.session:
 
             await self.async_base()
@@ -158,14 +193,14 @@ class ElternPortalAPI:
             for pupil in self.pupils.values():
                 self.pupil_id = pupil["id"]
                 await self.async_set_child()
-                await self.async_aktuelles_elternbriefe()
-                await self.async_meldungen_krankmeldung()
-                await self.async_service_klassenbuch()
-                await self.async_service_stundenplan()
-                # await self.async_service_termine()
-                await self.async_ws_termine()
+                await self.async_letter()
+                await self.async_sick_note()
+                await self.async_register()
+                await self.async_lesson()
+                await self.async_appointment()
 
-                pupil["native_value"] = len(pupil["appointments"]) + len(pupil["lessons"]) + len(pupil["letters"]) + len(pupil["registers"]) + len(pupil["sicks"])
+                pupil["native_value"] = len(pupil["appointments"]) + len(pupil["lessons"]) + len(pupil["letters"]) + len(pupil["registers"]) + len(pupil["sicknotes"])
+                pupil["last_update"] = datetime.datetime.now()
 
             await self.async_logout()
             self.last_update = datetime.datetime.now()
@@ -233,7 +268,7 @@ class ElternPortalAPI:
                     "lessons": [],
                     "letters": [],
                     "registers": [],
-                    "sicks": [],
+                    "sicknotes": [],
                 }
                 pupils[pupil_id] = pupil
                     
@@ -247,14 +282,14 @@ class ElternPortalAPI:
         async with self.session.post(url) as response:
             _LOGGER.debug(f"set_child.status={response.status}")
 
-    async def async_aktuelles_elternbriefe(self) -> None:
-        """Elternportal aktuelles elternbriefe."""
+    async def async_letter(self) -> None:
+        """Elternportal letter."""
 
         letters = []
         url = "/aktuelles/elternbriefe"
-        _LOGGER.debug(f"elternbriefe.url={url}")
+        _LOGGER.debug(f"letter.url={url}")
         async with self.session.get(url) as response:
-            _LOGGER.debug(f"elternbriefe.status={response.status}")
+            _LOGGER.debug(f"letter.status={response.status}")
             html = await response.text()
             soup = bs4.BeautifulSoup(html, BeautifulSoupParser)
 
@@ -322,16 +357,15 @@ class ElternPortalAPI:
                 letters.append(letter)
 
         self.pupils[self.pupil_id]["letters"] = letters
-        self.pupils[self.pupil_id]["letters_new"] = len(list(filter(lambda letter: letter["new"], letters)))
 
-    async def async_meldungen_krankmeldung(self) -> None:
-        """Elternportal meldungen krankmeldung."""
+    async def async_sick_note(self) -> None:
+        """Elternportal sick note."""
 
-        sicks = []
+        sicknotes = []
         url = "/meldungen/krankmeldung"
-        _LOGGER.debug(f"krankmeldung.url={url}")
+        _LOGGER.debug(f"sicknote.url={url}")
         async with self.session.get(url) as response:
-            _LOGGER.debug(f"krankmeldung.status={response.status}")
+            _LOGGER.debug(f"sicknote.status={response.status}")
             html = await response.text()
 
             soup = bs4.BeautifulSoup(html, BeautifulSoupParser)
@@ -381,28 +415,28 @@ class ElternPortalAPI:
                         comment = None
                 #_LOGGER.debug(f"comment={comment}")
 
-                sick = {
+                sicknote = {
                     "date_from": date_from,
                     "date_to": date_to,
                     "comment": comment
                 }
-                _LOGGER.debug(f"sick={sick}")
-                sicks.append(sick)
+                #_LOGGER.debug(f"sicknote={sicknote}")
+                sicknotes.append(sicknote)
 
-        self.pupils[self.pupil_id]["sicks"] = sicks
+        self.pupils[self.pupil_id]["sicknotes"] = sicknotes
 
-    async def async_service_klassenbuch(self) -> None:
-        """Elternportal service klassenbuch."""
+    async def async_register(self) -> None:
+        """Elternportal register."""
 
         registers = []
-        date_current = datetime.date.today() - datetime.timedelta(days=7)
-        date_until = datetime.date.today() + datetime.timedelta(days=7)
+        date_current = datetime.date.today() + datetime.timedelta(days=self.register_start_min)
+        date_until = datetime.date.today() + datetime.timedelta(days=self.register_start_max)
         while date_current <= date_until:
 
             url = "/service/klassenbuch?cur_date=" + date_current.strftime("%d.%m.%Y")
-            _LOGGER.debug(f"klassenbuch.url={url}")
+            _LOGGER.debug(f"register.url={url}")
             async with self.session.get(url) as response:
-                _LOGGER.debug(f"klassenbuch.status={response.status}")
+                _LOGGER.debug(f"register.status={response.status}")
                 html = await response.text()
                 soup = bs4.BeautifulSoup(html, BeautifulSoupParser)
 
@@ -465,15 +499,14 @@ class ElternPortalAPI:
             date_current += datetime.timedelta(days=1)
 
         self.pupils[self.pupil_id]["registers"] = registers
-        self.pupils[self.pupil_id]["registers_upcoming"] = len(list(filter(lambda register: register["done"] > datetime.date.today(), registers)))
 
-    async def async_service_stundenplan(self) -> None:
-        """Elternportal service stundenplan."""
+    async def async_lesson(self) -> None:
+        """Elternportal lesson."""
         
         url = "/service/stundenplan"
-        _LOGGER.debug(f"stundenplan.url={url}")
+        _LOGGER.debug(f"lesson.url={url}")
         async with self.session.get(url) as response:
-            _LOGGER.debug(f"stundenplan.status={response.status}")
+            _LOGGER.debug(f"lesson.status={response.status}")
             html = await response.text()
             soup = bs4.BeautifulSoup(html, BeautifulSoupParser)
 
@@ -508,56 +541,17 @@ class ElternPortalAPI:
 
             self.pupils[self.pupil_id]["lessons"] = lessons
 
-    async def async_service_termine(self) -> None:
-        """Elternportal service termine."""
-        
-        url = "/service/termine/liste"
-        _LOGGER.debug(f"termine.url={url}")
-        async with self.session.get(url) as response:
-            _LOGGER.debug(f"termine.status={response.status}")
-            html = await response.text()
-            soup = bs4.BeautifulSoup(html, BeautifulSoupParser)
-
-            appointments = []
-            table_rows = soup.select("#asam_content .table2 tr")
-            for table_row in table_rows:
-                #_LOGGER.debug(f"table_row={table_row}")
-                table_cells = table_row.select("td")
-                        
-                if len(table_cells)==3:
-                    # Column 0 (date)
-                    date = None
-                    match = re.search(r"\d{2}\.\d{2}\.\d{4}", table_cells[0].get_text())
-                    if match is not None:
-                        date = datetime.datetime.strptime(match[0], "%d.%m.%Y").date()
-
-                    # Column 2 (subject)
-                    subject = table_cells[2].get_text()
-
-                    if date is not None:
-                        appointment = {
-                            "date": date,
-                            "subject": subject
-                        }
-                        appointments.append(appointment)
-                        _LOGGER.debug(f"appointment={appointment}")
-
-            self.pupils[self.pupil_id]["appointments"] = appointments
-
-    async def async_ws_termine(self) -> None:
-        """Elternportal webservice termine."""
+    async def async_appointment(self) -> None:
+        """Elternportal appointment."""
         
         url = "/api/ws_get_termine.php"
-        _LOGGER.debug(f"termine.url={url}")
+        _LOGGER.debug(f"appointment.url={url}")
         async with self.session.get(url) as response:
-            _LOGGER.debug(f"termine.status={response.status}")
-
-            json = await response.json(content_type="text/html") # process malformed JSON response
-            success = json["success"]
-            results = json["result"]
+            _LOGGER.debug(f"appointment.status={response.status}")
 
             appointments = []
-            for result in results:
+            json = await response.json(content_type="text/html") # process malformed JSON response
+            for result in json["result"]:
                 start = int(str(result["start"])[0:-3])
                 start = datetime.datetime.fromtimestamp(start, self.timezone).date()
                 end = int(str(result["end"])[0:-3])
@@ -574,10 +568,6 @@ class ElternPortalAPI:
                 appointments.append(appointment)
 
             self.pupils[self.pupil_id]["appointments"] = appointments
-
-            end = datetime.date.today() - datetime.timedelta(days=1)
-            start = datetime.date.today() + datetime.timedelta(days=6)
-            self.pupils[self.pupil_id]["appointments_upcoming_6"] = len(list(filter(lambda a: a["start"] <= start and a["end"] > end, appointments)))
 
     async def async_logout(self) -> None:
         """Elternportal logout."""

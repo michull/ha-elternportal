@@ -5,9 +5,12 @@
       "user": {
         "description": "Einrichtung einer Schülerin bzw. eines Schülers",
         "data": {
-          "school": "Kürzel der Schule (xxx.eltern-portal.org)",
+          "school": "Kürzel der Schule",
           "username": "E-Mail Adresse",
           "password": "Passwort"
+        },
+        "data_description": {
+          "school": "Erster Teil der URL xxx.eltern-portal.org"
         }
       }
     },
@@ -19,6 +22,24 @@
       "unknown": "Unbekannter Fehler aufgetreten",
       "cannot_connect": "Verbindung zum Portal kann nicht hergestellt werden",
       "already_configured": "Schule ist bereits konfiguriert"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Klassenbuch Optionen",
+        "description": "Anzahl der Tage relativ zu heute.",
+        "data": {
+          "register_start_min": "Start (min)",
+          "register_start_max": "Start (max)",
+          "sensor_register": "Extra Sensor fürs Klassenbuch",
+          "register_done_treshold": "Fertig: Anzeigegrenze"
+        },
+        "data_description": {
+          "register_start_min": "???",
+          "register_start_max": "???"
+        }
+      }
     }
   }
 }

@@ -15,8 +15,11 @@ from homeassistant.core import HomeAssistant
 
 from .const import (
     DOMAIN,
-    CONF_SCHOOL,
     PLATFORMS,
+    CONF_SCHOOL,
+    CONF_REGISTER_START_MIN,
+    CONF_REGISTER_START_MAX,
+    CONF_REGISTER_DONE_TRESHOLD,
 )
 from .api import ElternPortalAPI
 from .coordinator import ElternPortalCoordinator
@@ -26,18 +29,18 @@ _LOGGER = logging.getLogger(__name__)
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up a config entry."""
-    
-    _LOGGER.debug(f"Setup a config entry {entry.entry_id} started")
-    school: str = entry.data[CONF_SCHOOL]
-    username: str = entry.data[CONF_USERNAME]
-    password: str = entry.data[CONF_PASSWORD]
+    if hass.data.get(DOMAIN) is None:
+        hass.data.setdefault(DOMAIN, {})
 
+    _LOGGER.debug(f"Setup of the config entry {entry.entry_id} started")
+    school: str = entry.data.get(CONF_SCHOOL)
+    username: str = entry.data.get(CONF_USERNAME)
     _LOGGER.debug(f"The school is {school}")
     _LOGGER.debug(f"The username is {username}")
 
     # Initialize the API and coordinator.
     try:
-        api = await hass.async_add_executor_job(ElternPortalAPI, school, username, password)
+        api = await hass.async_add_executor_job(ElternPortalAPI, entry.data, entry.options)
         coordinator = ElternPortalCoordinator(hass, api)
     except:
         _LOGGER.exception(f"Setup of school {school} with username {username} failed.")
@@ -45,29 +48,39 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     await coordinator.async_config_entry_first_refresh()
 
-    hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
+    hass.data[DOMAIN][entry.entry_id] = coordinator
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     
-    _LOGGER.debug("Setup a config entry ended")
+    entry.add_update_listener(async_reload_entry)
+    _LOGGER.debug("Setup of the config entry ended")
     return True
 
-async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+async def async_migrate_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Migrate old entry."""
-    _LOGGER.debug(f"Migrating {config_entry.title} from version {config_entry.version}.{config_entry.minor_version}")
+    _LOGGER.debug(f"Migrating {entry.title} from version {entry.version}.{entry.minor_version}")
 
-    if config_entry.version > 1:
+    if entry.version > 1:
         # This means the user has downgraded from a future version
         return False
 
-    _LOGGER.debug(f"Migration of {config_entry.title} to version {config_entry.version}.{config_entry.minor_version} successful")
+    _LOGGER.debug(f"Migration of {entry.title} to version {entry.version}.{entry.minor_version} successful")
 
     return True
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
 
-    _LOGGER.debug("Unload a config entry started")
-    if unload_ok := await hass.config_entries.async_unload_platforms(entry, PLATFORMS):
+    _LOGGER.debug("Unload of the config entry {entry.entry_id} started")
+    unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
+    if unload_ok:
         hass.data[DOMAIN].pop(entry.entry_id)
-    _LOGGER.debug("Unload a config entry ended")
+    _LOGGER.debug("Unload of the config entry ended")
     return unload_ok
+
+async def async_reload_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
+    """Reload config entry."""
+
+    _LOGGER.debug("Reload of the config entry {entry.entry_id} started")
+    await async_unload_entry(hass, entry)
+    await async_setup_entry(hass, entry)
+    _LOGGER.debug("Reload of the config entry ended")

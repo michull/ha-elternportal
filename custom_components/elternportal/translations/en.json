@@ -20,5 +20,23 @@
       "cannot_connect": "Unable to connect to the portal",
       "already_configured": "School is already configured"
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Register options",
+        "description": "Number of days relative to today.",
+        "data": {
+          "register_start_min": "Start (min)",
+          "register_start_max": "Start (max)",
+          "sensor_register": "Extra sensor for the class register",
+          "register_done_treshold": "Done: treshold"
+        },
+        "data_description": {
+          "register_start_min": "",
+          "register_start_max": ""
+        }
+      }
+    }
   }
 }

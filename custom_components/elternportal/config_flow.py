@@ -1,15 +1,31 @@
 """Config flow for elternportal integration."""
 
+from __future__ import annotations
+
 import logging
 import voluptuous as vol
 
 from homeassistant import config_entries
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
+from homeassistant.core import callback
 
-from .const import DOMAIN, CONF_SCHOOL
+from .const import (
+    DOMAIN,
+
+    CONF_REGISTER_START_MIN,
+    CONF_REGISTER_START_MAX,
+    CONF_REGISTER_DONE_TRESHOLD,
+    CONF_SENSOR_REGISTER,
+    CONF_SCHOOL,
+
+    DEFAULT_REGISTER_START_MIN,
+    DEFAULT_REGISTER_START_MAX,
+    DEFAULT_REGISTER_DONE_TRESHOLD,
+    DEFAULT_SENSOR_REGISTER,
+)
 from .api import ElternPortalAPI
 
-SCHOOL_SCHEMA = vol.Schema(
+CONFIG_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_SCHOOL): str,
         vol.Required(CONF_USERNAME): str,
@@ -26,7 +42,7 @@ class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     VERSION = 1
     MINOR_VERSION = 1
     
-    async def async_step_user(self, user_input):
+    async def async_step_user(self, user_input: dict[str, Any] | None = None) -> FlowResult:
         
         errors: dict = {}
 
@@ -65,6 +81,49 @@ class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         return self.async_show_form(
             step_id="user",
             errors=errors,
-            data_schema=SCHOOL_SCHEMA,
+            data_schema=CONFIG_SCHEMA,
         )
         
+    @staticmethod
+    @callback
+    def async_get_options_flow(config_entry: config_entries.ConfigEntry) -> config_entries.OptionsFlow:
+        """Create the options flow."""
+
+        return OptionsFlowHandler(config_entry)
+
+
+class OptionsFlowHandler(config_entries.OptionsFlow):
+    def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
+        """Initialize options flow."""
+        self.config_entry = config_entry
+
+    async def async_step_init(self, user_input: dict[str, Any] | None = None) -> FlowResult:
+        """Manage the options."""
+
+        #_LOGGER.debug(f"User input of option flow: {user_input}")
+        if user_input is not None:
+            return self.async_create_entry(title="", data=user_input)
+
+        return self.async_show_form(
+            step_id="init",
+            data_schema=vol.Schema(
+                {
+                    vol.Optional(
+                        CONF_REGISTER_START_MIN,
+                        default=self.config_entry.options.get(CONF_REGISTER_START_MIN, DEFAULT_REGISTER_START_MIN),
+                    ): int,
+                    vol.Optional(
+                        CONF_REGISTER_START_MAX,
+                        default=self.config_entry.options.get(CONF_REGISTER_START_MAX, DEFAULT_REGISTER_START_MAX),
+                    ): int,
+                    vol.Optional(
+                        CONF_REGISTER_DONE_TRESHOLD,
+                        default=self.config_entry.options.get(CONF_REGISTER_DONE_TRESHOLD, DEFAULT_REGISTER_DONE_TRESHOLD),
+                    ): int,
+                    vol.Optional(
+                        CONF_SENSOR_REGISTER,
+                        default=self.config_entry.options.get(CONF_SENSOR_REGISTER, DEFAULT_SENSOR_REGISTER),
+                    ): bool
+                }
+            ),
+        )

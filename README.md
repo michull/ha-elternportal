@@ -4,21 +4,18 @@
 [![GitHub Release][releases-shield]][releases-link]
 [![GitHub Activity][commits-shield]][commits-link]
 [![License][license-shield]](LICENSE)
+[![Hassfest][hassfest-shield]][hassfest-link]
+[![HACS][hacs-shield]][hacs-link]
 
 Unofficial integration for eltern-portal.org (by [art soft and more GmbH](https://artsoftandmore.com/))
 
 
 **This integration will set up the sensor platform.**
 
-Sensor name                                  | Description
-:------------------------------------------- | :------------------------------
-`sensor.elternportal_vorname`                | Provide data from Eltern-Portal
-`sensor.elternportal_vorname_elternbrief`    | Parent letters
-`sensor.elternportal_vorname_fundsachen`     | Lost and found [planned]
-`sensor.elternportal_vorname_klassenbuch`    | Class book (homework)
-`sensor.elternportal_vorname_stundenplan`    | Timetable [planned]
-`sensor.elternportal_vorname_termin`         | School calendar (school test)
-`sensor.elternportal_vorname_schwarzesbrett` | Bulletin board [planned]
+Sensor name                       | Description
+:-------------------------------- | :------------------------------
+`sensor.elternportal_base_id`     | Provide all data from Eltern-Portal
+`sensor.elternportal_register_id` | Class register (optional)
 
 
 # Setup
@@ -59,7 +56,7 @@ After the restart, to add a school via the UI, you can use this My button:
 
 or do the following steps:
 
-1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Elternportal"
+1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "elternportal"
 1. Follow the configuration flow.
 
     Field name | Content
@@ -71,7 +68,7 @@ or do the following steps:
 
 # Dashboard
 
-The data of the sensor can be displayed on a dashboard with the help of markdown cards. See some examples [here](DASHBOARD.md)
+The data of the sensor can be displayed on a dashboard with the help of markdown cards. See some examples [here](DASHBOARD.md).
 
 
 # Legal Notice
@@ -86,4 +83,12 @@ This integration is not built, maintained, provided or associated with art soft 
 [maintenance-shield]: https://img.shields.io/badge/maintainer-%40michull-blue.svg?style=for-the-badge
 [releases-link]: https://github.com/michull/ha-elternportal/releases
 [releases-shield]: https://img.shields.io/github/release/michull/ha-elternportal.svg?style=for-the-badge&include_prereleases
+
+[hassfest-link]: https://github.com/michull/ha-elternportal/actions/workflows/hassfest.yml
+[hassfest-shield]: https://img.shields.io/github/actions/workflow/status/michull/ha-elternportal/hassfest.yml?style=for-the-badge
+
+[hacs-link]: https://github.com/michull/ha-elternportal/actions/workflows/hacs.yml
+[hacs-shield]: https://img.shields.io/github/actions/workflow/status/michull/ha-elternportal/hacs.yml?style=for-the-badge
+
+
 
