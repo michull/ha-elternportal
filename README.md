@@ -84,11 +84,11 @@ This integration is not built, maintained, provided or associated with art soft 
 [releases-link]: https://github.com/michull/ha-elternportal/releases
 [releases-shield]: https://img.shields.io/github/release/michull/ha-elternportal.svg?style=for-the-badge&include_prereleases
 
-[hassfest-link]: https://github.com/michull/ha-elternportal/actions/workflows/hassfest.yml
-[hassfest-shield]: https://img.shields.io/github/actions/workflow/status/michull/ha-elternportal/hassfest.yml?style=for-the-badge
+[hassfest-link]: https://github.com/michull/ha-elternportal/actions/workflows/hassfest.yaml
+[hassfest-shield]: https://img.shields.io/github/actions/workflow/status/michull/ha-elternportal/hassfest.yaml?style=for-the-badge
 
-[hacs-link]: https://github.com/michull/ha-elternportal/actions/workflows/hacs.yml
-[hacs-shield]: https://img.shields.io/github/actions/workflow/status/michull/ha-elternportal/hacs.yml?style=for-the-badge
+[hacs-link]: https://github.com/michull/ha-elternportal/actions/workflows/hacs.yaml
+[hacs-shield]: https://img.shields.io/github/actions/workflow/status/michull/ha-elternportal/hacs.yaml?style=for-the-badge
 
 
 
