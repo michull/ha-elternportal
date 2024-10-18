@@ -7,7 +7,7 @@
 [![Hassfest][hassfest-shield]][hassfest-link]
 [![HACS][hacs-shield]][hacs-link]
 
-Unofficial integration for eltern-portal.org (by [art soft and more GmbH](https://artsoftandmore.com/))
+Unofficial integration for eltern-portal.org
 
 
 **This integration will set up the sensor platform.**
@@ -48,7 +48,7 @@ or do the following steps:
 1. Place the files you downloaded in the new directory (folder) you created.
 1. **Restart Home Assistant**
 
-## Configuration is done in the UI
+## Configuration is done via the user interface
 
 After the restart, to add a school via the UI, you can use this My button:
 
@@ -65,6 +65,20 @@ or do the following steps:
     `username` | E-mail address of your account
     `password` | Password of your account
 
+1. Follow the option flow.
+
+    Field name            | Default | Content
+    :-------------------- | :-----: | :------------------------
+    `start_min`           |    -6   | First date for the field start
+    `start_max`           |    +2   | Last date for the field start
+    `sensor_register`     |   [ ]   | Create an additional sensor for register
+    `completion_treshold` |    +1   | Treshold day for the field completion
+
+    With the default values the following rule apply:
+    a. Only entries with a start date greater or equal to the date 6 days before today are retrieved from Eltern-Portal.
+    a. Only entries with a start date less or equal to the date 2 days after today are retrieved from Eltern-Portal.
+    a. Only entries with a completion date greater or equal to tomorrow are shown in the additional sensor for register.
+
 
 # Dashboard
 
@@ -73,14 +87,15 @@ The data of the sensor can be displayed on a dashboard with the help of markdown
 
 # Legal Notice
 
-This integration is not built, maintained, provided or associated with art soft and more GmbH in any way.
+This integration is not built, maintained, provided or associated with [art soft and more GmbH](https://artsoftandmore.com/) in any way.
 
 
 [commits-link]: https://github.com/michull/ha-elternportal/commits/main
 [commits-shield]: https://img.shields.io/github/commit-activity/y/michull/ha-elternportal.svg?style=for-the-badge
-[elternportal]: https://www.eltern-portal.org
+
 [license-shield]: https://img.shields.io/github/license/michull/ha-elternportal?style=for-the-badge
 [maintenance-shield]: https://img.shields.io/badge/maintainer-%40michull-blue.svg?style=for-the-badge
+
 [releases-link]: https://github.com/michull/ha-elternportal/releases
 [releases-shield]: https://img.shields.io/github/release/michull/ha-elternportal.svg?style=for-the-badge&include_prereleases
 

@@ -9,3 +9,6 @@ __pycache__
 # Home Assistant configuration
 config/*
 !config/configuration.yaml
+
+# Test
+test*.py

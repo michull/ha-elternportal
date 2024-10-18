@@ -5,7 +5,7 @@
 ```
 {{ state_attr('sensor.elternportal_base_x', 'appointments') | selectattr('start', 'le', now().date() + timedelta(days=6) ) | selectattr('end', 'ge', now().date() ) | list | count }}
 {{ state_attr('sensor.elternportal_base_x', 'letters') | selectattr('new') | list | count }}
-{{ state_attr('sensor.elternportal_base_x', 'registers') | selectattr('done', 'gt', now().date() ) | list | count }}
+{{ state_attr('sensor.elternportal_base_x', 'registers') | selectattr('completion', 'ge', now().date() + timedelta(days=1) ) | list | count }}
 {{ state_attr('sensor.elternportal_base_x', 'sicknotes') | selectattr('date_to', 'ge', now().date()) | list | count }}
 ```
 
@@ -21,8 +21,8 @@ type: markdown
 title: Appointments
 content: |-
   {% set appointments = state_attr('sensor.elternportal_base_x', 'appointments') %}
-  {% set appointments = appointments | selectattr('start', 'le', now().date() + timedelta(days=6) ) | selectattr('end', 'ge', now().date() ) | list | count %}
-  {% set letters = letters | sort(attribute='start') %}
+  {% set appointments = appointments | selectattr('start', 'le', now().date() + timedelta(days=6) ) | selectattr('end', 'ge', now().date() ) | list %}
+  {% set appointments = appointments | sort(attribute='start') %}
   {% for appointment in appointments %}
   {{ appointment.start }}
   {{ appointment.title }}  
@@ -76,10 +76,10 @@ type: markdown
 title: Class register
 content: |-
   {% set registers = state_attr('sensor.elternportal_base_x', 'registers') %}
-  {% set registers = registers | selectattr('done', 'gt', now().date() ) %}
-  {% set registers = registers | sort(attribute='start,done') %}
+  {% set registers = registers | selectattr('completion', 'gt', now().date() ) %}
+  {% set registers = registers | sort(attribute='start,completion') %}
   {% for register in registers %}
-  **{{ register.start }} &rarr; {{ register.done }}, {{ register.subject }}, {{ register.teacher }}**
+  **{{ register.start }} &rarr; {{ register.completion }}, {{ register.subject }}, {{ register.teacher }}**
   {{ register.description }}
   {% endfor %}
 ```
@@ -123,31 +123,34 @@ entities:
   include: sensor.elternportal_register_x
 sort_by:
   - x.start+
-  - x.done+
+  - x.completion+
 columns:
-  - name: Tage
+  - name: Days
     data: list
     modify: >-
-      const start = new Date(x.start); const done = new Date(x.done);
+      const start = new Date(x.start);
+      const completion = new Date(x.completion);
 
-      let content = ''; content += start.toLocaleDateString('en-US', { weekday:
-      'short' }); content += '&nbsp;&rarr;&nbsp;'; content +=
-      done.toLocaleDateString('en-US', { weekday: 'short' }); 
+      let content = '';
+      content += start.toLocaleDateString('en-US', { weekday: 'short' });
+      content += '&nbsp;&rarr;&nbsp;';
+      content += completion.toLocaleDateString('en-US', { weekday: 'short' }); 
 
-      let title = ''; title += start.toLocaleDateString('en-US', { weekday:
-      'long', day: 'numeric', month: 'numeric', year: 'numeric' }); title += '
-      &rarr; '; title += done.toLocaleDateString('en-US', { weekday: 'long',
-      day: 'numeric', month: 'numeric', year: 'numeric' });
+      let title = '';
+      title += start.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' });
+      title += ' &rarr; ';
+      title += completion.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' });
 
       "<span title='" + title + "'>" + content + "</span>";
     align: center
-  - name: Fach
+  - name: Subject
     data: list
     modify: >-
-      let content = x.subject_short || x.teacher_short; let title = x.subject +
-      " - " + x.teacher; "<span title='" + title + "'>" + content + "</span>";
+      let content = x.subject_short || x.teacher_short;
+      let title = x.subject + " - " + x.teacher;
+      "<span title='" + title + "'>" + content + "</span>";
     align: center
-  - name: Beschreibung
+  - name: Description
     data: list
     modify: x.description
 css:

@@ -1,0 +1,4674 @@
+[
+    {
+        "domain": "abendrsau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.374661",
+            "lon": "10.8926558",
+            "name": "Abendrealschule f\u00fcr Berufst\u00e4tige",
+            "postcode": "86152",
+            "road": "Auf dem Kreuz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Abendrealschule Augsburg",
+        "school": "abendrsau",
+        "url": "https://abendrsau.eltern-portal.org"
+    },
+    {
+        "domain": "abstgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Straubing",
+            "country": "Deutschland",
+            "house_number": "23",
+            "lat": "48.8726396",
+            "lon": "12.563147444897387",
+            "name": "Anton-Bruckner-Gymnasium",
+            "postcode": "94315",
+            "road": "Hans-Adlhoch-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Anton-Bruckner-Gymnasium Straubing",
+        "school": "abstgym",
+        "url": "https://abstgym.eltern-portal.org"
+    },
+    {
+        "domain": "aegymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "48.094733500000004",
+            "lon": "11.560192163149928",
+            "name": "Albert-Einstein-Gymnasium",
+            "postcode": "81545",
+            "road": "Lautererstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Albert-Einstein-Gymnasium M\u00fcnchen",
+        "school": "aegymuc",
+        "url": "https://aegymuc.eltern-portal.org"
+    },
+    {
+        "domain": "agbersau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "36",
+            "lat": null,
+            "lon": null,
+            "name": "Agnes-Bernauer-Schule",
+            "postcode": "86152",
+            "road": "Auf dem Kreuz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Agnes-Bernauer-Schule - Realschule f\u00fcr M\u00e4dchen",
+        "school": "agbersau",
+        "url": "https://agbersau.eltern-portal.org"
+    },
+    {
+        "domain": "akgkitz.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Kitzingen",
+            "country": "Deutschland",
+            "house_number": "15",
+            "lat": "49.730629449999995",
+            "lon": "10.159103261142818",
+            "name": "Armin-Knab-Gymnasium",
+            "postcode": "97318",
+            "road": "Kanzler-St\u00fcrtzel-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Armin-Knab-Gymnasium Kitzingen",
+        "school": "akgkitz",
+        "url": "https://akgkitz.eltern-portal.org"
+    },
+    {
+        "domain": "albgyco.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Coburg",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": null,
+            "lon": null,
+            "name": "Gymnasium Albertinum",
+            "postcode": "96450",
+            "road": "Untere Anlage",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Albertinum",
+        "school": "albgyco",
+        "url": "https://albgyco.eltern-portal.org"
+    },
+    {
+        "domain": "alblaugy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Lauingen (Donau)",
+            "country": "Deutschland",
+            "house_number": "10",
+            "lat": "48.57267405",
+            "lon": "10.430556437300496",
+            "name": "Albertus Gymnasium",
+            "postcode": "89415",
+            "road": "Br\u00fcderstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Albertus-Gymnasium Lauingen",
+        "school": "alblaugy",
+        "url": "https://alblaugy.eltern-portal.org"
+    },
+    {
+        "domain": "alkemgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Kempten (Allg\u00e4u)",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "47.71531745",
+            "lon": "10.3066205662166",
+            "name": "Allg\u00e4u-Gymnasium",
+            "postcode": "87435",
+            "road": "Eberhard-Schobacher-Weg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Allg\u00e4u-Gymnasium Kempten",
+        "school": "alkemgym",
+        "url": "https://alkemgym.eltern-portal.org"
+    },
+    {
+        "domain": "amgydie.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Die\u00dfen am Ammersee",
+            "country": "Deutschland",
+            "house_number": "100",
+            "lat": "47.9633869",
+            "lon": "11.1038155",
+            "name": "Ammersee-Gymnasium",
+            "postcode": "86911",
+            "road": "Die\u00dfener Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Ammersee-Gymnasium Die\u00dfen",
+        "school": "amgydie",
+        "url": "https://amgydie.eltern-portal.org"
+    },
+    {
+        "domain": "amorgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Amorbach",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "49.6423051",
+            "lon": "9.223912263617246",
+            "name": "Karl-Ernst-Gymnasium",
+            "postcode": "63916",
+            "road": "Richterstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Karl-Ernst-Gymnasium Amorbach",
+        "school": "amorgym",
+        "url": "https://amorgym.eltern-portal.org"
+    },
+    {
+        "domain": "anfragym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Erding",
+            "country": "Deutschland",
+            "house_number": "8",
+            "lat": "48.29732615",
+            "lon": "11.90117164468713",
+            "name": "Anne-Frank-Gymnasium",
+            "postcode": "85435",
+            "road": "Heilig Blut",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Anne-Frank-Gymnasium Erding",
+        "school": "anfragym",
+        "url": "https://anfragym.eltern-portal.org"
+    },
+    {
+        "domain": "ansfobo.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Ansbach",
+            "country": "Deutschland",
+            "house_number": "21",
+            "lat": null,
+            "lon": null,
+            "name": "Berufliche Oberschule Ansbach",
+            "postcode": "91522",
+            "road": "Pfarrstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Berufliche Oberschule Ansbach",
+        "school": "ansfobo",
+        "url": "https://ansfobo.eltern-portal.org"
+    },
+    {
+        "domain": "apgying.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Ingolstadt",
+            "country": "Deutschland",
+            "house_number": "25",
+            "lat": "48.7441434",
+            "lon": "11.4227978",
+            "name": "Apian-Gymnasium Ingolstadt",
+            "postcode": "85051",
+            "road": "Maximilianstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Apian-Gymnasium Ingolstadt",
+        "school": "apgying",
+        "url": "https://apgying.eltern-portal.org"
+    },
+    {
+        "domain": "asamgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.11452615",
+            "lon": "11.591351649213147",
+            "name": "Asam-Gymnasium",
+            "postcode": "81541",
+            "road": "Werinherstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Asam-Gymnasium M\u00fcnchen",
+        "school": "asamgymuc",
+        "url": "https://asamgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "astipagym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Passau",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.56428845",
+            "lon": "13.446971384536266",
+            "name": "Adalbert-Stifter-Gymnasium",
+            "postcode": "94032",
+            "road": "Innstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Adalbert-Stifter-Gymnasium Passau",
+        "school": "astipagym",
+        "url": "https://astipagym.eltern-portal.org"
+    },
+    {
+        "domain": "aufreugy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Passau",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.5795156",
+            "lon": "13.448615343416614",
+            "name": "Auersperg-Gymnasium Passau Freudenhain",
+            "postcode": "94034",
+            "road": "Freudenhain",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Auersperg-Gymnasium",
+        "school": "aufreugy",
+        "url": "https://aufreugy.eltern-portal.org"
+    },
+    {
+        "domain": "augystan.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "5",
+            "lat": "48.3550747",
+            "lon": "10.88902268553487",
+            "name": "Gymnasium bei St. Anna",
+            "postcode": "86159",
+            "road": "Schertlinstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium bei St. Anna",
+        "school": "augystan",
+        "url": "https://augystan.eltern-portal.org"
+    },
+    {
+        "domain": "augysteph.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "48.3760988",
+            "lon": "10.89819323525618",
+            "name": "Gymnasium bei St. Stephan",
+            "postcode": "86152",
+            "road": "Gallusplatz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium bei St. Stephan Augsburg",
+        "school": "augysteph",
+        "url": "https://augysteph.eltern-portal.org"
+    },
+    {
+        "domain": "austafach.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "type": "college"
+        },
+        "ip": "88.198.51.243",
+        "name": "Staatsinstitut f\u00fcr die Ausbildung von Fachlehrern",
+        "school": "austafach",
+        "url": "https://austafach.eltern-portal.org"
+    },
+    {
+        "domain": "avegybu.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Burghausen",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "48.170766549999996",
+            "lon": "12.83213735741222",
+            "name": "Aventinus-Gymnasium Burghausen",
+            "postcode": "84489",
+            "road": "Adalbert-Stifter-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Aventinus-Gymnasium Burghausen",
+        "school": "avegybu",
+        "url": "https://avegybu.eltern-portal.org"
+    },
+    {
+        "domain": "avhgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Schweinfurt",
+            "country": "Deutschland",
+            "house_number": "4",
+            "lat": "50.044152499999996",
+            "lon": "10.2015064036352",
+            "name": "Alexander-von-Humboldt-Gymnasium",
+            "postcode": "97424",
+            "road": "Geschwister-Scholl-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Alexander-von-Humboldt-Gymnasium Schweinfurt",
+        "school": "avhgym",
+        "url": "https://avhgym.eltern-portal.org"
+    },
+    {
+        "domain": "bagyeich.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Bamberg",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "49.898311250000006",
+            "lon": "10.910329181666217",
+            "name": "Eichendorff-Gymnasium",
+            "postcode": "96050",
+            "road": "Schildstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Eichendorff-Gymnasium Bamberg",
+        "school": "bagyeich",
+        "url": "https://bagyeich.eltern-portal.org"
+    },
+    {
+        "domain": "baiblgy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Bad Aibling",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "47.86663165",
+            "lon": "11.998085082145234",
+            "name": "Gymnasium Bad Aibling",
+            "postcode": "83043",
+            "road": "Max-Mannheimer-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Bad Aibling",
+        "school": "baiblgy",
+        "url": "https://baiblgy.eltern-portal.org"
+    },
+    {
+        "domain": "bambos.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "bambos",
+        "url": "https://bambos.eltern-portal.org"
+    },
+    {
+        "domain": "baykola.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "100",
+            "lat": "48.3879502",
+            "lon": "10.907882960328926",
+            "name": "Bayernkolleg Augsburg",
+            "postcode": "86169",
+            "road": "Schillstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Bayernkolleg Augsburg",
+        "school": "baykola",
+        "url": "https://baykola.eltern-portal.org"
+    },
+    {
+        "domain": "bbgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "6",
+            "lat": "48.141502",
+            "lon": "11.4472568",
+            "name": "St\u00e4dtisches Bertolt-Brecht-Gymnasium",
+            "postcode": "81243",
+            "road": "Peslm\u00fcllerstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dtisches Bertolt-Brecht-Gymnasium M\u00fcnchen",
+        "school": "bbgymuc",
+        "url": "https://bbgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "bngmh.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Marktheidenfeld",
+            "country": "Deutschland",
+            "house_number": "29",
+            "lat": "49.8485942",
+            "lon": "9.610440021591462",
+            "name": "Balthasar-Neumann-Gymnasium",
+            "postcode": "97828",
+            "road": "Oberl\u00e4nderstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Balthasar-Neumann-Gymnasium Marktheidenfeld",
+        "school": "bngmh",
+        "url": "https://bngmh.eltern-portal.org"
+    },
+    {
+        "domain": "bskoegy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Bad K\u00f6tzting",
+            "country": "Deutschland",
+            "house_number": "23",
+            "lat": "49.1815568",
+            "lon": "12.8606611",
+            "name": "Benedikt-Stattler-Gymnasium",
+            "postcode": "93444",
+            "road": "Bgm.-Dullinger-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Benedikt-Stattler-Gymnasium Bad K\u00f6tzting",
+        "school": "bskoegy",
+        "url": "https://bskoegy.eltern-portal.org"
+    },
+    {
+        "domain": "bszhof2ws.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Hof",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "50.317284349999994",
+            "lon": "11.912375474837933",
+            "name": "Staatliche Wirtschaftsschule Hof",
+            "postcode": "95028",
+            "road": "Wilhelmstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Staatliche Wirtschaftsschule Hof",
+        "school": "bszhof2ws",
+        "url": "https://bszhof2ws.eltern-portal.org"
+    },
+    {
+        "domain": "bugymal.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Mallersdorf-Pfaffenberg",
+            "country": "Deutschland",
+            "house_number": "3",
+            "lat": "48.77302115",
+            "lon": "12.237626898013378",
+            "name": "Burkhart-Gymnasium",
+            "postcode": "84066",
+            "road": "Burkhartstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Burkhart-Gymnasium Mallersdorf-Pfaffenberg",
+        "school": "bugymal",
+        "url": "https://bugymal.eltern-portal.org"
+    },
+    {
+        "domain": "bukugym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Burgkunstadt",
+            "country": "Deutschland",
+            "house_number": "18",
+            "lat": "50.139247049999994",
+            "lon": "11.259894489946621",
+            "name": "Gymnasium Burgkunstadt",
+            "postcode": "96224",
+            "road": "Kirchleiner Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Burgkunstadt",
+        "school": "bukugym",
+        "url": "https://bukugym.eltern-portal.org"
+    },
+    {
+        "domain": "casigym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Coburg",
+            "country": "Deutschland",
+            "house_number": "2-4",
+            "lat": "50.2569946",
+            "lon": "10.965186872679082",
+            "name": "Gymnasium Casimirianum",
+            "postcode": "96450",
+            "road": "Gymnasiumsgasse",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Casimirianum Coburg",
+        "school": "casigym",
+        "url": "https://casigym.eltern-portal.org"
+    },
+    {
+        "domain": "cavigy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Kulmbach",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "50.1016787",
+            "lon": "11.44847684477824",
+            "name": "Caspar-Vischer-Gymnasium",
+            "postcode": "95326",
+            "road": "Schillerstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Caspar-Vischer-Gymnasium Kulmbach",
+        "school": "cavigy",
+        "url": "https://cavigy.eltern-portal.org"
+    },
+    {
+        "domain": "cjtgylau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Lauf an der Pegnitz",
+            "country": "Deutschland",
+            "house_number": "37",
+            "lat": "49.51649245",
+            "lon": "11.269827494709405",
+            "name": "Christoph-Jacob-Treu-Gymnasium",
+            "postcode": "91207",
+            "road": "Hardtstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Christoph-Jacob-Treu-Gymnasium Lauf",
+        "school": "cjtgylau",
+        "url": "https://cjtgylau.eltern-portal.org"
+    },
+    {
+        "domain": "cofobo.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "cofobo",
+        "url": "https://cofobo.eltern-portal.org"
+    },
+    {
+        "domain": "comgydeg.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "type": "bus_stop"
+        },
+        "ip": "88.198.51.243",
+        "name": "Comenius-Gymnasium Deggendorf",
+        "school": "comgydeg",
+        "url": "https://comgydeg.eltern-portal.org"
+    },
+    {
+        "domain": "cpgygil.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Gilching",
+            "country": "Deutschland",
+            "house_number": "7",
+            "lat": "48.10578965",
+            "lon": "11.285544999949135",
+            "name": "Christoph-Probst-Gymnasium",
+            "postcode": "82205",
+            "road": "Talhofstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Christoph Probst Gymnasium Gilching",
+        "school": "cpgygil",
+        "url": "https://cpgygil.eltern-portal.org"
+    },
+    {
+        "domain": "csgying.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Ingolstadt",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.75924285",
+            "lon": "11.424803986527142",
+            "name": "Christoph-Scheiner-Gymnasium",
+            "postcode": "85049",
+            "road": "Preysingstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Christoph-Scheiner-Gymnasium",
+        "school": "csgying",
+        "url": "https://csgying.eltern-portal.org"
+    },
+    {
+        "domain": "dantemuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "61",
+            "lat": "48.11496985",
+            "lon": "11.543859039605284",
+            "name": "Dante-Gymnasium M\u00fcnchen",
+            "postcode": "81371",
+            "road": "Wackersberger Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Dante-Gymnasium M\u00fcnchen",
+        "school": "dantemuc",
+        "url": "https://dantemuc.eltern-portal.org"
+    },
+    {
+        "domain": "degfobo.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Deggendorf",
+            "country": "Deutschland",
+            "house_number": "5",
+            "lat": "48.841071299999996",
+            "lon": "12.961113241538314",
+            "name": "Aloys-Fischer-Schule",
+            "postcode": "94469",
+            "road": "Jahnstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Aloys-Fischer-Schule Deggendorf",
+        "school": "degfobo",
+        "url": "https://degfobo.eltern-portal.org"
+    },
+    {
+        "domain": "degyaich.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Aichach",
+            "country": "Deutschland",
+            "house_number": "58",
+            "lat": "48.459092549999994",
+            "lon": "11.145206163388991",
+            "name": "Deutschherren-Gymnasium",
+            "postcode": "86551",
+            "road": "Ludwigstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Deutschherren-Gymnasium Aichach",
+        "school": "degyaich",
+        "url": "https://degyaich.eltern-portal.org"
+    },
+    {
+        "domain": "deigs.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Oberhaching",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.019113250000004",
+            "lon": "11.578945873283523",
+            "name": "Grundschule Deisenhofen",
+            "postcode": "82041",
+            "road": "Schulstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Grundschule Deisenhofen",
+        "school": "deigs",
+        "url": "https://deigs.eltern-portal.org"
+    },
+    {
+        "domain": "deroko.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Deggendorf",
+            "country": "Deutschland",
+            "house_number": "6",
+            "lat": "48.847070599999995",
+            "lon": "12.952749322546216",
+            "name": "Robert-Koch-Gymnasium",
+            "postcode": "94469",
+            "road": "Konrad-Adenauer-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Robert-Koch-Gymnasium Deggendorf",
+        "school": "deroko",
+        "url": "https://deroko.eltern-portal.org"
+    },
+    {
+        "domain": "dilgyjms.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Dillingen a.d.Donau",
+            "country": "Deutschland",
+            "house_number": "8",
+            "lat": "48.57683125",
+            "lon": "10.486950001170992",
+            "name": "Johann-Michael-Sailer-Gymnasium",
+            "postcode": "89407",
+            "road": "Ziegelstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Johann-Michael-Sailer-Gymnasium",
+        "school": "dilgyjms",
+        "url": "https://dilgyjms.eltern-portal.org"
+    },
+    {
+        "domain": "dingogym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Dingolfing",
+            "country": "Deutschland",
+            "house_number": "6",
+            "lat": "48.6295755",
+            "lon": "12.503590397129875",
+            "name": "Gymnasium Dingolfing",
+            "postcode": "84130",
+            "road": "Kerschensteinerstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Dingolfing",
+        "school": "dingogym",
+        "url": "https://dingogym.eltern-portal.org"
+    },
+    {
+        "domain": "domfreigy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Freising",
+            "country": "Deutschland",
+            "house_number": "3;5",
+            "lat": "48.3996485",
+            "lon": "11.745145313407496",
+            "name": "Dom-Gymnasium",
+            "postcode": "85354",
+            "road": "Domberg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Dom-Gymnasium Freising",
+        "school": "domfreigy",
+        "url": "https://domfreigy.eltern-portal.org"
+    },
+    {
+        "domain": "domgyreg.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Regensburg",
+            "country": "Deutschland",
+            "house_number": "22",
+            "lat": "49.0151578",
+            "lon": "12.1110127",
+            "name": "Gymnasium der Regensburger Domspatzen",
+            "postcode": "93055",
+            "road": "Reichsstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium der Regensburger Domspatzen",
+        "school": "domgyreg",
+        "url": "https://domgyreg.eltern-portal.org"
+    },
+    {
+        "domain": "donaugym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Donauw\u00f6rth",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.726636549999995",
+            "lon": "10.776934833318432",
+            "name": "Gymnasium Donauw\u00f6rth",
+            "postcode": "86609",
+            "road": "Pyrkstockstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Donauw\u00f6rth",
+        "school": "donaugym",
+        "url": "https://donaugym.eltern-portal.org"
+    },
+    {
+        "domain": "dorfgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Dorfen",
+            "country": "Deutschland",
+            "house_number": "18",
+            "lat": "48.279891199999994",
+            "lon": "12.148256472885526",
+            "name": "Gymnasium Dorfen",
+            "postcode": "84405",
+            "road": "Josef-Martin-Bauer-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Dorfen",
+        "school": "dorfgym",
+        "url": "https://dorfgym.eltern-portal.org"
+    },
+    {
+        "domain": "dzglan.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Landsberg am Lech",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "48.0516285",
+            "lon": "10.8614997",
+            "name": "Dominikus-Zimmermann-Gymnasium",
+            "postcode": "86899",
+            "road": "Platanenstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Dominikus-Zimmermann-Gymnasium Landsberg am Lech",
+        "school": "dzglan",
+        "url": "https://dzglan.eltern-portal.org"
+    },
+    {
+        "domain": "ebgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.145460650000004",
+            "lon": "11.464254114922399",
+            "name": "St\u00e4dtisches Elsa-Br\u00e4ndstr\u00f6m-Gymnasium",
+            "postcode": "81241",
+            "road": "Ebenb\u00f6ckstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dtisches Elsa-Br\u00e4ndstr\u00f6m-Gymnasium M\u00fcnchen",
+        "school": "ebgymuc",
+        "url": "https://ebgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "eckegym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Eckental",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "49.577476250000004",
+            "lon": "11.199241028663028",
+            "name": "Gymnasium Eckental",
+            "postcode": "90542",
+            "road": "Neunkirchener Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Eckental",
+        "school": "eckegym",
+        "url": "https://eckegym.eltern-portal.org"
+    },
+    {
+        "domain": "ehrforgy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Forchheim",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "49.71435735",
+            "lon": "11.056918522333294",
+            "name": "Ehrenb\u00fcrg-Gymnasium",
+            "postcode": "91301",
+            "road": "Ruhalmstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Ehrenb\u00fcrg-Gymnasium Forchheim",
+        "school": "ehrforgy",
+        "url": "https://ehrforgy.eltern-portal.org"
+    },
+    {
+        "domain": "emagyha.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Haar",
+            "country": "Deutschland",
+            "house_number": "82",
+            "lat": "48.1076996",
+            "lon": "11.7246294",
+            "name": "Ernst-Mach-Gymnasium",
+            "postcode": "85540",
+            "road": "Jagdfeldring",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Ernst-Mach-Gymnasium Haar",
+        "school": "emagyha",
+        "url": "https://emagyha.eltern-portal.org"
+    },
+    {
+        "domain": "engyerl.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Erlangen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "49.560588100000004",
+            "lon": "11.001727359061682",
+            "name": "Emmy-Noether-Gymnasium",
+            "postcode": "91058",
+            "road": "Herbstwiesenweg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Emmy-Noether-Gymnasium Erlangen",
+        "school": "engyerl",
+        "url": "https://engyerl.eltern-portal.org"
+    },
+    {
+        "domain": "ergogym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Ergolding",
+            "country": "Deutschland",
+            "house_number": "8",
+            "lat": "48.5631307",
+            "lon": "12.173919098467975",
+            "name": "Gymnasium Ergolding",
+            "postcode": "84030",
+            "road": "Am Sportpark",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Ergolding",
+        "school": "ergogym",
+        "url": "https://ergogym.eltern-portal.org"
+    },
+    {
+        "domain": "ergosfz.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Landshut",
+            "country": "Deutschland",
+            "house_number": "3",
+            "lat": "48.5488459",
+            "lon": "12.189540438461542",
+            "name": "Sonderp\u00e4dagogisches F\u00f6rderzentrum Landshut",
+            "postcode": "84036",
+            "road": "Schulstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Sonderp\u00e4dagogisches F\u00f6rderzentrum Landshut-Land",
+        "school": "ergosfz",
+        "url": "https://ergosfz.eltern-portal.org"
+    },
+    {
+        "domain": "esgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.1314471",
+            "lon": "11.601687578245752",
+            "name": "Edith-Stein-Gymnasium",
+            "postcode": "81667",
+            "road": "Metzstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Erzbisch\u00f6fliches Edith-Stein-Gymnasium",
+        "school": "esgymuc",
+        "url": "https://esgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "etahgybam.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Bamberg",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "49.8858715",
+            "lon": "10.889325604552717",
+            "name": "E.T.A.-Hoffmann-Gymnasium",
+            "postcode": "96049",
+            "road": "Sternwartstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "E.T.A. Hoffmann-Gymnasium Bamberg",
+        "school": "etahgybam",
+        "url": "https://etahgybam.eltern-portal.org"
+    },
+    {
+        "domain": "evbspar.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "type": "bus_stop"
+        },
+        "ip": "88.198.51.243",
+        "name": "Emil-von-Behring-Gymnasium Spardorf",
+        "school": "evbspar",
+        "url": "https://evbspar.eltern-portal.org"
+    },
+    {
+        "domain": "fagyneu.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Neustadt an der Aisch",
+            "country": "Deutschland",
+            "house_number": "4",
+            "lat": "49.5735282",
+            "lon": "10.6124966",
+            "name": "Friedrich-Alexander-Gymnasium",
+            "postcode": "91413",
+            "road": "Comeniusstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Friedrich-Alexander-Gymnasium",
+        "school": "fagyneu",
+        "url": "https://fagyneu.eltern-portal.org"
+    },
+    {
+        "domain": "ffbgrg.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "F\u00fcrstenfeldbruck",
+            "country": "Deutschland",
+            "house_number": "69",
+            "lat": "48.173388",
+            "lon": "11.2680841",
+            "name": "Graf-Rasso-Gymnasium F\u00fcrstenfeldbruck",
+            "postcode": "82256",
+            "road": "M\u00fcnchner Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Graf-Rasso-Gymnasium",
+        "school": "ffbgrg",
+        "url": "https://ffbgrg.eltern-portal.org"
+    },
+    {
+        "domain": "finrogym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Rosenheim",
+            "country": "Deutschland",
+            "house_number": "25",
+            "lat": "47.8529762",
+            "lon": "12.13129826086514",
+            "name": "Sebastian-Finsterwalder-Gymnasium",
+            "postcode": "83022",
+            "road": "K\u00f6nigstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Sebastian-Finsterwalder-Gymnasium Rosenheim",
+        "school": "finrogym",
+        "url": "https://finrogym.eltern-portal.org"
+    },
+    {
+        "domain": "firngmsau.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "firngmsau",
+        "url": "https://firngmsau.eltern-portal.org"
+    },
+    {
+        "domain": "fkgwue.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "W\u00fcrzburg",
+            "country": "Deutschland",
+            "house_number": "22",
+            "lat": "49.79718435",
+            "lon": "9.912072166372742",
+            "name": "Friedrich-Koenig-Gymnasium",
+            "postcode": "97082",
+            "road": "Friedrichstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Friedrich-Koenig-Gymnasium",
+        "school": "fkgwue",
+        "url": "https://fkgwue.eltern-portal.org"
+    },
+    {
+        "domain": "flgybam.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "type": "bicycle_parking"
+        },
+        "ip": "88.198.51.243",
+        "name": "Franz-Ludwig-Gymnasium Bamberg",
+        "school": "flgybam",
+        "url": "https://flgybam.eltern-portal.org"
+    },
+    {
+        "domain": "framagym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Markt Schwaben",
+            "country": "Deutschland",
+            "house_number": "6",
+            "lat": "48.18823",
+            "lon": "11.8645676",
+            "name": "Franz-Marc-Gymnasium",
+            "postcode": "85570",
+            "road": "Rektor-Haushofer-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Franz-Marc-Gymnasium",
+        "school": "framagym",
+        "url": "https://framagym.eltern-portal.org"
+    },
+    {
+        "domain": "freicamgy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Freising",
+            "country": "Deutschland",
+            "house_number": "51",
+            "lat": "48.40538445",
+            "lon": "11.731324692824142",
+            "name": "Camerloher-Gymnasium Freising",
+            "postcode": "85354",
+            "road": "Wippenhauser Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Camerloher-Gymnasium Freising",
+        "school": "freicamgy",
+        "url": "https://freicamgy.eltern-portal.org"
+    },
+    {
+        "domain": "freigymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "5",
+            "lat": "48.140729",
+            "lon": "11.405584349461613",
+            "name": "Gymnasium",
+            "postcode": "81248",
+            "road": "Hildegard-Hamm-Br\u00fccher-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Freiham",
+        "school": "freigymuc",
+        "url": "https://freigymuc.eltern-portal.org"
+    },
+    {
+        "domain": "fridgyerl.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Schwerin",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "53.62710825",
+            "lon": "11.40884826373033",
+            "name": "Gymnasium Fridericianum",
+            "postcode": "19053",
+            "road": "Lobedanzgang",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Fridericianum",
+        "school": "fridgyerl",
+        "url": "https://fridgyerl.eltern-portal.org"
+    },
+    {
+        "domain": "friebos.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Friedberg",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.359026099999994",
+            "lon": "10.988710802900055",
+            "name": "Berufliche Oberschule",
+            "postcode": "86316",
+            "road": "Hermann-L\u00f6ns-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Berufliche Oberschule Friedberg",
+        "school": "friebos",
+        "url": "https://friebos.eltern-portal.org"
+    },
+    {
+        "domain": "friedgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Friedberg",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.3613653",
+            "lon": "10.989021007069379",
+            "name": "Gymnasium Friedberg",
+            "postcode": "86316",
+            "road": "Friedlweg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Friedberg",
+        "school": "friedgym",
+        "url": "https://friedgym.eltern-portal.org"
+    },
+    {
+        "domain": "fuerimuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.0900477",
+            "lon": "11.4814434",
+            "name": "Gymnasium F\u00fcrstenried",
+            "postcode": "81475",
+            "road": "Engadiner Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium F\u00fcrstenried",
+        "school": "fuerimuc",
+        "url": "https://fuerimuc.eltern-portal.org"
+    },
+    {
+        "domain": "gagymain.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Mainburg",
+            "country": "Deutschland",
+            "house_number": "70",
+            "lat": "48.649937699999995",
+            "lon": "11.768886968085049",
+            "name": "Gabelsberger-Gymnasium Mainburg",
+            "postcode": "84048",
+            "road": "Ebrantshauser Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gabelsberger-Gymnasium Mainburg",
+        "school": "gagymain",
+        "url": "https://gagymain.eltern-portal.org"
+    },
+    {
+        "domain": "gargym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.157345500000005",
+            "lon": "12.278395099718065",
+            "name": "Gymnasium Gars",
+            "postcode": "83536",
+            "road": "Kirchplatz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Gars",
+        "school": "gargym",
+        "url": "https://gargym.eltern-portal.org"
+    },
+    {
+        "domain": "gesaholl.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Hollfeld",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "49.9417217",
+            "lon": "11.291524905099543",
+            "name": "Gesamtschule Hollfeld",
+            "postcode": "96142",
+            "road": "Oberes Tor",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Staatliche Gesamtschule Hollfeld",
+        "school": "gesaholl",
+        "url": "https://gesaholl.eltern-portal.org"
+    },
+    {
+        "domain": "gisgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "65",
+            "lat": "48.1566933",
+            "lon": "11.5732647",
+            "name": "Gisela-Gymnasium",
+            "postcode": "80801",
+            "road": "Arcisstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gisela-Gymnasium M\u00fcnchen",
+        "school": "gisgymuc",
+        "url": "https://gisgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "gk.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Kirchheim bei M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.1676103",
+            "lon": "11.759408261151952",
+            "name": "Gymnasium Kirchheim",
+            "postcode": "85551",
+            "road": "Heimstettner Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Kirchheim",
+        "school": "gk",
+        "url": "https://gk.eltern-portal.org"
+    },
+    {
+        "domain": "gmgbay.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Bayreuth",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "49.937381599999995",
+            "lon": "11.58747133042512",
+            "name": "Graf-M\u00fcnster-Gymnasium",
+            "postcode": "95444",
+            "road": "Gustav-Adolf-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Graf-M\u00fcnster-Gymnasium Bayreuth",
+        "school": "gmgbay",
+        "url": "https://gmgbay.eltern-portal.org"
+    },
+    {
+        "domain": "gmshaag.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Haag in Oberbayern",
+            "country": "Deutschland",
+            "house_number": "11",
+            "lat": "48.159312400000005",
+            "lon": "12.17408903692923",
+            "name": "Grund- und Mittelschule Haag",
+            "postcode": "83527",
+            "road": "Schulstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Grund- und Mittelschule Haag i. OB",
+        "school": "gmshaag",
+        "url": "https://gmshaag.eltern-portal.org"
+    },
+    {
+        "domain": "gmslaufen.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "type": "bus_stop"
+        },
+        "ip": "88.198.51.243",
+        "name": "Ruperti Grund- und Mittelschule Laufen",
+        "school": "gmslaufen",
+        "url": "https://gmslaufen.eltern-portal.org"
+    },
+    {
+        "domain": "gn.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Neubiberg",
+            "country": "Deutschland",
+            "house_number": "10",
+            "lat": "48.07228455",
+            "lon": "11.67939035097021",
+            "name": "Gymnasium Neubiberg",
+            "postcode": "85579",
+            "road": "Cramer-Klett-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Neubiberg",
+        "school": "gn",
+        "url": "https://gn.eltern-portal.org"
+    },
+    {
+        "domain": "gnadgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Ingolstadt",
+            "country": "Deutschland",
+            "house_number": "23",
+            "lat": "48.765407350000004",
+            "lon": "11.421803749200294",
+            "name": "Gnadenthal-Gymnasium und M\u00e4dchenrealschule",
+            "postcode": "85049",
+            "road": "Kupferstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gnadenthal-Gymnasium Ingolstadt der Di\u00f6zese Eichst\u00e4tt",
+        "school": "gnadgym",
+        "url": "https://gnadgym.eltern-portal.org"
+    },
+    {
+        "domain": "go.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Ottobrunn",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.0646387",
+            "lon": "11.681619554077889",
+            "name": "Gymnasium Ottobrunn",
+            "postcode": "85521",
+            "road": "Karl-Stieler-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Ottobrunn",
+        "school": "go",
+        "url": "https://go.eltern-portal.org"
+    },
+    {
+        "domain": "grafgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Grafing bei M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "17",
+            "lat": "48.0439378",
+            "lon": "11.961161618933625",
+            "name": "Max-Mannheimer-Gymnasium Grafing",
+            "postcode": "85567",
+            "road": "Jahnstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Max-Mannheimer-Gymnasium Grafing",
+        "school": "grafgym",
+        "url": "https://grafgym.eltern-portal.org"
+    },
+    {
+        "domain": "groebegy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": "34",
+            "lat": "48.192974",
+            "lon": "11.382482174248302",
+            "name": "Gymnasium Gr\u00f6benzell",
+            "postcode": "82194",
+            "road": "Wildmoosstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Gr\u00f6benzell",
+        "school": "groebegy",
+        "url": "https://groebegy.eltern-portal.org"
+    },
+    {
+        "domain": "gruewagym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Gr\u00fcnwald",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.03737005",
+            "lon": "11.528181895526771",
+            "name": "Gymnasium Gr\u00fcnwald",
+            "postcode": "82031",
+            "road": "Laufzorner Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Gr\u00fcnwald",
+        "school": "gruewagym",
+        "url": "https://gruewagym.eltern-portal.org"
+    },
+    {
+        "domain": "gsgstu.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Stuttgart",
+            "country": "Deutschland",
+            "house_number": "25",
+            "lat": "48.7374325",
+            "lon": "9.221508585088413",
+            "name": "Geschwister-Scholl-Gymnasium",
+            "postcode": "70619",
+            "road": "Richard-Schmid-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Geschwister-Scholl-Gymnasium Stuttgart-Sillenbuch",
+        "school": "gsgstu",
+        "url": "https://gsgstu.eltern-portal.org"
+    },
+    {
+        "domain": "gsuhg.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Unterhaching",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.07186965",
+            "lon": "11.614742505210305",
+            "name": "Grund- und Mittelschule Unterhaching \"Schule am Sportpark\"",
+            "postcode": "82008",
+            "road": "Pfarrer-Erhard-Weg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Grundschule am Sportpark",
+        "school": "gsuhg",
+        "url": "https://gsuhg.eltern-portal.org"
+    },
+    {
+        "domain": "gykisee.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": "3",
+            "lat": "48.066244100000006",
+            "lon": "11.893371347322972",
+            "name": "Gymnasium Kirchseeon",
+            "postcode": "85614",
+            "road": "Moosacher Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Kirchseeon",
+        "school": "gykisee",
+        "url": "https://gykisee.eltern-portal.org"
+    },
+    {
+        "domain": "gymmod.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Marktoberdorf",
+            "country": "Deutschland",
+            "house_number": "23",
+            "lat": "47.77319865",
+            "lon": "10.610992169662724",
+            "name": "Gymnasium Marktoberdorf",
+            "postcode": "87616",
+            "road": "M\u00fchlsteig",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Marktoberdorf",
+        "school": "gymmod",
+        "url": "https://gymmod.eltern-portal.org"
+    },
+    {
+        "domain": "gympan.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Pfarrkirchen",
+            "country": "Deutschland",
+            "house_number": "9",
+            "lat": "48.4358153",
+            "lon": "12.9365782",
+            "name": "Gymnasium Pfarrkirchen",
+            "postcode": "84347",
+            "road": "Arnstorfer Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Pfarrkirchen",
+        "school": "gympan",
+        "url": "https://gympan.eltern-portal.org"
+    },
+    {
+        "domain": "gymzwie.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Zwiesel",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "49.0188691",
+            "lon": "13.227835760022526",
+            "name": "Gymnasium Zwiesel",
+            "postcode": "94227",
+            "road": "Holzweberstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Zwiesel",
+        "school": "gymzwie",
+        "url": "https://gymzwie.eltern-portal.org"
+    },
+    {
+        "domain": "gypenz.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Penzberg",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "47.7537842",
+            "lon": "11.373557829490554",
+            "name": "Gymnasium Penzberg",
+            "postcode": "82377",
+            "road": "Karlstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Penzberg",
+        "school": "gypenz",
+        "url": "https://gypenz.eltern-portal.org"
+    },
+    {
+        "domain": "haadgmsau.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "haadgmsau",
+        "url": "https://haadgmsau.eltern-portal.org"
+    },
+    {
+        "domain": "halegyla.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Landshut",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.5423028",
+            "lon": "12.125594392452086",
+            "name": "Hans-Leinberger-Gymnasium",
+            "postcode": "84034",
+            "road": "Weissenauer Weg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Hans-Leinberger-Gymnasium Landshut",
+        "school": "halegyla",
+        "url": "https://halegyla.eltern-portal.org"
+    },
+    {
+        "domain": "halgywol.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "halgywol",
+        "url": "https://halgywol.eltern-portal.org"
+    },
+    {
+        "domain": "hamfrogy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Hammelburg",
+            "country": "Deutschland",
+            "house_number": "8-10",
+            "lat": "50.1142337",
+            "lon": "9.8993973",
+            "name": "Frobenius Gymnasium",
+            "postcode": "97762",
+            "road": "Von-der-Tann-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Frobenius-Gymnasium Hammelburg",
+        "school": "hamfrogy",
+        "url": "https://hamfrogy.eltern-portal.org"
+    },
+    {
+        "domain": "hcgla.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Berlin",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "52.47247204999999",
+            "lon": "13.131411153219736",
+            "name": "Hans-Carossa-Gymnasium",
+            "postcode": "14089",
+            "road": "Am Landschaftspark Gatow",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Hans-Carossa-Gymnasium",
+        "school": "hcgla",
+        "url": "https://hcgla.eltern-portal.org"
+    },
+    {
+        "domain": "hehegymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Hamburg",
+            "country": "Deutschland",
+            "house_number": "70",
+            "lat": "53.6650193",
+            "lon": "10.074989610426748",
+            "name": "Heinrich-Heine-Gymnasium",
+            "postcode": "22399",
+            "road": "Harksheider Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dt. Heinrich-Heine-Gymnasium",
+        "school": "hehegymuc",
+        "url": "https://hehegymuc.eltern-portal.org"
+    },
+    {
+        "domain": "helagyfue.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "F\u00fcrth",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "49.47079255",
+            "lon": "11.002354871622401",
+            "name": "Helene-Lange-Gymnasium",
+            "postcode": "90762",
+            "road": "Jakobinenstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Helene-Lange-Gymnasium F\u00fcrth",
+        "school": "helagyfue",
+        "url": "https://helagyfue.eltern-portal.org"
+    },
+    {
+        "domain": "heraugy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Herzogenaurach",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "49.56138665",
+            "lon": "10.876645278239629",
+            "name": "Gymnasium Herzogenaurach",
+            "postcode": "91074",
+            "road": "Orffstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Herzogenaurach",
+        "school": "heraugy",
+        "url": "https://heraugy.eltern-portal.org"
+    },
+    {
+        "domain": "hertrogym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Trostberg",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.02345085",
+            "lon": "12.548602996817163",
+            "name": "Hertzhaimer-Gymnasium Trostberg",
+            "postcode": "83308",
+            "road": "Stefan-G\u00fcnthner-Weg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Hertzhaimer-Gymnasium Trostberg",
+        "school": "hertrogym",
+        "url": "https://hertrogym.eltern-portal.org"
+    },
+    {
+        "domain": "hilgykem.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Kempten (Allg\u00e4u)",
+            "country": "Deutschland",
+            "house_number": "22",
+            "lat": "47.722561400000004",
+            "lon": "10.304615185412635",
+            "name": "Hildegardis-Gymnasium",
+            "postcode": "87439",
+            "road": "Lindauer Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Hildegardis-Gymnasium Kempten",
+        "school": "hilgykem",
+        "url": "https://hilgykem.eltern-portal.org"
+    },
+    {
+        "domain": "hoesiegym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "H\u00f6henkirchen-Siegertsbrunn",
+            "country": "Deutschland",
+            "house_number": "4",
+            "lat": "48.0178391",
+            "lon": "11.72033535644847",
+            "name": "Staatliches Gymnasium H\u00f6henkirchen-Siegertsbrunn",
+            "postcode": "85635",
+            "road": "Bahnhofplatz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium H\u00f6henkirchen-Siegertsbrunn",
+        "school": "hoesiegym",
+        "url": "https://hoesiegym.eltern-portal.org"
+    },
+    {
+        "domain": "holgyau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "10",
+            "lat": "48.36449225",
+            "lon": "10.897280254083752",
+            "name": "Holbein-Gymnasium",
+            "postcode": "86150",
+            "road": "Hallstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Holbein-Gymnasium",
+        "school": "holgyau",
+        "url": "https://holgyau.eltern-portal.org"
+    },
+    {
+        "domain": "holkigym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Holzkirchen",
+            "country": "Deutschland",
+            "house_number": "4",
+            "lat": "47.888565",
+            "lon": "11.70497952462239",
+            "name": "Gymnasium Holzkirchen",
+            "postcode": "83607",
+            "road": "J\u00f6rg-Hube-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Holzkirchen",
+        "school": "holkigym",
+        "url": "https://holkigym.eltern-portal.org"
+    },
+    {
+        "domain": "hoschgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": "10",
+            "lat": "47.55797855",
+            "lon": "10.742858341092948",
+            "name": "Gymnasium mit Sch\u00fclerheim Hohenschwangau",
+            "postcode": "87645",
+            "road": "Colomanstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Hohenschwangau",
+        "school": "hoschgym",
+        "url": "https://hoschgym.eltern-portal.org"
+    },
+    {
+        "domain": "hsgyerl.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Erlenbach am Main",
+            "country": "Deutschland",
+            "house_number": "55",
+            "lat": "49.810031300000006",
+            "lon": "9.155588384085291",
+            "name": "Hermann-Staudinger-Gymnasium",
+            "postcode": "63906",
+            "road": "Elsenfelder Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Hermann-Staudinger-Gymnasium Erlenbach a. Main",
+        "school": "hsgyerl",
+        "url": "https://hsgyerl.eltern-portal.org"
+    },
+    {
+        "domain": "hsgyfue.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "F\u00fcrth",
+            "country": "Deutschland",
+            "house_number": "105",
+            "lat": "49.4764861",
+            "lon": "10.992040492724332",
+            "name": "Heinrich-Schliemann-Gymnasium",
+            "postcode": "90762",
+            "road": "K\u00f6nigstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Heinrich-Schliemann-Gymnasium",
+        "school": "hsgyfue",
+        "url": "https://hsgyfue.eltern-portal.org"
+    },
+    {
+        "domain": "hsgyhoe.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "H\u00f6sbach",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "50.0086636",
+            "lon": "9.2081568",
+            "name": "Hanns-Seidel-Gymnasium",
+            "postcode": "63768",
+            "road": "An der Maas",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Hanns-Seidel-Gymnasium H\u00f6sbach",
+        "school": "hsgyhoe",
+        "url": "https://hsgyhoe.eltern-portal.org"
+    },
+    {
+        "domain": "hugyvat.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Vaterstetten",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.1065623",
+            "lon": "11.786849376998607",
+            "name": "Humboldt-Gymnasium",
+            "postcode": "85598",
+            "road": "Johann-Strau\u00df-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Humboldt-Gymnasium-Vaterstetten",
+        "school": "hugyvat",
+        "url": "https://hugyvat.eltern-portal.org"
+    },
+    {
+        "domain": "hvbrsau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "5",
+            "lat": "48.38952035",
+            "lon": "10.878982598284235",
+            "name": "Heinrich-von-Buz Realschule (Staatliche Realschule Augsburg II)",
+            "postcode": "86154",
+            "road": "Eschenhofstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Heinrich-von-Buz Realschule Augsburg",
+        "school": "hvbrsau",
+        "url": "https://hvbrsau.eltern-portal.org"
+    },
+    {
+        "domain": "ickigym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "47.9571353",
+            "lon": "11.434012570398385",
+            "name": "Rainer-Maria-Rilke-Gymnasium Icking",
+            "postcode": "82057",
+            "road": "Ulrichstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Rainer-Maria-Rilke-Gymnasium Icking",
+        "school": "ickigym",
+        "url": "https://ickigym.eltern-portal.org"
+    },
+    {
+        "domain": "igtadah.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Dachau",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.256693600000006",
+            "lon": "11.448136043558982",
+            "name": "Ignaz-Taschner-Gymnasium",
+            "postcode": "85221",
+            "road": "Jahnstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Ignaz-Taschner-Gymnasium",
+        "school": "igtadah",
+        "url": "https://igtadah.eltern-portal.org"
+    },
+    {
+        "domain": "iguerogym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Rosenheim",
+            "country": "Deutschland",
+            "house_number": "32-34",
+            "lat": "47.8579026",
+            "lon": "12.121085893892479",
+            "name": "Ignaz-G\u00fcnther-Gymnasium",
+            "postcode": "83022",
+            "road": "Prinzregentenstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Ignaz-G\u00fcnther-Gymnasium Rosenheim",
+        "school": "iguerogym",
+        "url": "https://iguerogym.eltern-portal.org"
+    },
+    {
+        "domain": "illvoegy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "V\u00f6hringen",
+            "country": "Deutschland",
+            "house_number": "17",
+            "lat": "48.30252245",
+            "lon": "10.053105987069383",
+            "name": "Illertal-Gymnasium V\u00f6hringen",
+            "postcode": "89269",
+            "road": "Zum Sportplatz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Illertal-Gymnasium V\u00f6hringen",
+        "school": "illvoegy",
+        "url": "https://illvoegy.eltern-portal.org"
+    },
+    {
+        "domain": "indomagy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Markt Indersdorf",
+            "country": "Deutschland",
+            "house_number": "40",
+            "lat": "48.3521681",
+            "lon": "11.373338224211155",
+            "name": "Gymnasium Markt Indersdorf",
+            "postcode": "85229",
+            "road": "Arnbacher Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Markt Indersdorf",
+        "school": "indomagy",
+        "url": "https://indomagy.eltern-portal.org"
+    },
+    {
+        "domain": "irmrs.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "type": "education"
+        },
+        "ip": "88.198.51.243",
+        "name": "St.-Irmengard-Schulen",
+        "school": "irmrs",
+        "url": "https://irmrs.eltern-portal.org"
+    },
+    {
+        "domain": "jafugyau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "5",
+            "lat": "48.3705453",
+            "lon": "10.883856840231184",
+            "name": "Jakob-Fugger-Gymnasium",
+            "postcode": "86152",
+            "road": "Kriemhildenstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Jakob-Fugger-Gymnasium Augsburg",
+        "school": "jafugyau",
+        "url": "https://jafugyau.eltern-portal.org"
+    },
+    {
+        "domain": "jcrgyhof.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Hof",
+            "country": "Deutschland",
+            "house_number": "71",
+            "lat": "50.3067706",
+            "lon": "11.897802270496484",
+            "name": "Johann-Christian-Reinhart-Gymnasium",
+            "postcode": "95030",
+            "road": "Max-Reger-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Johann-Christian-Reinhart-Gymnasium Hof",
+        "school": "jcrgyhof",
+        "url": "https://jcrgyhof.eltern-portal.org"
+    },
+    {
+        "domain": "joguwa.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Waldkirchen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.7278188",
+            "lon": "13.606951571622306",
+            "name": "Johannes-Gutenberg-Gymnasium",
+            "postcode": "94065",
+            "road": "Jahnstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Johannes-Gutenberg-Gymnasium Waldkirchen",
+        "school": "joguwa",
+        "url": "https://joguwa.eltern-portal.org"
+    },
+    {
+        "domain": "joheitrau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Traunreut",
+            "country": "Deutschland",
+            "house_number": "36",
+            "lat": "47.9592562",
+            "lon": "12.5961697",
+            "name": "Johannes-Heidenhain-Gymnasium Traunreut",
+            "postcode": "83301",
+            "road": "Adalbert-Stifter-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Johannes-Heidenhain-Gymnasium Traunreut",
+        "school": "joheitrau",
+        "url": "https://joheitrau.eltern-portal.org"
+    },
+    {
+        "domain": "johofrei.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Freising",
+            "country": "Deutschland",
+            "house_number": "14",
+            "lat": "48.40501315",
+            "lon": "11.742764960574618",
+            "name": "Josef-Hofmiller-Gymnasium",
+            "postcode": "85354",
+            "road": "Vimystra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Josef-Hofmiller-Gymnasium Freising",
+        "school": "johofrei",
+        "url": "https://johofrei.eltern-portal.org"
+    },
+    {
+        "domain": "jonegyro.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.7686841",
+            "lon": "11.9664951",
+            "name": "Johannes-Nepomuk-Gymnasium",
+            "postcode": "93352",
+            "road": "Abt-Dominik-Prokop-Platz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Johannes-Nepomuk-Gymnasium",
+        "school": "jonegyro",
+        "url": "https://jonegyro.eltern-portal.org"
+    },
+    {
+        "domain": "jpgyho.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Hof",
+            "country": "Deutschland",
+            "house_number": "4-6",
+            "lat": "50.32218555",
+            "lon": "11.914745311046463",
+            "name": "Jean-Paul-Gymnasium",
+            "postcode": "95028",
+            "road": "Gymnasiumsplatz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Jean-Paul-Gymnasium Hof",
+        "school": "jpgyho",
+        "url": "https://jpgyho.eltern-portal.org"
+    },
+    {
+        "domain": "jsgbk.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Bad Kissingen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "50.20510735",
+            "lon": "10.080193684715175",
+            "name": "Jack-Steinberger-Gymnasium",
+            "postcode": "97688",
+            "road": "Steinstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Jack-Steinberger-Gymnasium Bad Kissingen",
+        "school": "jsgbk",
+        "url": "https://jsgbk.eltern-portal.org"
+    },
+    {
+        "domain": "jsgkarl.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Karlstadt",
+            "country": "Deutschland",
+            "house_number": "29",
+            "lat": "49.95992390000001",
+            "lon": "9.779773026966417",
+            "name": "Johann-Sch\u00f6ner-Gymnasium",
+            "postcode": "97753",
+            "road": "Bodelschwinghstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Johann-Sch\u00f6ner-Gymnasium Karlstadt",
+        "school": "jsgkarl",
+        "url": "https://jsgkarl.eltern-portal.org"
+    },
+    {
+        "domain": "julineu.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Neus\u00e4\u00df",
+            "country": "Deutschland",
+            "house_number": "4",
+            "lat": "48.3975934",
+            "lon": "10.836316230413477",
+            "name": "Justus-von-Liebig-Gymnasium",
+            "postcode": "86356",
+            "road": "Landrat-Dr.-Frey-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Justus-von-Liebig-Gymnasium",
+        "school": "julineu",
+        "url": "https://julineu.eltern-portal.org"
+    },
+    {
+        "domain": "jvfgcham.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Cham",
+            "country": "Deutschland",
+            "house_number": "32",
+            "lat": "49.2248786",
+            "lon": "12.664121965822787",
+            "name": "Joseph-von-Fraunhofer-Gymnasium",
+            "postcode": "93413",
+            "road": "Dr.-Muggenthaler-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Joseph-von-Fraunhofer-Gymnasium Cham",
+        "school": "jvfgcham",
+        "url": "https://jvfgcham.eltern-portal.org"
+    },
+    {
+        "domain": "kagerd.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Erding",
+            "country": "Deutschland",
+            "house_number": "50",
+            "lat": "48.2977974",
+            "lon": "11.890351138605379",
+            "name": "Korbinian-Aigner-Gymnasium",
+            "postcode": "85435",
+            "road": "Sigwolfstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Korbinian-Aigner-Gymnasium Erding",
+        "school": "kagerd",
+        "url": "https://kagerd.eltern-portal.org"
+    },
+    {
+        "domain": "karlsgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "21",
+            "lat": "48.14067965",
+            "lon": "11.452250364778498",
+            "name": "Karlsgymnasium",
+            "postcode": "81243",
+            "road": "Am Stadtpark",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Karlsgymnasium M\u00fcnchen",
+        "school": "karlsgymuc",
+        "url": "https://karlsgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "karogyro.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Rosenheim",
+            "country": "Deutschland",
+            "house_number": "3",
+            "lat": "47.861384650000005",
+            "lon": "12.124961603370032",
+            "name": "Karolinen-Gymnasium",
+            "postcode": "83022",
+            "road": "Ebersberger Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Karolinen-Gymnasium Rosenheim",
+        "school": "karogyro",
+        "url": "https://karogyro.eltern-portal.org"
+    },
+    {
+        "domain": "katgying.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "katgying",
+        "url": "https://katgying.eltern-portal.org"
+    },
+    {
+        "domain": "kepgywei.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Weiden in der Oberpfalz",
+            "country": "Deutschland",
+            "house_number": "21",
+            "lat": "49.6773168",
+            "lon": "12.172200223827717",
+            "name": "Kepler-Gymnasium",
+            "postcode": "92637",
+            "road": "Friedrich-Ebert-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Kepler-Gymnasium Weiden",
+        "school": "kepgywei",
+        "url": "https://kepgywei.eltern-portal.org"
+    },
+    {
+        "domain": "kfrsmar.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "kfrsmar",
+        "url": "https://kfrsmar.eltern-portal.org"
+    },
+    {
+        "domain": "kgbarei.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Bad Reichenhall",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "47.7295817",
+            "lon": "12.88792555256711",
+            "name": "Karlsgymnasium Bad Reichenhall",
+            "postcode": "83435",
+            "road": "Hubertusstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Karlsgymnasium Bad Reichenhall",
+        "school": "kgbarei",
+        "url": "https://kgbarei.eltern-portal.org"
+    },
+    {
+        "domain": "khgygrae.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Gr\u00e4felfing",
+            "country": "Deutschland",
+            "house_number": "3",
+            "lat": "48.125742349999996",
+            "lon": "11.430970575125038",
+            "name": "Kurt-Huber-Gymnasium",
+            "postcode": "82166",
+            "road": "Adalbert-Stifter-Platz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Kurt-Huber-Gymnasium Gr\u00e4felfing",
+        "school": "khgygrae",
+        "url": "https://khgygrae.eltern-portal.org"
+    },
+    {
+        "domain": "klengymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "59",
+            "lat": "48.1153885",
+            "lon": "11.543683348748722",
+            "name": "Klenze-Gymnasium M\u00fcnchen",
+            "postcode": "81371",
+            "road": "Wackersberger Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Klenze-Gymnasium M\u00fcnchen",
+        "school": "klengymuc",
+        "url": "https://klengymuc.eltern-portal.org"
+    },
+    {
+        "domain": "koebrugy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "K\u00f6nigsbrunn",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.2698527",
+            "lon": "10.884697482631523",
+            "name": "Gymnasium K\u00f6nigsbrunn",
+            "postcode": "86343",
+            "road": "Alter Postweg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium K\u00f6nigsbrunn",
+        "school": "koebrugy",
+        "url": "https://koebrugy.eltern-portal.org"
+    },
+    {
+        "domain": "krogya.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Aschaffenburg",
+            "country": "Deutschland",
+            "house_number": "33",
+            "lat": "49.97904615",
+            "lon": "9.16256602381247",
+            "name": "Kronberg-Gymnasium",
+            "postcode": "63739",
+            "road": "Fasaneriestra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Kronberg-Gymnasium Aschaffenburg",
+        "school": "krogya",
+        "url": "https://krogya.eltern-portal.org"
+    },
+    {
+        "domain": "krufobo.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "krufobo",
+        "url": "https://krufobo.eltern-portal.org"
+    },
+    {
+        "domain": "ksigym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Illertissen",
+            "country": "Deutschland",
+            "house_number": "70",
+            "lat": "48.21504775",
+            "lon": "10.091709320308183",
+            "name": "Kolleg der Schulbr\u00fcder",
+            "postcode": "89257",
+            "road": "Dietenheimer Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Kolleg der Schulbr\u00fcder Illertissen",
+        "school": "ksigym",
+        "url": "https://ksigym.eltern-portal.org"
+    },
+    {
+        "domain": "kumagybu.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Burghausen",
+            "country": "Deutschland",
+            "house_number": "90 1/2",
+            "lat": "48.16077455",
+            "lon": "12.834006475170792",
+            "name": "Kurf\u00fcrst-Maximilian-Gymnasium",
+            "postcode": "84489",
+            "road": "Kanzelm\u00fcllerstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Kurf\u00fcrst-Maximilian-Gymnasium Burghausen",
+        "school": "kumagybu",
+        "url": "https://kumagybu.eltern-portal.org"
+    },
+    {
+        "domain": "kvc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "type": "house"
+        },
+        "ip": "88.198.51.243",
+        "name": "Karl-von-Closen-Gymnasium Eggenfelden",
+        "school": "kvc",
+        "url": "https://kvc.eltern-portal.org"
+    },
+    {
+        "domain": "lalegygra.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Grafenau",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.8626409",
+            "lon": "13.4010706",
+            "name": "Landgraf-Leuchtenberg-Gymnasium Grafenau",
+            "postcode": "94481",
+            "road": "Rachelweg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Landgraf-Leuchtenberg-Gymnasium Grafenau",
+        "school": "lalegygra",
+        "url": "https://lalegygra.eltern-portal.org"
+    },
+    {
+        "domain": "landau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "type": "bus_stop"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Landau a.d. Isar",
+        "school": "landau",
+        "url": "https://landau.eltern-portal.org"
+    },
+    {
+        "domain": "leigyalt.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Altdorf bei N\u00fcrnberg",
+            "country": "Deutschland",
+            "house_number": "23",
+            "lat": "49.38912385",
+            "lon": "11.342451016921139",
+            "name": "Leibniz-Gymnasium Altdorf",
+            "postcode": "90518",
+            "road": "Fischbacher Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Leibniz-Gymnasium Altdorf",
+        "school": "leigyalt",
+        "url": "https://leigyalt.eltern-portal.org"
+    },
+    {
+        "domain": "lessgynu.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Neu-Ulm",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.399122750000004",
+            "lon": "10.00866246732394",
+            "name": "Lessing-Gymnasium",
+            "postcode": "89231",
+            "road": "Fichtestra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Lessing-Gymnasium Neu-Ulm",
+        "school": "lessgynu",
+        "url": "https://lessgynu.eltern-portal.org"
+    },
+    {
+        "domain": "liefraurs.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Die\u00dfen am Ammersee",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "47.9487244",
+            "lon": "11.09543974694635",
+            "name": "Liebfrauenschule M\u00e4dchenrealschule des Schulwerks der Di\u00f6zese Augsburg",
+            "postcode": "86911",
+            "road": "Klosterhof",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Liebfrauenschule Diessen",
+        "school": "liefraurs",
+        "url": "https://liefraurs.eltern-portal.org"
+    },
+    {
+        "domain": "lifegymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "71",
+            "lat": "48.1780166",
+            "lon": "11.58089154682155",
+            "name": "St\u00e4dtisches Lion-Feuchtwanger-Gymnasium",
+            "postcode": "80807",
+            "road": "Freiligrathstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dtisches Lion-Feuchtwanger-Gymnasium M\u00fcnchen",
+        "school": "lifegymuc",
+        "url": "https://lifegymuc.eltern-portal.org"
+    },
+    {
+        "domain": "lindgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Lindenberg im Allg\u00e4u",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "47.6009166",
+            "lon": "9.8825069",
+            "name": "Gymnasium",
+            "postcode": "88161",
+            "road": "Austra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Lindenberg",
+        "school": "lindgym",
+        "url": "https://lindgym.eltern-portal.org"
+    },
+    {
+        "domain": "lmguhag.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Unterhaching",
+            "country": "Deutschland",
+            "house_number": "3",
+            "lat": "48.06040165",
+            "lon": "11.613192130348466",
+            "name": "Lise-Meitner-Gymnasium Unterhaching",
+            "postcode": "82008",
+            "road": "Jahnstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Lise-Meitner-Gymnasium Unterhaching",
+        "school": "lmguhag",
+        "url": "https://lmguhag.eltern-portal.org"
+    },
+    {
+        "domain": "losgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.17963225",
+            "lon": "11.46333940117117",
+            "name": "St\u00e4dtisches Louise-Schroeder-Gymnasium",
+            "postcode": "80999",
+            "road": "Pfarrer-Grimm-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dtisches Louise-Schroeder-Gymnasium M\u00fcnchen",
+        "school": "losgymuc",
+        "url": "https://losgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "lshmar.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "47.752089549999994",
+            "lon": "12.468334389091826",
+            "name": "Gymnasium Landschulheim Marquartstein",
+            "postcode": "83250",
+            "road": "Alte Dorfstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Landschulheim Marquartstein",
+        "school": "lshmar",
+        "url": "https://lshmar.eltern-portal.org"
+    },
+    {
+        "domain": "lsising.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Landschulheim Schloss Ising am Chiemsee",
+        "school": "lsising",
+        "url": "https://lsising.eltern-portal.org"
+    },
+    {
+        "domain": "lskempf.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": "49-63",
+            "lat": "47.99235175",
+            "lon": "11.36017572674091",
+            "name": "Landschulheim Kempfenhausen",
+            "postcode": "82335",
+            "road": "M\u00fcnchner Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Landschulheim Kempfenhausen",
+        "school": "lskempf",
+        "url": "https://lskempf.eltern-portal.org"
+    },
+    {
+        "domain": "ltgyprie.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Prien am Chiemsee",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "47.857305600000004",
+            "lon": "12.348586996126354",
+            "name": "Ludwig-Thoma-Gymnasium",
+            "postcode": "83209",
+            "road": "Seestra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Ludwig-Thoma-Gymnasium",
+        "school": "ltgyprie",
+        "url": "https://ltgyprie.eltern-portal.org"
+    },
+    {
+        "domain": "ludgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "159a",
+            "lat": "48.12213115",
+            "lon": "11.505298552044017",
+            "name": "Ludwigsgymnasium",
+            "postcode": "81377",
+            "road": "F\u00fcrstenrieder Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Ludwigsgymnasium M\u00fcnchen",
+        "school": "ludgymuc",
+        "url": "https://ludgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "ludgystra.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Straubing",
+            "country": "Deutschland",
+            "house_number": "25",
+            "lat": "48.867993150000004",
+            "lon": "12.579641773347529",
+            "name": "Ludwigsgymnasium",
+            "postcode": "94315",
+            "road": "Max-Planck-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Ludwigsgymnasium Straubing",
+        "school": "ludgystra",
+        "url": "https://ludgystra.eltern-portal.org"
+    },
+    {
+        "domain": "luigywas.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Wasserburg am Inn",
+            "country": "Deutschland",
+            "house_number": "11",
+            "lat": "48.0556948",
+            "lon": "12.231506223575309",
+            "name": "Luitpold-Gymnasium Wasserburg",
+            "postcode": "83512",
+            "road": "Salzburger Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Luitpold-Gymnasium Wasserburg am Inn",
+        "school": "luigywas",
+        "url": "https://luigywas.eltern-portal.org"
+    },
+    {
+        "domain": "luise.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "7",
+            "lat": "48.142701",
+            "lon": "11.561020934863071",
+            "name": "St\u00e4dtisches Luisengymnasium",
+            "postcode": "80333",
+            "road": "Luisenstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dtisches Luisengymnasium",
+        "school": "luise",
+        "url": "https://luise.eltern-portal.org"
+    },
+    {
+        "domain": "lupomuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.14459825",
+            "lon": "11.592509796078307",
+            "name": "Staatliches Luitpold-Gymnasium",
+            "postcode": "80538",
+            "road": "Seeaustra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Luitpold-Gymnasium M\u00fcnchen",
+        "school": "lupomuc",
+        "url": "https://lupomuc.eltern-portal.org"
+    },
+    {
+        "domain": "lwgschwab.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "type": "house"
+        },
+        "ip": "88.198.51.243",
+        "name": "Leonhard-Wagner-Gymnasium Schwabm\u00fcnchen",
+        "school": "lwgschwab",
+        "url": "https://lwgschwab.eltern-portal.org"
+    },
+    {
+        "domain": "mabogym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Germering",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.134113",
+            "lon": "11.371387532852363",
+            "name": "Max-Born-Gymnasium",
+            "postcode": "82110",
+            "road": "Johann-Sebastian-Bach-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Max-Born-Gymnasium",
+        "school": "mabogym",
+        "url": "https://mabogym.eltern-portal.org"
+    },
+    {
+        "domain": "marbugym.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Marianum Buxheim Gymnasium des Schulwerks der Di\u00f6zese Augsburg",
+        "school": "marbugym",
+        "url": "https://marbugym.eltern-portal.org"
+    },
+    {
+        "domain": "margyfu.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "margyfu",
+        "url": "https://margyfu.eltern-portal.org"
+    },
+    {
+        "domain": "marktgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Marktbreit",
+            "country": "Deutschland",
+            "house_number": "21",
+            "lat": "49.6623301",
+            "lon": "10.153751044237948",
+            "name": "Gymnasium Marktbreit",
+            "postcode": "97340",
+            "road": "Neue Obernbreiter Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Marktbreit",
+        "school": "marktgym",
+        "url": "https://marktgym.eltern-portal.org"
+    },
+    {
+        "domain": "mathemuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.12419865",
+            "lon": "11.588609107842672",
+            "name": "Maria-Theresia-Gymnasium",
+            "postcode": "81541",
+            "road": "Regerplatz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Maria-Theresia-Gymnasium",
+        "school": "mathemuc",
+        "url": "https://mathemuc.eltern-portal.org"
+    },
+    {
+        "domain": "maxgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "9",
+            "lat": "48.16496775",
+            "lon": "11.584900865911887",
+            "name": "Maximiliansgymnasium",
+            "postcode": "80803",
+            "road": "Karl-Theodor-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Maximiliansgymnasium M\u00fcnchen",
+        "school": "maxgymuc",
+        "url": "https://maxgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "merali.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "merali",
+        "url": "https://merali.eltern-portal.org"
+    },
+    {
+        "domain": "mgf.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.5202674",
+            "lon": "13.32365415484032",
+            "name": "Maristengymnasium F\u00fcrstenzell",
+            "postcode": "94081",
+            "road": "Schulstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Maristengymnasium F\u00fcrstenzell",
+        "school": "mgf",
+        "url": "https://mgf.eltern-portal.org"
+    },
+    {
+        "domain": "mggwue.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "W\u00fcrzburg",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "49.7873153",
+            "lon": "9.95382516201127",
+            "name": "Matthias-Gr\u00fcnewald-Gymnasium",
+            "postcode": "97074",
+            "road": "Zwerchgraben",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Matthias-Gr\u00fcnewald-Gymnasium W\u00fcrzburg",
+        "school": "mggwue",
+        "url": "https://mggwue.eltern-portal.org"
+    },
+    {
+        "domain": "michamuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "25",
+            "lat": "48.1205662",
+            "lon": "11.638735361604159",
+            "name": "Michaeli-Gymnasium M\u00fcnchen",
+            "postcode": "81671",
+            "road": "Hachinger-Bach-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Michaeli-Gymnasium M\u00fcnchen",
+        "school": "michamuc",
+        "url": "https://michamuc.eltern-portal.org"
+    },
+    {
+        "domain": "mjsmuc.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Staatliches Gymnasium Max-Josef-Stift M\u00fcnchen",
+        "school": "mjsmuc",
+        "url": "https://mjsmuc.eltern-portal.org"
+    },
+    {
+        "domain": "mmgyvil.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Vilsbiburg",
+            "country": "Deutschland",
+            "house_number": "4",
+            "lat": "48.4573917",
+            "lon": "12.362720644550045",
+            "name": "Maximilian-von-Montgelas-Gymnasium",
+            "postcode": "84137",
+            "road": "Gobener Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Maximilian-von-Montgelas-Gymnasium",
+        "school": "mmgyvil",
+        "url": "https://mmgyvil.eltern-portal.org"
+    },
+    {
+        "domain": "mogymuc.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Staatliches Gymnasium M\u00fcnchen-Moosach",
+        "school": "mogymuc",
+        "url": "https://mogymuc.eltern-portal.org"
+    },
+    {
+        "domain": "moosgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Moosburg",
+            "country": "Deutschland",
+            "house_number": "5",
+            "lat": "48.47499685",
+            "lon": "11.935416738984495",
+            "name": "Karl-Ritter-von-Frisch-Gymnasium",
+            "postcode": "85368",
+            "road": "Albinstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Karl-Ritter-von-Frisch-Gymnasium",
+        "school": "moosgym",
+        "url": "https://moosgym.eltern-portal.org"
+    },
+    {
+        "domain": "mpgymel.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Mellrichstadt",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "50.4302817",
+            "lon": "10.3166207",
+            "name": "Martin-Pollich-Gymnasium Mellrichstadt",
+            "postcode": "97638",
+            "road": "Rote Strecke",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Martin-Pollich-Gymnasium Mellrichstadt",
+        "school": "mpgymel",
+        "url": "https://mpgymel.eltern-portal.org"
+    },
+    {
+        "domain": "mswas.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Wasserburg am Inn",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "48.058034649999996",
+            "lon": "12.228550952378441",
+            "name": "Mittelschule Wasserburg",
+            "postcode": "83512",
+            "road": "Klosterweg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Mittelschule Wasserburg am Inn",
+        "school": "mswas",
+        "url": "https://mswas.eltern-portal.org"
+    },
+    {
+        "domain": "mtgyau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.369119999999995",
+            "lon": "10.889653459047995",
+            "name": "Maria-Theresia-Gymnasium",
+            "postcode": "86150",
+            "road": "Gutenbergstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Maria-Theresia-Gymnasium Augsburg",
+        "school": "mtgyau",
+        "url": "https://mtgyau.eltern-portal.org"
+    },
+    {
+        "domain": "mtgyerl.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dtisches Marie-Therese-Gymnasium Erlangen",
+        "school": "mtgyerl",
+        "url": "https://mtgyerl.eltern-portal.org"
+    },
+    {
+        "domain": "muebegy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchberg",
+            "country": "Deutschland",
+            "house_number": "41",
+            "lat": "50.196657849999994",
+            "lon": "11.793224150468928",
+            "name": "Gymnasium M\u00fcnchberg",
+            "postcode": "95213",
+            "road": "Hofer Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium M\u00fcnchberg",
+        "school": "muebegy",
+        "url": "https://muebegy.eltern-portal.org"
+    },
+    {
+        "domain": "muenomuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "171",
+            "lat": "48.199730349999996",
+            "lon": "11.572136198804573",
+            "name": "Gymnasium M\u00fcnchen-Nord",
+            "postcode": "80937",
+            "road": "Knorrstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium M\u00fcnchen-Nord",
+        "school": "muenomuc",
+        "url": "https://muenomuc.eltern-portal.org"
+    },
+    {
+        "domain": "mwgyal.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Alt\u00f6tting",
+            "country": "Deutschland",
+            "house_number": "8",
+            "lat": "48.22719",
+            "lon": "12.678505",
+            "name": "Maria-Ward-Gymnasium Alt\u00f6tting",
+            "postcode": "84503",
+            "road": "Neu\u00f6ttinger Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Maria-Ward-Gymnasium Alt\u00f6tting",
+        "school": "mwgyal",
+        "url": "https://mwgyal.eltern-portal.org"
+    },
+    {
+        "domain": "mwgyau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "26",
+            "lat": "48.37542995",
+            "lon": "10.896804072287107",
+            "name": "Maria-Ward-Gymnasium und -Realschule",
+            "postcode": "86152",
+            "road": "Frauentorstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Maria-Ward-Gymnasium Augsburg",
+        "school": "mwgyau",
+        "url": "https://mwgyau.eltern-portal.org"
+    },
+    {
+        "domain": "mwgygz.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "G\u00fcnzburg",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.4564587",
+            "lon": "10.275723323782962",
+            "name": "Maria-Ward-Gymnasium",
+            "postcode": "89312",
+            "road": "Frauenplatz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Maria-Ward-Gymnasium G\u00fcnzburg",
+        "school": "mwgygz",
+        "url": "https://mwgygz.eltern-portal.org"
+    },
+    {
+        "domain": "mwnuegy.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Maria-Ward-Gymnasium N\u00fcrnberg",
+        "school": "mwnuegy",
+        "url": "https://mwnuegy.eltern-portal.org"
+    },
+    {
+        "domain": "mwnuers.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Maria-Ward-Realschule N\u00fcrnberg",
+        "school": "mwnuers",
+        "url": "https://mwnuers.eltern-portal.org"
+    },
+    {
+        "domain": "mwrsn.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.4602844",
+            "lon": "13.4266985",
+            "name": "Maria-Ward-Realschule Neuhaus am Inn",
+            "postcode": "94152",
+            "road": "Klosterstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Maria Ward Realschule Neuhaus",
+        "school": "mwrsn",
+        "url": "https://mwrsn.eltern-portal.org"
+    },
+    {
+        "domain": "nailagym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Naila",
+            "country": "Deutschland",
+            "house_number": "15",
+            "lat": "50.33605155",
+            "lon": "11.700977188491931",
+            "name": "Hochfranken-Gymnasium Naila",
+            "postcode": "95119",
+            "road": "Finkenweg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Hochfranken-Gymnasium Naila",
+        "school": "nailagym",
+        "url": "https://nailagym.eltern-portal.org"
+    },
+    {
+        "domain": "neugynue.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "N\u00fcrnberg",
+            "country": "Deutschland",
+            "house_number": "21",
+            "lat": "49.43866565",
+            "lon": "11.10740727175136",
+            "name": "Neues Gymnasium N\u00fcrnberg",
+            "postcode": "90478",
+            "road": "Weddigenstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Neues Gymnasium N\u00fcrnberg",
+        "school": "neugynue",
+        "url": "https://neugynue.eltern-portal.org"
+    },
+    {
+        "domain": "neutragym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Neutraubling",
+            "country": "Deutschland",
+            "house_number": "5",
+            "lat": "48.98596045",
+            "lon": "12.206920275015479",
+            "name": "Gymnasium Neutraubling",
+            "postcode": "93073",
+            "road": "Gregor-Mendel-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Neutraubling",
+        "school": "neutragym",
+        "url": "https://neutragym.eltern-portal.org"
+    },
+    {
+        "domain": "nkgwh.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Wei\u00dfenhorn",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.303111200000004",
+            "lon": "10.17567929620315",
+            "name": "Nikolaus-Kopernikus-Gymnasium",
+            "postcode": "89264",
+            "road": "Birkenweg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Nikolaus-Kopernikus-Gymnasium Wei\u00dfenhorn",
+        "school": "nkgwh",
+        "url": "https://nkgwh.eltern-portal.org"
+    },
+    {
+        "domain": "nymph.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "10",
+            "lat": "48.1657192",
+            "lon": "11.521660244449004",
+            "name": "Nymphenburger Gymnasium",
+            "postcode": "80638",
+            "road": "Sadelerstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Nymphenburger Schulen",
+        "school": "nymph",
+        "url": "https://nymph.eltern-portal.org"
+    },
+    {
+        "domain": "ohagym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Oberhaching",
+            "country": "Deutschland",
+            "house_number": "20",
+            "lat": "48.0235158",
+            "lon": "11.591384099078384",
+            "name": "Gymnasium Oberhaching",
+            "postcode": "82041",
+            "road": "Kastanienallee",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Oberhaching",
+        "school": "ohagym",
+        "url": "https://ohagym.eltern-portal.org"
+    },
+    {
+        "domain": "ohgyerl.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Erlangen",
+            "country": "Deutschland",
+            "house_number": "6",
+            "lat": "49.58459015",
+            "lon": "11.012011476801195",
+            "name": "Ohm-Gymnasium",
+            "postcode": "91052",
+            "road": "Am R\u00f6thelheim",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Ohm-Gymnasium Erlangen",
+        "school": "ohgyerl",
+        "url": "https://ohgyerl.eltern-portal.org"
+    },
+    {
+        "domain": "olchigym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Olching",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "48.214326400000004",
+            "lon": "11.344524622900305",
+            "name": "Gymnasium Olching",
+            "postcode": "82140",
+            "road": "Georgenstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Olching",
+        "school": "olchigym",
+        "url": "https://olchigym.eltern-portal.org"
+    },
+    {
+        "domain": "olrsmai.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": "38",
+            "lat": "48.22022145",
+            "lon": "11.256361205133565",
+            "name": "Orlando-di-Lasso-Realschule Maisach",
+            "postcode": "82216",
+            "road": "Lusstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Orlando-di-Lasso-Realschule Maisach",
+        "school": "olrsmai",
+        "url": "https://olrsmai.eltern-portal.org"
+    },
+    {
+        "domain": "omgyneu.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": "5",
+            "lat": "48.324462",
+            "lon": "11.67029598094727",
+            "name": "Oskar-Maria-Graf-Gymnasium",
+            "postcode": "85375",
+            "road": "Keltenweg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Oskar-Maria-Graf-Gymnasium",
+        "school": "omgyneu",
+        "url": "https://omgyneu.eltern-portal.org"
+    },
+    {
+        "domain": "opgypul.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": "61",
+            "lat": "48.066418",
+            "lon": "11.526287019674296",
+            "name": "Otfried-Preu\u00dfler-Gymnasium Pullach",
+            "postcode": "82049",
+            "road": "Hans-Keis-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Otfried-Preu\u00dfler-Gymnasium Pullach",
+        "school": "opgypul",
+        "url": "https://opgypul.eltern-portal.org"
+    },
+    {
+        "domain": "ovmgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "22",
+            "lat": "48.1649873",
+            "lon": "11.583824649747783",
+            "name": "Oskar-von-Miller-Gymnasium",
+            "postcode": "80803",
+            "road": "Siegfriedstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Oskar-von-Miller-Gymnasium M\u00fcnchen",
+        "school": "ovmgymuc",
+        "url": "https://ovmgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "ovtgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Gauting",
+            "country": "Deutschland",
+            "house_number": "41",
+            "lat": "48.0778058",
+            "lon": "11.375921634937555",
+            "name": "Otto-von-Taube-Gymnasium",
+            "postcode": "82131",
+            "road": "Germeringer Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Otto-von-Taube-Gymnasium Gauting",
+        "school": "ovtgym",
+        "url": "https://ovtgym.eltern-portal.org"
+    },
+    {
+        "domain": "pafgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Pfaffenhofen an der Ilm",
+            "country": "Deutschland",
+            "house_number": "4",
+            "lat": "48.52558835",
+            "lon": "11.49885973575114",
+            "name": "Schyren-Gymnasium",
+            "postcode": "85276",
+            "road": "Niederscheyerer Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Schyren-Gymnasium",
+        "school": "pafgym",
+        "url": "https://pafgym.eltern-portal.org"
+    },
+    {
+        "domain": "peugyau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "10",
+            "lat": "48.37267205",
+            "lon": "10.888653988857753",
+            "name": "Peutinger-Gymnasium",
+            "postcode": "86152",
+            "road": "An der Blauen Kappe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Peutinger-Gymnasium Augsburg",
+        "school": "peugyau",
+        "url": "https://peugyau.eltern-portal.org"
+    },
+    {
+        "domain": "pfgyher.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Hersbruck",
+            "country": "Deutschland",
+            "house_number": "30",
+            "lat": "49.5108218",
+            "lon": "11.43543207294979",
+            "name": "Paul-Pfinzing-Gymnasium",
+            "postcode": "91217",
+            "road": "Amberger Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Paul-Pfinzing-Gymnasium",
+        "school": "pfgyher",
+        "url": "https://pfgyher.eltern-portal.org"
+    },
+    {
+        "domain": "plagyans.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Ansbach",
+            "country": "Deutschland",
+            "house_number": "15",
+            "lat": "49.2996067",
+            "lon": "10.5774217248014",
+            "name": "Platen-Gymnasium",
+            "postcode": "91522",
+            "road": "Bahnhofsplatz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Platen-Gymnasium Ansbach",
+        "school": "plagyans",
+        "url": "https://plagyans.eltern-portal.org"
+    },
+    {
+        "domain": "prmpul.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Erzbisch\u00f6fliches Pater-Rupert-Mayer-Gymnasium Pullach",
+        "school": "prmpul",
+        "url": "https://prmpul.eltern-portal.org"
+    },
+    {
+        "domain": "prmpulgs.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Erzbisch\u00f6fliche Pater-Rupert-Mayer-Grundschule Pullach",
+        "school": "prmpulgs",
+        "url": "https://prmpulgs.eltern-portal.org"
+    },
+    {
+        "domain": "psmsgraf.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Propst-Seyberer-Mittelschule Grafenau",
+        "school": "psmsgraf",
+        "url": "https://psmsgraf.eltern-portal.org"
+    },
+    {
+        "domain": "puheigy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Puchheim",
+            "country": "Deutschland",
+            "house_number": "11",
+            "lat": "48.1820085",
+            "lon": "11.3568514",
+            "name": "Gymnasium Puchheim",
+            "postcode": "82178",
+            "road": "B\u00fcrgermeister-Ertl-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Puchheim",
+        "school": "puheigy",
+        "url": "https://puheigy.eltern-portal.org"
+    },
+    {
+        "domain": "reuingym.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "reuingym",
+        "url": "https://reuingym.eltern-portal.org"
+    },
+    {
+        "domain": "riegywue.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "W\u00fcrzburg",
+            "country": "Deutschland",
+            "house_number": "12",
+            "lat": "49.796816250000006",
+            "lon": "9.942136991131907",
+            "name": "Riemenschneider-Gymnasium",
+            "postcode": "97070",
+            "road": "Rennweger Ring",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Riemenschneider-Gymnasium W\u00fcrzburg",
+        "school": "riegywue",
+        "url": "https://riegywue.eltern-portal.org"
+    },
+    {
+        "domain": "riwagybay.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Bayreuth",
+            "country": "Deutschland",
+            "house_number": "9",
+            "lat": "49.9424512",
+            "lon": "11.571316353896336",
+            "name": "Richard-Wagner-Gymnasium",
+            "postcode": "95444",
+            "road": "Wittelsbacherring",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Richard-Wagner-Gymnasium Bayreuth",
+        "school": "riwagybay",
+        "url": "https://riwagybay.eltern-portal.org"
+    },
+    {
+        "domain": "roewuegy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "W\u00fcrzburg",
+            "country": "Deutschland",
+            "house_number": "8",
+            "lat": "49.78706335",
+            "lon": "9.932703502039946",
+            "name": "R\u00f6ntgen-Gymnasium",
+            "postcode": "97070",
+            "road": "Sanderring",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "R\u00f6ntgen-Gymnasium W\u00fcrzburg",
+        "school": "roewuegy",
+        "url": "https://roewuegy.eltern-portal.org"
+    },
+    {
+        "domain": "rottlaugy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Laufen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "47.93390135",
+            "lon": "12.932992353069565",
+            "name": "Rottmayr-Gymnasium",
+            "postcode": "83410",
+            "road": "Barbarossastra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Rottmayr-Gymnasium Laufen",
+        "school": "rottlaugy",
+        "url": "https://rottlaugy.eltern-portal.org"
+    },
+    {
+        "domain": "rsache.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "type": "bus_stop"
+        },
+        "ip": "88.198.51.243",
+        "name": "Achental-Realschule Marquartstein",
+        "school": "rsache",
+        "url": "https://rsache.eltern-portal.org"
+    },
+    {
+        "domain": "rsgcham.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Cham",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "49.22473995",
+            "lon": "12.667765856170774",
+            "name": "Robert-Schuman-Gymnasium",
+            "postcode": "93413",
+            "road": "Jahnstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Robert-Schuman-Gymnasium Cham",
+        "school": "rsgcham",
+        "url": "https://rsgcham.eltern-portal.org"
+    },
+    {
+        "domain": "rsvat.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Vaterstetten",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.0975188",
+            "lon": "11.788785176405925",
+            "name": "Staatliche Realschule Vaterstetten",
+            "postcode": "85598",
+            "road": "Neue Poststra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Staatliche Realschule Vaterstetten",
+        "school": "rsvat",
+        "url": "https://rsvat.eltern-portal.org"
+    },
+    {
+        "domain": "rudigyau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "9a",
+            "lat": "48.3540557",
+            "lon": "10.950683980931768",
+            "name": "Rudolf-Diesel-Gymnasium",
+            "postcode": "86163",
+            "road": "Peterhofstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Rudolf-Diesel-Gymnasium Augsburg",
+        "school": "rudigyau",
+        "url": "https://rudigyau.eltern-portal.org"
+    },
+    {
+        "domain": "rugymue.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fchldorf a. Inn",
+            "country": "Deutschland",
+            "house_number": "16;18",
+            "lat": "48.2465198",
+            "lon": "12.528062326591911",
+            "name": "Ruperti-Gymnasium",
+            "postcode": "84453",
+            "road": "Herzog-Friedrich-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Ruperti-Gymnasium",
+        "school": "rugymue",
+        "url": "https://rugymue.eltern-portal.org"
+    },
+    {
+        "domain": "seligla.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Gymnasium der Schulstiftung Seligenthal",
+        "school": "seligla",
+        "url": "https://seligla.eltern-portal.org"
+    },
+    {
+        "domain": "seliglags.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Grundschule der Schulstiftung Seligenthal",
+        "school": "seliglags",
+        "url": "https://seliglags.eltern-portal.org"
+    },
+    {
+        "domain": "seligws.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Wirtschaftsschule der Schulstiftung Seligenthal Landshut",
+        "school": "seligws",
+        "url": "https://seligws.eltern-portal.org"
+    },
+    {
+        "domain": "shr.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.16631325",
+            "lon": "11.507641368283874",
+            "name": "Samuel-Heinicke-Realschule und Internat",
+            "postcode": "80992",
+            "road": "In den Kirschen",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Samuel-Heinicke-Realschule",
+        "school": "shr",
+        "url": "https://shr.eltern-portal.org"
+    },
+    {
+        "domain": "siewuegym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "W\u00fcrzburg",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "49.7959077",
+            "lon": "9.94208023766935",
+            "name": "Siebold-Gymnasium",
+            "postcode": "97070",
+            "road": "Rennweger Ring",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Siebold-Gymnasium W\u00fcrzburg",
+        "school": "siewuegym",
+        "url": "https://siewuegym.eltern-portal.org"
+    },
+    {
+        "domain": "simagygu.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Gunzenhausen",
+            "country": "Deutschland",
+            "house_number": "3",
+            "lat": "49.1152208",
+            "lon": "10.760629720156377",
+            "name": "Simon-Marius-Gymnasium",
+            "postcode": "91710",
+            "road": "Simon-Marius-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Simon-Marius-Gymnasium",
+        "school": "simagygu",
+        "url": "https://simagygu.eltern-portal.org"
+    },
+    {
+        "domain": "sontgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Sonthofen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "47.5132074",
+            "lon": "10.2697239957736",
+            "name": "Gymnasium Sonthofen",
+            "postcode": "87527",
+            "road": "Albert-Schweitzer-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Sonthofen",
+        "school": "sontgym",
+        "url": "https://sontgym.eltern-portal.org"
+    },
+    {
+        "domain": "sosgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.168197750000004",
+            "lon": "11.571953397466505",
+            "name": "St\u00e4dtisches Sophie-Scholl-Gymnasium",
+            "postcode": "80804",
+            "road": "Borschtallee",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dtisches Sophie-Scholl-Gymnasium M\u00fcnchen",
+        "school": "sosgymuc",
+        "url": "https://sosgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "spmshau.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Sport-Mittelschule Hauzenberg",
+        "school": "spmshau",
+        "url": "https://spmshau.eltern-portal.org"
+    },
+    {
+        "domain": "stagymu.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "type": "sports_centre"
+        },
+        "ip": "88.198.51.243",
+        "name": "Staffelsee-Gymnasium Murnau",
+        "school": "stagymu",
+        "url": "https://stagymu.eltern-portal.org"
+    },
+    {
+        "domain": "stbgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Starnberg",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "48.003431649999996",
+            "lon": "11.344609722650826",
+            "name": "Gymnasium Starnberg",
+            "postcode": "82319",
+            "road": "Rheinlandstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Starnberg",
+        "school": "stbgym",
+        "url": "https://stbgym.eltern-portal.org"
+    },
+    {
+        "domain": "stgogyna.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.766500199999996",
+            "lon": "13.030632841934679",
+            "name": "St.-Gotthard-Gymnasium Niederalteich",
+            "postcode": "94557",
+            "road": "Hengersberger Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "St.-Gotthard-Gymnasium",
+        "school": "stgogyna",
+        "url": "https://stgogyna.eltern-portal.org"
+    },
+    {
+        "domain": "stugylen.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Br\u00fchl",
+            "country": "Deutschland",
+            "house_number": "22",
+            "lat": "50.8347632",
+            "lon": "6.902976777448595",
+            "name": "Erzbisch\u00f6fliches St. Ursula-Gymnasium Br\u00fchl",
+            "postcode": "50321",
+            "road": "Kaiserstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Erzbisch\u00f6fliches St.-Ursula-Gymnasium",
+        "school": "stugylen",
+        "url": "https://stugylen.eltern-portal.org"
+    },
+    {
+        "domain": "tassimgy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Simbach",
+            "country": "Deutschland",
+            "house_number": "28",
+            "lat": "48.2739538",
+            "lon": "13.0237623",
+            "name": "Tassilo-Gymnasium Simbach am Inn",
+            "postcode": "84359",
+            "road": "Obersimbach",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Tassilo-Gymnasium Simbach am Inn",
+        "school": "tassimgy",
+        "url": "https://tassimgy.eltern-portal.org"
+    },
+    {
+        "domain": "tgamuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.1333479",
+            "lon": "11.5721671",
+            "name": "Theresia-Gerhardinger-Gymnasium am Anger",
+            "postcode": "80331",
+            "road": "Blumenstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Theresia-Gerhardinger-Gymnasium am Anger",
+        "school": "tgamuc",
+        "url": "https://tgamuc.eltern-portal.org"
+    },
+    {
+        "domain": "tgrs.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Erzbisch\u00f6fliche Theresia-Gerhardinger-M\u00e4dchenrealschule",
+        "school": "tgrs",
+        "url": "https://tgrs.eltern-portal.org"
+    },
+    {
+        "domain": "theheugym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "N\u00f6rdlingen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.843590649999996",
+            "lon": "10.497522315263218",
+            "name": "Theodor-Heuss-Gymnasium",
+            "postcode": "86720",
+            "road": "Stargarder Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Theodor-Heuss-Gymnasium N\u00f6rdlingen",
+        "school": "theheugym",
+        "url": "https://theheugym.eltern-portal.org"
+    },
+    {
+        "domain": "theogymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "48.09759805",
+            "lon": "11.575607106609464",
+            "name": "St\u00e4dtisches Theodolinden-Gymnasium",
+            "postcode": "81547",
+            "road": "Am Staudengarten",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dtisches Theodolinden-Gymnasium M\u00fcnchen",
+        "school": "theogymuc",
+        "url": "https://theogymuc.eltern-portal.org"
+    },
+    {
+        "domain": "thergymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.13180655",
+            "lon": "11.556671661144446",
+            "name": "Theresien-Gymnasium",
+            "postcode": "80336",
+            "road": "Beethovenstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Theresien-Gymnasium M\u00fcnchen",
+        "school": "thergymuc",
+        "url": "https://thergymuc.eltern-portal.org"
+    },
+    {
+        "domain": "thomagymuc.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dtisches Thomas-Mann-Gymnasium M\u00fcnchen",
+        "school": "thomagymuc",
+        "url": "https://thomagymuc.eltern-portal.org"
+    },
+    {
+        "domain": "toelbos.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "toelbos",
+        "url": "https://toelbos.eltern-portal.org"
+    },
+    {
+        "domain": "toelgvs.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Bad T\u00f6lz",
+            "country": "Deutschland",
+            "house_number": "26",
+            "lat": "47.764168999999995",
+            "lon": "11.564794151183794",
+            "name": "Gabriel-von-Seidl-Gymnasium",
+            "postcode": "83646",
+            "road": "Hindenburgstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gabriel-von-Seidl-Gymnasium Bad T\u00f6lz",
+        "school": "toelgvs",
+        "url": "https://toelgvs.eltern-portal.org"
+    },
+    {
+        "domain": "trugymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "64",
+            "lat": "48.109904549999996",
+            "lon": "11.674841577765326",
+            "name": "Gymnasium Trudering",
+            "postcode": "81827",
+            "road": "Friedenspromenade",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Trudering",
+        "school": "trugymuc",
+        "url": "https://trugymuc.eltern-portal.org"
+    },
+    {
+        "domain": "ufggym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Unterf\u00f6hring",
+            "country": "Deutschland",
+            "house_number": "17",
+            "lat": "48.1862632",
+            "lon": "11.6495182",
+            "name": "Gymnasium Unterf\u00f6hring",
+            "postcode": "85774",
+            "road": "Mitterfeldallee",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Unterf\u00f6hring",
+        "school": "ufggym",
+        "url": "https://ufggym.eltern-portal.org"
+    },
+    {
+        "domain": "ugriegym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": "12",
+            "lat": "48.57813185",
+            "lon": "13.663405748076922",
+            "name": "Gymnasium Untergriesbach",
+            "postcode": "94107",
+            "road": "Bgm.-Kainz-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Untergriesbach",
+        "school": "ugriegym",
+        "url": "https://ugriegym.eltern-portal.org"
+    },
+    {
+        "domain": "urstragym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Straubing",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.8839663",
+            "lon": "12.5734971",
+            "name": "Gymnasium der Ursulinen-Schulstiftung",
+            "postcode": "94315",
+            "road": "Burggasse",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium der Ursulinen-Schulstiftung Straubing",
+        "school": "urstragym",
+        "url": "https://urstragym.eltern-portal.org"
+    },
+    {
+        "domain": "veihoegym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": null,
+            "country": "Deutschland",
+            "house_number": "45",
+            "lat": "49.8305576",
+            "lon": "9.885583035978481",
+            "name": "Gymnasium Veitsh\u00f6chheim",
+            "postcode": "97209",
+            "road": "G\u00fcnterslebener Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Veitsh\u00f6chheim",
+        "school": "veihoegym",
+        "url": "https://veihoegym.eltern-portal.org"
+    },
+    {
+        "domain": "vhgybo.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Bogen",
+            "country": "Deutschland",
+            "house_number": "4",
+            "lat": "48.91606415",
+            "lon": "12.684467283894017",
+            "name": "Veit-H\u00f6ser-Gymnasium",
+            "postcode": "94327",
+            "road": "Wittelsbacherstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Veit-H\u00f6ser-Gymnasium Bogen",
+        "school": "vhgybo",
+        "url": "https://vhgybo.eltern-portal.org"
+    },
+    {
+        "domain": "visgyffb.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "F\u00fcrstenfeldbruck",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "48.1675529",
+            "lon": "11.22449296001907",
+            "name": "Viscardi-Gymnasium F\u00fcrstenfeldbruck",
+            "postcode": "82256",
+            "road": "Balduin-Helm-Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Viscardi-Gymnasium F\u00fcrstenfeldbruck",
+        "school": "visgyffb",
+        "url": "https://visgyffb.eltern-portal.org"
+    },
+    {
+        "domain": "wbgl.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Langenzenn",
+            "country": "Deutschland",
+            "house_number": "2",
+            "lat": "49.49228735",
+            "lon": "10.780064672493133",
+            "name": "Wolfgang-Borchert-Gymnasium",
+            "postcode": "90579",
+            "road": "Sportplatzstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Wolfgang-Borchert-Gymnasium Langenzenn",
+        "school": "wbgl",
+        "url": "https://wbgl.eltern-portal.org"
+    },
+    {
+        "domain": "weilgym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Weilheim in Oberbayern",
+            "country": "Deutschland",
+            "house_number": "12",
+            "lat": "47.8349346",
+            "lon": "11.142952721622617",
+            "name": "Gymnasium Weilheim",
+            "postcode": "82362",
+            "road": "Murnauer Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Gymnasium Weilheim i. OB",
+        "school": "weilgym",
+        "url": "https://weilgym.eltern-portal.org"
+    },
+    {
+        "domain": "welfen.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Schongau",
+            "country": "Deutschland",
+            "house_number": "21",
+            "lat": "47.8087827",
+            "lon": "10.8939689",
+            "name": "Welfen-Gymnasium",
+            "postcode": "86956",
+            "road": "Dornauer Weg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Welfen-Gymnasium Schongau",
+        "school": "welfen",
+        "url": "https://welfen.eltern-portal.org"
+    },
+    {
+        "domain": "wfgap.eltern-portal.org",
+        "exists": false,
+        "ip": "88.198.51.243",
+        "name": null,
+        "school": "wfgap",
+        "url": "https://wfgap.eltern-portal.org"
+    },
+    {
+        "domain": "wggselb.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Selb",
+            "country": "Deutschland",
+            "house_number": "90",
+            "lat": "50.16273355",
+            "lon": "12.13749783398891",
+            "name": "Walter-Gropius-Gymnasium Selb",
+            "postcode": "95100",
+            "road": "Hohenberger Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Walter-Gropius-Gymnasium Selb",
+        "school": "wggselb",
+        "url": "https://wggselb.eltern-portal.org"
+    },
+    {
+        "domain": "wggymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.169401300000004",
+            "lon": "11.572009130724906",
+            "name": "St\u00e4dtisches Willi-Graf-Gymnasium",
+            "postcode": "80804",
+            "road": "Voelderndorffstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dtisches Willi-Graf-Gymnasium M\u00fcnchen",
+        "school": "wggymuc",
+        "url": "https://wggymuc.eltern-portal.org"
+    },
+    {
+        "domain": "whgga.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Garching bei M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.24477255",
+            "lon": "11.659729396903359",
+            "name": "Werner-Heisenberg-Gymnasium",
+            "postcode": "85748",
+            "road": "Weidenweg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Werner-Heisenberg-Gymnasium Garching",
+        "school": "whgga",
+        "url": "https://whgga.eltern-portal.org"
+    },
+    {
+        "domain": "whgmuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "61",
+            "lat": "48.15239975",
+            "lon": "11.62649696179116",
+            "name": "Wilhelm-Hausenstein-Gymnasium",
+            "postcode": "81925",
+            "road": "Elektrastra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Wilhelm-Hausenstein-Gymnasium M\u00fcnchen",
+        "school": "whgmuc",
+        "url": "https://whgmuc.eltern-portal.org"
+    },
+    {
+        "domain": "widipogy.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Pocking",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "48.401426",
+            "lon": "13.324595314508333",
+            "name": "Wilhelm-Diess-Gymnasium Pocking",
+            "postcode": "94060",
+            "road": "B 12",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Wilhelm-Diess-Gymnasium Pocking",
+        "school": "widipogy",
+        "url": "https://widipogy.eltern-portal.org"
+    },
+    {
+        "domain": "wigywue.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "W\u00fcrzburg",
+            "country": "Deutschland",
+            "house_number": null,
+            "lat": "49.7874159",
+            "lon": "9.92844457916694",
+            "name": "Wirsberg-Gymnasium",
+            "postcode": "97070",
+            "road": "Tiepolostra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Wirsberg-Gymnasium W\u00fcrzburg",
+        "school": "wigywue",
+        "url": "https://wigywue.eltern-portal.org"
+    },
+    {
+        "domain": "willigym.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Neumarkt in der Oberpfalz",
+            "country": "Deutschland",
+            "house_number": "33",
+            "lat": "49.2808203",
+            "lon": "11.44886586607717",
+            "name": "Willibald-Gluck-Gymnasium",
+            "postcode": "92318",
+            "road": "Woffenbacher Stra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Willibald-Gluck-Gymnasium",
+        "school": "willigym",
+        "url": "https://willigym.eltern-portal.org"
+    },
+    {
+        "domain": "witgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "1",
+            "lat": "48.14536295",
+            "lon": "11.548467581205252",
+            "name": "Wittelsbacher-Gymnasium",
+            "postcode": "80335",
+            "road": "Marsplatz",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Wittelsbacher-Gymnasium M\u00fcnchen",
+        "school": "witgymuc",
+        "url": "https://witgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "wkrstauf.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Taufkirchen",
+            "country": "Deutschland",
+            "house_number": "102",
+            "lat": "48.04687605",
+            "lon": "11.607611484701316",
+            "name": "Walter-Klingenbeck-Realschule",
+            "postcode": "82024",
+            "road": "K\u00f6glweg",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Walter-Klingenbeck-Schule Taufkirchen",
+        "school": "wkrstauf",
+        "url": "https://wkrstauf.eltern-portal.org"
+    },
+    {
+        "domain": "wmrstrau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Traunreut",
+            "country": "Deutschland",
+            "house_number": "61a",
+            "lat": "47.95817355",
+            "lon": "12.596922484586278",
+            "name": "Walter-Mohr-Realschule Traunreut",
+            "postcode": "83301",
+            "road": "Traunring",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Walter-Mohr-Realschule Traunreut",
+        "school": "wmrstrau",
+        "url": "https://wmrstrau.eltern-portal.org"
+    },
+    {
+        "domain": "wvsgsau.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "Augsburg",
+            "country": "Deutschland",
+            "house_number": "23",
+            "lat": "48.35749845",
+            "lon": "10.946291077338458",
+            "name": "Werner-von-Siemens Grundschule",
+            "postcode": "86163",
+            "road": "Neuschwansteinstra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "Werner-von-Siemens-Grundschule Augsburg",
+        "school": "wvsgsau",
+        "url": "https://wvsgsau.eltern-portal.org"
+    },
+    {
+        "domain": "wvsgymuc.eltern-portal.org",
+        "exists": true,
+        "geo": {
+            "city": "M\u00fcnchen",
+            "country": "Deutschland",
+            "house_number": "4",
+            "lat": "48.1103306",
+            "lon": "11.6485223",
+            "name": "St\u00e4dtisches Werner-von-Siemens-Gymnasium",
+            "postcode": "81735",
+            "road": "Quiddestra\u00dfe",
+            "type": "school"
+        },
+        "ip": "88.198.51.243",
+        "name": "St\u00e4dtisches Werner-von-Siemens-Gymnasium M\u00fcnchen",
+        "school": "wvsgymuc",
+        "url": "https://wvsgymuc.eltern-portal.org"
+    },
+    {
+        "domain": "wwgybay.eltern-portal.org",
+        "exists": true,
+        "geo": null,
+        "ip": "88.198.51.243",
+        "name": "Wirtschaftswissenschaftliches und Naturwissenschaftlich-technologisches Gymnasium der Stadt Bayreuth",
+        "school": "wwgybay",
+        "url": "https://wwgybay.eltern-portal.org"
+    }
+]

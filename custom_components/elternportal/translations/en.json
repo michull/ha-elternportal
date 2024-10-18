@@ -1,40 +1,71 @@
 {
   "title": "Eltern-Portal",
   "config": {
+    "abort": {
+      "already_configured": "School is already configured"
+    },
+    "error": {
+      "bad_credentials": "Invalid e-mail address and/or password",
+      "cannot_connect": "This elternportal does not exist, most likely you have entered the school code incorrectly.",
+      "cannot_resolve": "The server does not exist, most likely you have entered the school code incorrectly.",
+      "puils_empty": "The list of pupils is empty"
+    },
     "step": {
       "user": {
         "description": "Establishment of a pupil",
         "data": {
-          "school": "School code (xxx.eltern-portal.org)",
+          "school": "School code",
           "username": "E-mail address",
           "password": "Password"
+        },
+        "data_description": {
+          "school": "The subdomain part \"xxx\" of the domain xxx.eltern-portal.org"
         }
       }
-    },
-    "error": {
-      "register_failed": "Failed to register, please try again",
-      "linking": "Unknown linking error occurred."
-    },
-    "abort": {
-      "unknown": "Unknown error occurred",
-      "cannot_connect": "Unable to connect to the portal",
-      "already_configured": "School is already configured"
     }
   },
   "options": {
+    "error": {
+      "register_start_min_max": "The value \"Start (min)\" must be less than or equal to the value \"Start (max)\".",
+      "sections_empty": "At least one module must be ticked (e.g. appointments + letters to parents)."
+    },
     "step": {
       "init": {
+        "title": "Elternportal options",
+        "description": "Which modules of the elternportal should be made available?",
+        "data": {
+          "section_appointments": "Appointments (Service)",
+          "section_lessons": "Lessons (Service)",
+          "section_letters": "Letters to parents (News)",
+          "section_polls": "Polls (News)",
+          "section_registers": "Registers (Service)",
+          "section_sicknotes": "Sick notes (Notes)"
+        },
+        "data_description": {
+          "section_appointments": "Schoolwork and other appointments",
+          "section_registers": "Homework tasks"
+        }
+      },
+      "appointment": {
+        "title": "Appointment options",
+        "data": {
+          "calendar_appointment": "Calendar for the appointments"
+        }
+      },
+      "register": {
         "title": "Register options",
         "description": "Number of days relative to today.",
         "data": {
           "register_start_min": "Start (min)",
           "register_start_max": "Start (max)",
-          "sensor_register": "Extra sensor for the class register",
-          "register_done_treshold": "Done: treshold"
+          "calendar_register": "Calendar for the class register",
+          "sensor_register": "Sensor for the class register",
+          "register_completion_treshold": "Completion (treshold)"
         },
         "data_description": {
-          "register_start_min": "",
-          "register_start_max": ""
+          "register_start_min": "Only entries whose start date is greater than or equal to the day in ? days are retrieved from the parent portal.",
+          "register_start_max": "Only entries whose start date is less than or equal to the day in ? days are retrieved from the parent portal.",
+          "register_completion_treshold": "Only entries from the parent portal whose completion date is greater than or equal to the day in ? days are displayed in the extra sensor for the class register."
         }
       }
     }

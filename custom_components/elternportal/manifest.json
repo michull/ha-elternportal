@@ -7,5 +7,5 @@
   "integration_type": "hub",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/michull/ha-elternportal/issues",
-  "version": "0.1.4"
+  "version": "0.1.5"
 }

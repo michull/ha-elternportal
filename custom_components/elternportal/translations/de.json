@@ -1,6 +1,15 @@
 {
   "title": "Eltern-Portal",
   "config": {
+    "abort": {
+      "already_configured": "Schule ist bereits konfiguriert"
+    },
+    "error": {
+      "bad_credentials": "Ungültige E-Mail Adresse und/oder Passwort",
+      "cannot_connect": "Dieses Eltern-Portal existiert nicht, höchst wahrscheinlich haben Sie das Kürzel der Schule falsch eingegeben.",
+      "cannot_resolve": "Der Server existiert nicht, höchst wahrscheinlich haben Sie das Kürzel der Schule falsch eingegeben.",
+      "puils_empty": "Die Liste der Schüler:innen ist leer"
+    },
     "step": {
       "user": {
         "description": "Einrichtung einer Schülerin bzw. eines Schülers",
@@ -10,34 +19,53 @@
           "password": "Passwort"
         },
         "data_description": {
-          "school": "Erster Teil der URL xxx.eltern-portal.org"
+          "school": "Der Subdomain-Teil \"xxx\" der Domain xxx.eltern-portal.org"
         }
       }
-    },
-    "error": {
-      "register_failed": "Registrierung fehlgeschlagen, bitte versuchen Sie es erneut.",
-      "linking": "Unbekannter Verknüpfungsfehler aufgetreten."
-    },
-    "abort": {
-      "unknown": "Unbekannter Fehler aufgetreten",
-      "cannot_connect": "Verbindung zum Portal kann nicht hergestellt werden",
-      "already_configured": "Schule ist bereits konfiguriert"
     }
   },
   "options": {
+    "error": {
+      "register_start_min_max": "Der Wert \"Start (min)\" muss kleiner oder gleich dem Wert \"Start (max)\" sein.",
+      "sections_empty": "Es muss mindestens ein Modul angehakt sein (z.B. Termine + Elternbriefe)"
+    },
     "step": {
       "init": {
+        "title": "Elternportal Optionen",
+        "description": "Welche Module des Elternportals sollen zu Verfügung gestellt werden?",
+        "data": {
+          "section_appointments": "Termine (Service)",
+          "section_lessons": "Stundenplan (Service)",
+          "section_letters": "Elternbriefe (Aktuelles)",
+          "section_polls": "Umfragen (Aktuelles)",
+          "section_registers": "Klassenbuch (Service)",
+          "section_sicknotes": "Krankmeldungen (Meldung)"
+        },
+        "data_description": {
+          "section_appointments": "Schulaufgaben- und andere Termine",
+          "section_registers": "Hausaufgaben"
+        }
+      },
+      "appointment": {
+        "title": "Termin Optionen",
+        "data": {
+          "calendar_appointment": "Kalender für die Termine"
+        }
+      },
+      "register": {
         "title": "Klassenbuch Optionen",
         "description": "Anzahl der Tage relativ zu heute.",
         "data": {
           "register_start_min": "Start (min)",
           "register_start_max": "Start (max)",
-          "sensor_register": "Extra Sensor fürs Klassenbuch",
-          "register_done_treshold": "Fertig: Anzeigegrenze"
+          "calendar_register": "Kalender fürs Klassenbuch",
+          "sensor_register": "Sensor fürs Klassenbuch",
+          "register_completion_treshold": "Fertigstellung (Anzeigegrenze)"
         },
         "data_description": {
-          "register_start_min": "???",
-          "register_start_max": "???"
+          "register_start_min": "Es werden nur Einträge aus dem Eltern-Portal abgerufen, deren Startdatum größer oder gleich dem Tag in ? Tagen ist.",
+          "register_start_max": "Es werden nur Einträge aus dem Eltern-Portal abgerufen, deren Startdatum kleiner oder gleich dem Tag in ? Tagen ist.",
+          "register_completion_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Extra-Sensor fürs Klassenbuch angezeigt, deren Fertigstellungsdatum größer oder gleich dem Tag in ? Tagen ist."
         }
       }
     }

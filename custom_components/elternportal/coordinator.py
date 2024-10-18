@@ -18,10 +18,10 @@ class ElternPortalCoordinator(DataUpdateCoordinator[None]):
 
     def __init__(self, hass: HomeAssistant, api: ElternportalAPI) -> None:
         """Initialize elternportal coordinator."""
-        
+
         super().__init__(
             hass, _LOGGER, name=DOMAIN, update_interval=DEFAULT_SCAN_INTERVAL
-        )        
+        )
         self.api = api
 
     async def _async_setup(self) -> None:

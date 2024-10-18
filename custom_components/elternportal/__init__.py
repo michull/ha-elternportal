@@ -5,21 +5,13 @@ from __future__ import annotations
 import logging
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import (
-    CONF_PASSWORD,
-    CONF_USERNAME
-)
+from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant
-#import homeassistant.helpers.config_validation as cv
-#from homeassistant.helpers.typing import ConfigType
 
 from .const import (
     DOMAIN,
     PLATFORMS,
     CONF_SCHOOL,
-    CONF_REGISTER_START_MIN,
-    CONF_REGISTER_START_MAX,
-    CONF_REGISTER_DONE_TRESHOLD,
 )
 from .api import ElternPortalAPI
 from .coordinator import ElternPortalCoordinator
@@ -40,7 +32,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     # Initialize the API and coordinator.
     try:
-        api = await hass.async_add_executor_job(ElternPortalAPI, entry.data, entry.options)
+        api = await hass.async_add_executor_job(ElternPortalAPI)
+        await api.async_set_config_data(entry.data)
+        await api.async_set_option_data(entry.options)
         coordinator = ElternPortalCoordinator(hass, api)
     except:
         _LOGGER.exception(f"Setup of school {school} with username {username} failed.")
@@ -50,22 +44,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     hass.data[DOMAIN][entry.entry_id] = coordinator
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
-    
+
     entry.add_update_listener(async_reload_entry)
     _LOGGER.debug("Setup of the config entry ended")
     return True
 
-async def async_migrate_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Migrate old entry."""
-    _LOGGER.debug(f"Migrating {entry.title} from version {entry.version}.{entry.minor_version}")
-
-    if entry.version > 1:
-        # This means the user has downgraded from a future version
-        return False
-
-    _LOGGER.debug(f"Migration of {entry.title} to version {entry.version}.{entry.minor_version} successful")
-
-    return True
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
@@ -76,6 +59,7 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         hass.data[DOMAIN].pop(entry.entry_id)
     _LOGGER.debug("Unload of the config entry ended")
     return unload_ok
+
 
 async def async_reload_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
     """Reload config entry."""
