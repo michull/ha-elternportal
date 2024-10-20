@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import datetime
 import logging
+import pyelternportal
 
 from homeassistant.components.calendar import CalendarEntity, CalendarEvent
 from homeassistant.config_entries import ConfigEntry
@@ -32,13 +33,13 @@ async def async_setup_entry(
 
     coordinator: ElternPortalCoordinator = hass.data[DOMAIN][entry.entry_id]
 
-    entities = []
-    for pupil_id in coordinator.api.pupils:
+    entities: list[CalendarEntity] = []
+    for pupil in coordinator.api.pupils:
         if entry.options.get(CONF_CALENDAR_APPOINTMENT, DEFAULT_CALENDAR_APPOINTMENT):
-            entities.append(ElternPortalAppointmentCalendar(coordinator, pupil_id))
+            entities.append(ElternPortalAppointmentCalendar(coordinator, pupil))
 
         if entry.options.get(CONF_CALENDAR_REGISTER, DEFAULT_CALENDAR_REGISTER):
-            entities.append(ElternPortalRegisterCalendar(coordinator, pupil_id))
+            entities.append(ElternPortalRegisterCalendar(coordinator, pupil))
 
     async_add_entities(entities, update_before_add=True)
     _LOGGER.debug("Setup elternportal calendar platform ended")
@@ -49,23 +50,20 @@ class ElternPortalAppointmentCalendar(
 ):
     """Representation of a elternportal appointment calendar."""
 
-    def __init__(self, coordinator: ElternPortalCoordinator, pupil_id: str) -> None:
+    def __init__(self, coordinator: ElternPortalCoordinator, pupil: pyelternportal.Pupil) -> None:
         """Initialize the elternportal appointment calendar."""
 
         _LOGGER.debug("Setup calendar appointment started")
         super().__init__(coordinator)
 
-        firstname = coordinator.api.pupils.get(pupil_id).get("firstname")
-        self.api = coordinator.api
-        self.pupil_id = pupil_id
-
-        self.entity_id = f"{Platform.CALENDAR}.{DOMAIN}_apppointment_{pupil_id}"
-        self._attr_unique_id = f"{DOMAIN}_appointment_{pupil_id}"
-        self._name = f"{FRIENDLY_NAME} Appointment {firstname}"
+        self.entity_id = f"{Platform.CALENDAR}.{DOMAIN}_apppointment_{pupil.pupil_id}"
+        self._attr_unique_id = f"{DOMAIN}_appointment_{pupil.pupil_id}"
+        self._name = f"{FRIENDLY_NAME} Appointment {pupil.firstname}"
         self._icon = "mdi:school-outline"
 
-        self._event = None
-        self._events = []
+        self.pupil: pyelternportal.Pupil = pupil
+        self._event: CalendarEvent = None
+        self._events: list[CalendarEvent] = []
 
         _LOGGER.debug("Setup calendar appointment ended")
 
@@ -79,6 +77,7 @@ class ElternPortalAppointmentCalendar(
         """Return the next upcoming event."""
         return self._event
 
+    # pylint: disable=unused-argument
     async def async_get_events(
         self,
         hass: HomeAssistant,
@@ -89,7 +88,7 @@ class ElternPortalAppointmentCalendar(
 
         # Use the timezone of the start_date (or Home Assistant timezone)
         timezone = start_date.tzinfo or datetime.timezone.utc
-        events_in_range = []
+        events_in_range: list[CalendarEvent] = []
         for event in self._events:
             event_start = datetime.datetime(
                 event.start.year, event.start.month, event.start.day
@@ -105,15 +104,14 @@ class ElternPortalAppointmentCalendar(
     async def async_update(self) -> None:
         """Update status."""
 
-        _LOGGER.debug(f"ElternPortalAppointmentCalendar.async_update")
+        _LOGGER.debug("ElternPortalAppointmentCalendar.async_update")
         self._events = []
-        appointments = self.api.pupils[self.pupil_id]["appointments"]
-        for appointment in appointments:
+        for appointment in self.pupil.appointments:
             # start, end, summary, description, location, uid, recurrence_id, rrule
             cevent = CalendarEvent(
-                start=appointment["start"],
-                end=appointment["end"] + datetime.timedelta(days=1),
-                summary=appointment["title"],
+                start=appointment.start,
+                end=appointment.end + datetime.timedelta(days=1),
+                summary=appointment.title,
             )
             self._events.append(cevent)
 
@@ -134,20 +132,18 @@ class ElternPortalRegisterCalendar(
 ):
     """Representation of a elternportal register calendar."""
 
-    def __init__(self, coordinator: ElternPortalCoordinator, pupil_id: str) -> None:
+    def __init__(self, coordinator: ElternPortalCoordinator, pupil: pyelternportal.Pupil) -> None:
         """Initialize the elternportal register calendar."""
 
-        _LOGGER.debug(f"ElternPortalRegisterCalendar.__init__")
+        _LOGGER.debug("ElternPortalRegisterCalendar.__init__")
         super().__init__(coordinator)
 
-        firstname = coordinator.api.pupils.get(pupil_id).get("firstname")
-        self.api = coordinator.api
-        self.pupil_id = pupil_id
-
-        self._name = f"{FRIENDLY_NAME} Register {firstname}"
+        self._name = f"{FRIENDLY_NAME} Register {pupil.firstname}"
         self._icon = "mdi:school-outline"
-        self._event = None
-        self._events = []
+
+        self.pupil: pyelternportal.Pupil = pupil
+        self._event: CalendarEvent = None
+        self._events: list[CalendarEvent] = []
 
     @property
     def name(self) -> str:
@@ -159,6 +155,7 @@ class ElternPortalRegisterCalendar(
         """Return the next upcoming event."""
         return self._event
 
+    # pylint: disable=unused-argument
     async def async_get_events(
         self,
         hass: HomeAssistant,
@@ -169,7 +166,7 @@ class ElternPortalRegisterCalendar(
 
         # Use the timezone of the start_date (or Home Assistant timezone)
         timezone = start_date.tzinfo or datetime.timezone.utc
-        events_in_range = []
+        events_in_range : list[CalendarEvent] = []
         for event in self._events:
             event_start = datetime.datetime(
                 event.start.year, event.start.month, event.start.day
@@ -186,15 +183,13 @@ class ElternPortalRegisterCalendar(
         """Update status."""
 
         self._events = []
-        registers = self.api.pupils[self.pupil_id]["registers"]
-        for register in registers:
+        for register in self.pupil.registers:
             # start, end, summary, description, location, uid, recurrence_id, rrule
             cevent = CalendarEvent(
-                start=register["start"],
-                end=register["completion"] + datetime.timedelta(days=1),
-                summary=(register["subject"] + ", " if register["subject"] else "")
-                + register["teacher"],
-                description=register["description"],
+                start=register.start,
+                end=register.completion + datetime.timedelta(days=1),
+                summary=(register.subject + ", " if register.subject else "") + register.teacher,
+                description=register.description,
             )
             self._events.append(cevent)
 

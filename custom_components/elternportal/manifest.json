@@ -1,11 +1,16 @@
 {
   "domain": "elternportal",
   "name": "Eltern-Portal",
-  "codeowners": ["@michull"],
+  "codeowners": [
+    "@michull"
+  ],
   "config_flow": true,
   "documentation": "https://github.com/michull/ha-elternportal",
   "integration_type": "hub",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/michull/ha-elternportal/issues",
-  "version": "0.1.5"
+  "requirements": [
+    "pyelternportal==0.0.6"
+  ],
+  "version": "0.1.6"
 }

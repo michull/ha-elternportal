@@ -11,7 +11,7 @@ PATH_JSON: Final[str] = r"..\schools\schools.json"
 PATH_MD: Final[str] = r"..\SCHOOLS.md"
 
 month = datetime.date.today().isoformat()[:8]
-geolocator = geopy.geocoders.Nominatim(user_agent="api-elternportal")
+geolocator = geopy.geocoders.Nominatim(user_agent="pyelternportal")
 
 with open(PATH_JSON, mode="r", encoding="utf-8") as read_file:
     data = json.load(read_file)
@@ -39,7 +39,7 @@ for s in data:
         "name" not in s or "name_lastcheck" not in s or month not in s["name_lastcheck"]
     )
     if namecheck and s["url"] is not None:
-        response = requests.get(s["url"])
+        response = requests.get(url=s["url"],timeout=30)
         html = response.content
         if "Dieses Eltern-Portal existiert nicht" in html:
             print(f"resolve {s["url"]} to 'Eltern-Portal existiert nicht'")
@@ -120,4 +120,3 @@ with open(PATH_MD, mode="w", encoding="utf-8") as write_file:
             school = "[outdated]"
 
         write_file.write(f"{identifier:<10} | {url:<37} | {school}\n")
-    write_file.close

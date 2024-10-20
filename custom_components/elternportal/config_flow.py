@@ -3,14 +3,15 @@
 from __future__ import annotations
 
 import logging
+from typing import Any
+
+import pyelternportal
 import voluptuous as vol
 
 from homeassistant import config_entries
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
-from homeassistant.core import HomeAssistant, callback
+from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
-from homeassistant.helpers import config_validation as cv
-from homeassistant.helpers import selector
 
 from .const import (
     CONF_CALENDAR_APPOINTMENT,
@@ -40,13 +41,7 @@ from .const import (
     DEFAULT_SENSOR_REGISTER,
     DOMAIN,
 )
-from .api import (
-    ElternPortalAPI,
-    ResolveHostnameError,
-    CannotConnectError,
-    BadCredentialsError,
-    PupilListError,
-)
+#from .api import (ElternPortalAPI, ResolveHostnameError, CannotConnectError, BadCredentialsError, PupilListError)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -68,24 +63,24 @@ class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         errors = {}
         if user_input is not None:
             try:
-                api = await self.hass.async_add_executor_job(ElternPortalAPI)
-                await api.async_set_config_data(user_input)
-                await api.async_validate_config_data()
-            except ResolveHostnameError as ex:
-                _LOGGER.exception(f"Cannot resolve hostname: {ex}")
+                api = await self.hass.async_add_executor_job(pyelternportal.ElternPortalAPI)
+                api.set_config_data(user_input)
+                await api.async_validate_config()
+            except pyelternportal.ResolveHostnameException as ex:
+                _LOGGER.exception("Cannot resolve hostname: %s", ex)
                 errors[CONF_SCHOOL] = "cannot_resolve"
-            except CannotConnectError as ex:
-                _LOGGER.exception(f"Cannot connect: {ex}")
+            except pyelternportal.CannotConnectException as ex:
+                _LOGGER.exception("Cannot connect: %s", ex)
                 errors[CONF_SCHOOL] = "cannot_connect"
-            except BadCredentialsError as ex:
-                _LOGGER.exception(f"Bad credentials")
+            except pyelternportal.BadCredentialsException as ex:
+                _LOGGER.exception("Bad credentials: %s", ex)
                 errors[CONF_USERNAME] = "bad_credentials"
                 errors[CONF_PASSWORD] = "bad_credentials"
-            except PupilListError:
-                _LOGGER.exception(f"List of pupils is empty")
+            except pyelternportal.PupilListException:
+                _LOGGER.exception("List of pupils is empty")
                 errors["base"] = "pupils_empty"
             except Exception as ex:
-                _LOGGER.exception(f"Unknown error: {ex}")
+                _LOGGER.exception("Unknown error: %s", ex)
                 errors["base"] = "unknown_error"
 
             if not errors:
@@ -122,7 +117,11 @@ class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 class OptionsFlowHandler(config_entries.OptionsFlow):
     def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
         """Initialize options flow."""
+
         self.config_entry = config_entry
+        self.section_input: dict[str, Any] = {}
+        self.appointment_input: dict[str, Any] = {}
+        self.register_input: dict[str, Any] = {}
 
     async def async_step_init(
         self, user_input: dict[str, Any] | None = None

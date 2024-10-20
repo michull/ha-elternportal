@@ -5,10 +5,5 @@ __pycache__
 .vs/
 *.pyproj
 *.sln
-
-# Home Assistant configuration
-config/*
-!config/configuration.yaml
-
 # Test
 test*.py

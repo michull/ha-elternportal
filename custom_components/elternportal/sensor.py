@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import datetime
 import logging
+from typing import Any
+
+import pyelternportal
 
 from homeassistant.components.sensor import (
     SensorEntity,
@@ -22,14 +25,15 @@ from .const import (
     DEFAULT_SENSOR_REGISTER,
     DOMAIN,
     FRIENDLY_NAME,
-
 )
 from .coordinator import ElternPortalCoordinator
 
 _LOGGER = logging.getLogger(__name__)
 
 
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback) -> None:
+async def async_setup_entry(
+    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+) -> None:
     """Setup elternportal sensor platform."""
 
     _LOGGER.debug("Setup elternportal sensor platform started")
@@ -37,14 +41,14 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_e
     coordinator: ElternPortalCoordinator = hass.data[DOMAIN][entry.entry_id]
 
     entities = []
-    for pupil_id in coordinator.api.pupils:
-        entities.append(ElternPortalSensor(coordinator, pupil_id))
+    for pupil in coordinator.api.pupils:
+        entities.append(ElternPortalSensor(coordinator, pupil))
         if entry.options.get(CONF_SENSOR_REGISTER, DEFAULT_SENSOR_REGISTER):
             completion_treshold: int = entry.options.get(
                 CONF_REGISTER_COMPLETION_TRESHOLD, DEFAULT_REGISTER_COMPLETION_TRESHOLD
             )
             entities.append(
-                ElternPortalRegisterSensor(coordinator, pupil_id, completion_treshold)
+                ElternPortalRegisterSensor(coordinator, pupil, completion_treshold)
             )
 
     async_add_entities(entities, update_before_add=False)
@@ -56,40 +60,54 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
 
     _attr_has_entity_name = True
 
-    def __init__(self, coordinator: ElternPortalCoordinator, pupil_id: str) -> None:
+    def __init__(
+        self, coordinator: ElternPortalCoordinator, pupil: pyelternportal.Pupil
+    ) -> None:
         _LOGGER.debug("Setup sensor entry started")
         super().__init__(coordinator)
 
-        firstname = coordinator.api.pupils.get(pupil_id).get("firstname")
-        self.api = coordinator.api
-        self.pupil_id = pupil_id
-
-        self.entity_id = f"{Platform.SENSOR}.{DOMAIN}_base_{pupil_id}"
-        self._attr_unique_id = f"{DOMAIN}_base_{pupil_id}"
-        self._attr_name = f"{FRIENDLY_NAME} {firstname}"
+        self.entity_id = f"{Platform.SENSOR}.{DOMAIN}_base_{pupil.pupil_id}"
+        self._attr_unique_id = f"{DOMAIN}_base_{pupil.pupil_id}"
+        self._attr_name = f"{FRIENDLY_NAME} {pupil.firstname}"
         self._attr_icon = "mdi:account-school"
         self._attr_native_unit_of_measurement = None
         self._attr_device_class = None
         self._attr_state_class = SensorStateClass.MEASUREMENT
+
+        self.api: pyelternportal.ElternPortalAPI = coordinator.api
+        self.pupil: pyelternportal.Pupil = pupil
 
         _LOGGER.debug("Setup sensor entry ended")
 
     @property
     def available(self) -> bool:
         """Could the device be accessed during the last update call."""
-        return self.pupil_id in self.api.pupils
+        return self.pupil is not None
 
     @property
     def native_value(self) -> int | None:
         """Return the state of the sensor."""
 
-        return self.api.pupils.get(self.pupil_id)["native_value"]
+        return self.pupil.get_count()
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes of the sensor."""
 
-        return self.api.pupils.get(self.pupil_id)
+        return {
+            "pupil_id": self.pupil.pupil_id,
+            "fullname": self.pupil.fullname,
+            "firstname": self.pupil.firstname,
+            "lastname": self.pupil.lastname,
+            "classname": self.pupil.classname,
+            "appointments": self.pupil.appointments,
+            "lessons": self.pupil.lessons,
+            "letters": self.pupil.letters,
+            "polls": self.pupil.polls,
+            "registers": self.pupil.registers,
+            "sicknotes": self.pupil.sicknotes,
+            "last_update": self.api.last_update,
+        }
 
 
 class ElternPortalRegisterSensor(
@@ -102,20 +120,19 @@ class ElternPortalRegisterSensor(
     def __init__(
         self,
         coordinator: ElternPortalCoordinator,
-        pupil_id: str,
+        pupil: pyelternportal.Pupil,
         completion_treshold: int,
     ) -> None:
-        _LOGGER.debug(f"Setup sensor register started")
+        _LOGGER.debug("Setup sensor register started")
         super().__init__(coordinator)
 
-        firstname = coordinator.api.pupils.get(pupil_id).get("firstname")
-        self.api = coordinator.api
-        self.pupil_id = pupil_id
-        self.completion_treshold = completion_treshold
+        self.api: pyelternportal.ElternPortalAPI = coordinator.api
+        self.pupil: pyelternportal.Pupil = pupil
+        self.completion_treshold: int = completion_treshold
 
-        self.entity_id = f"{Platform.SENSOR}.{DOMAIN}_register_{pupil_id}"
-        self._attr_unique_id = f"{DOMAIN}_register_{pupil_id}"
-        self._attr_name = f"{FRIENDLY_NAME} {firstname} Class Register"
+        self.entity_id = f"{Platform.SENSOR}.{DOMAIN}_register_{pupil.pupil_id}"
+        self._attr_unique_id = f"{DOMAIN}_register_{pupil.pupil_id}"
+        self._attr_name = f"{FRIENDLY_NAME} {pupil.firstname} Class Register"
         self._attr_icon = "mdi:briefcase"
         self._attr_native_unit_of_measurement = None
         self._attr_device_class = None
@@ -127,21 +144,17 @@ class ElternPortalRegisterSensor(
     def available(self) -> bool:
         """Could the device be accessed during the last update call."""
 
-        pupil = self.api.pupils.get(self.pupil_id)
-        registers = pupil["registers"]
-        return registers is not None
+        return self.pupil.registers is not None
 
     @property
     def native_value(self) -> int | None:
         """Return the state of the sensor."""
 
-        pupil = self.api.pupils.get(self.pupil_id)
-        registers = pupil["registers"]
         treshold = datetime.date.today() + datetime.timedelta(
             days=self.completion_treshold
         )
         registers = list(
-            filter(lambda register: register["completion"] > treshold, registers)
+            filter(lambda register: register.completion > treshold, self.pupil.registers)
         )
         return len(registers)
 
@@ -149,16 +162,14 @@ class ElternPortalRegisterSensor(
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes of the sensor."""
 
-        pupil = self.api.pupils.get(self.pupil_id)
-        registers = pupil["registers"]
         treshold = datetime.date.today() + datetime.timedelta(
             days=self.completion_treshold
         )
-        registers = list(
-            filter(lambda register: register["completion"] >= treshold, registers)
+        registers: list[pyelternportal.Register] = list(
+            filter(lambda register: register.completion >= treshold, self.pupil.registers)
         )
-        registers.sort(key=lambda register: (register["completion"], register["start"]))
+        registers.sort(key=lambda register: (register.completion, register.start))
         return {
-            "list": registers,
+            "registers": registers,
             "last_update": self.api.last_update,
         }
