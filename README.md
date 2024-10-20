@@ -61,7 +61,7 @@ In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "e
 
 ### Page: Configuration
 
-Field name       | Content
+Field name       | Description
 :--------------- | :------------------------------
 `School code`    | School identifier (subdomain part of the official url: _____.eltern-portal.org)
 `E-mail address` | E-mail address of your account
@@ -69,29 +69,29 @@ Field name       | Content
 
 ### Page: Option
 
-Field name     | Section | Default | Description
-:--------------| :------ | :------ | :----------
-`Appointments` | Service | [ ]     | Schoolwork and other appointments
-`Lessons`      | Service | [ ]     | Time table
-`Letters`      | News    | [x]     | Letters to parents
-`Polls`        | News    | [ ]     | 
-`Registers`    | Service | [ ]     | Homework tasks
-`Sick notes`   | Notes   | [ ]     | 
+Field name     | Section | Default   | Description
+:--------------| :------ | :-------: | :----------
+`Appointments` | Service | &#9744;   | Schoolwork and other appointments
+`Lessons`      | Service | &#9744;   | Time table
+`Letters`      | News    | &#128505; | Letters to parents
+`Polls`        | News    | &#9744;   | 
+`Registers`    | Service | &#9744;   | Homework tasks
+`Sick notes`   | Notes   | &#9744;   | 
 
 ### Page: Option for appointments
 
-Field name                    | Default | Content
+Field name                    | Default | Description
 :---------------------------- | :-----: | :------------------------------------
-`Calendar for appointments`   |   [ ]   | Create an additional calendar?
+`Calendar for appointments`   | &#9744; | Create an additional calendar?
 
 ### Page: Option for class registers
 
-Field name                    | Default | Content
+Field name                    | Default | Description
 :---------------------------- | :-----: | :------------------------------------
 `Start (min)`                 |    -6   | First date for the field start
 `Start (max)`                 |    +2   | Last date for the field start
-`Calendar for class register` |   [ ]   | Create an additional calendar?
-`Sensor for class register`   |   [ ]   | Create an additional sensor?
+`Calendar for class register` | &#9744; | Create an additional calendar?
+`Sensor for class register`   | &#9744; | Create an additional sensor?
 `Completion (treshold)`       |    +1   | Treshold day on the field completion
 
 With the default values the following rule apply:
