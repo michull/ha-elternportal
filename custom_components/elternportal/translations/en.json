@@ -19,7 +19,7 @@
           "password": "Password"
         },
         "data_description": {
-          "school": "The subdomain part \"xxx\" of the domain xxx.eltern-portal.org"
+          "school": "The subdomain part of the domain _____.eltern-portal.org"
         }
       }
     }
@@ -49,7 +49,7 @@
       "appointment": {
         "title": "Appointment options",
         "data": {
-          "calendar_appointment": "Calendar for the appointments"
+          "calendar_appointment": "Calendar for appointments"
         }
       },
       "register": {
@@ -58,8 +58,8 @@
         "data": {
           "register_start_min": "Start (min)",
           "register_start_max": "Start (max)",
-          "calendar_register": "Calendar for the class register",
-          "sensor_register": "Sensor for the class register",
+          "calendar_register": "Calendar for class register",
+          "sensor_register": "Sensor for class register",
           "register_completion_treshold": "Completion (treshold)"
         },
         "data_description": {

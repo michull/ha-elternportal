@@ -10,12 +10,14 @@
 Unofficial integration for eltern-portal.org
 
 
-**This integration will set up the sensor platform.**
+**This integration will set up the calendar and sensor platform.**
 
-Sensor name                       | Description
-:-------------------------------- | :------------------------------
-`sensor.elternportal_base_id`     | Provide all data from Eltern-Portal
-`sensor.elternportal_register_id` | Class register (optional)
+Platform | Sensor name                             | Description
+:------- | :-------------------------------------- | :----------------------------------
+Sensor   | `sensor.elternportal_base_id`           | Provide all data from Eltern-Portal
+Calendar | `calendar.elternportal_appointments_id` | Calendar appointments (optional)
+Calendar | `calendar.elternportal_registers_id`    | Calendar class register (optional)
+Sensor   | `sensor.elternportal_register_id`       | Sensor Class register (optional)
 
 
 # Setup
@@ -38,7 +40,6 @@ or do the following steps:
 1. Search for and install the "elternportal" integration
 1. **Restart Home Assistant**
 
-
 ## Manual installation
 
 1. Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
@@ -56,28 +57,47 @@ After the restart, to add a school via the UI, you can use this My button:
 
 or do the following steps:
 
-1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "elternportal"
-1. Follow the configuration flow.
+In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "elternportal" and follow the configuration flow:
 
-    Field name | Content
-    :--------- | :------------------------------
-    `school`   | School identifier (prefix of the official url: ________.eltern-portal.org)
-    `username` | E-mail address of your account
-    `password` | Password of your account
+### Page: Configuration
 
-1. Follow the option flow.
+Field name       | Content
+:--------------- | :------------------------------
+`School code`    | School identifier (subdomain part of the official url: _____.eltern-portal.org)
+`E-mail address` | E-mail address of your account
+`Password`       | Password of your account
 
-    Field name            | Default | Content
-    :-------------------- | :-----: | :------------------------
-    `start_min`           |    -6   | First date for the field start
-    `start_max`           |    +2   | Last date for the field start
-    `sensor_register`     |   [ ]   | Create an additional sensor for register
-    `completion_treshold` |    +1   | Treshold day for the field completion
+### Page: Option
 
-    With the default values the following rule apply:
-    a. Only entries with a start date greater or equal to the date 6 days before today are retrieved from Eltern-Portal.
-    a. Only entries with a start date less or equal to the date 2 days after today are retrieved from Eltern-Portal.
-    a. Only entries with a completion date greater or equal to tomorrow are shown in the additional sensor for register.
+Field name     | Section | Default | Description
+:--------------| :------ | :------ | :----------
+`Appointments` | Service | [ ]     | Schoolwork and other appointments
+`Lessons`      | Service | [ ]     | Time table
+`Letters`      | News    | [x]     | Letters to parents
+`Polls`        | News    | [ ]     | 
+`Registers`    | Service | [ ]     | Homework tasks
+`Sick notes`   | Notes   | [ ]     | 
+
+### Page: Option for appointments
+
+Field name                    | Default | Content
+:---------------------------- | :-----: | :------------------------------------
+`Calendar for appointments`   |   [ ]   | Create an additional calendar?
+
+### Page: Option for class registers
+
+Field name                    | Default | Content
+:---------------------------- | :-----: | :------------------------------------
+`Start (min)`                 |    -6   | First date for the field start
+`Start (max)`                 |    +2   | Last date for the field start
+`Calendar for class register` |   [ ]   | Create an additional calendar?
+`Sensor for class register`   |   [ ]   | Create an additional sensor?
+`Completion (treshold)`       |    +1   | Treshold day on the field completion
+
+With the default values the following rule apply:
+1. Only entries with a start date greater or equal to the date 6 days before today are retrieved from Eltern-Portal.
+2. Only entries with a start date less or equal to the date 2 days after today are retrieved from Eltern-Portal.
+3. Only entries with a completion date greater or equal to tomorrow are shown in the additional sensor for register.
 
 
 # Dashboard
