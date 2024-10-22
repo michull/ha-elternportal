@@ -17,6 +17,7 @@ from .const import (
     CONF_CALENDAR_APPOINTMENT,
     CONF_CALENDAR_REGISTER,
     CONF_REGISTER_COMPLETION_TRESHOLD,
+    CONF_REGISTER_SHOW_EMPTY,
     CONF_REGISTER_START_MAX,
     CONF_REGISTER_START_MIN,
     CONF_SCHOOL,
@@ -30,6 +31,7 @@ from .const import (
     DEFAULT_CALENDAR_APPOINTMENT,
     DEFAULT_CALENDAR_REGISTER,
     DEFAULT_REGISTER_COMPLETION_TRESHOLD,
+    DEFAULT_REGISTER_SHOW_EMPTY,
     DEFAULT_REGISTER_START_MAX,
     DEFAULT_REGISTER_START_MIN,
     DEFAULT_SECTION_APPOINTMENTS,
@@ -41,7 +43,6 @@ from .const import (
     DEFAULT_SENSOR_REGISTER,
     DOMAIN,
 )
-#from .api import (ElternPortalAPI, ResolveHostnameError, CannotConnectError, BadCredentialsError, PupilListError)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -76,9 +77,9 @@ class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 _LOGGER.exception("Bad credentials: %s", ex)
                 errors[CONF_USERNAME] = "bad_credentials"
                 errors[CONF_PASSWORD] = "bad_credentials"
-            except pyelternportal.PupilListException:
-                _LOGGER.exception("List of pupils is empty")
-                errors["base"] = "pupils_empty"
+            except pyelternportal.StudentListException:
+                _LOGGER.exception("List of students is empty")
+                errors["base"] = "students_empty"
             except Exception as ex:
                 _LOGGER.exception("Unknown error: %s", ex)
                 errors["base"] = "unknown_error"
@@ -235,8 +236,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         if user_input is not None:
             # Validate user input
             if (
-                user_input[CONF_REGISTER_START_MIN]
-                > user_input[CONF_REGISTER_START_MAX]
+                int(user_input[CONF_REGISTER_START_MIN])
+                > int(user_input[CONF_REGISTER_START_MAX])
             ):
                 errors[CONF_REGISTER_START_MIN] = "register_start_min_max"
                 errors[CONF_REGISTER_START_MAX] = "register_start_min_max"
@@ -258,6 +259,12 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     CONF_REGISTER_START_MAX, DEFAULT_REGISTER_START_MAX
                 ),
             ): int,
+            vol.Optional(
+                CONF_REGISTER_SHOW_EMPTY,
+                default=self.config_entry.options.get(
+                    CONF_REGISTER_SHOW_EMPTY, DEFAULT_REGISTER_SHOW_EMPTY
+                ),
+            ): bool,
             vol.Optional(
                 CONF_CALENDAR_REGISTER,
                 default=self.config_entry.options.get(
@@ -290,6 +297,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             CONF_CALENDAR_APPOINTMENT: self.appointment_input.get(CONF_CALENDAR_APPOINTMENT),
             CONF_CALENDAR_REGISTER: self.register_input.get(CONF_CALENDAR_REGISTER),
             CONF_REGISTER_COMPLETION_TRESHOLD: self.register_input.get(CONF_REGISTER_COMPLETION_TRESHOLD),
+            CONF_REGISTER_SHOW_EMPTY: self.register_input.get(CONF_REGISTER_SHOW_EMPTY),
             CONF_REGISTER_START_MAX: self.register_input.get(CONF_REGISTER_START_MAX),
             CONF_REGISTER_START_MIN: self.register_input.get(CONF_REGISTER_START_MIN),
             CONF_SECTION_APPOINTMENTS: self.section_input[CONF_SECTION_APPOINTMENTS],

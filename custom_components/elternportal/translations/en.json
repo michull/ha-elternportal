@@ -8,11 +8,11 @@
       "bad_credentials": "Invalid e-mail address and/or password",
       "cannot_connect": "This elternportal does not exist, most likely you have entered the school code incorrectly.",
       "cannot_resolve": "The server does not exist, most likely you have entered the school code incorrectly.",
-      "puils_empty": "The list of pupils is empty"
+      "students_empty": "The list of students is empty"
     },
     "step": {
       "user": {
-        "description": "Establishment of a pupil",
+        "description": "Establishment of a student",
         "data": {
           "school": "School code",
           "username": "E-mail address",
@@ -58,6 +58,7 @@
         "data": {
           "register_start_min": "Start (min)",
           "register_start_max": "Start (max)",
+          "register_show_empty": "Show entries with \"Keine Hausaufgabe eingetragen\"",
           "calendar_register": "Calendar for class register",
           "sensor_register": "Sensor for class register",
           "register_completion_treshold": "Completion (treshold)"

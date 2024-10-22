@@ -6,6 +6,7 @@
 [![License][license-shield]](LICENSE)
 [![Hassfest][hassfest-shield]][hassfest-link]
 [![HACS][hacs-shield]][hacs-link]
+[![Code style: black][black-shield]][black-link]
 
 Unofficial integration for eltern-portal.org
 
@@ -110,6 +111,9 @@ The data of the sensor can be displayed on a dashboard with the help of markdown
 This integration is not built, maintained, provided or associated with [art soft and more GmbH](https://artsoftandmore.com/) in any way.
 
 
+[black-link]: https://github.com/psf/black
+[black-shield]: https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge
+
 [commits-link]: https://github.com/michull/ha-elternportal/commits/main
 [commits-shield]: https://img.shields.io/github/commit-activity/y/michull/ha-elternportal.svg?style=for-the-badge
 
@@ -124,6 +128,3 @@ This integration is not built, maintained, provided or associated with [art soft
 
 [hacs-link]: https://github.com/michull/ha-elternportal/actions/workflows/hacs.yaml
 [hacs-shield]: https://img.shields.io/github/actions/workflow/status/michull/ha-elternportal/hacs.yaml?style=for-the-badge
-
-
-

@@ -8,7 +8,7 @@
       "bad_credentials": "Ungültige E-Mail Adresse und/oder Passwort",
       "cannot_connect": "Dieses Eltern-Portal existiert nicht, höchst wahrscheinlich haben Sie das Kürzel der Schule falsch eingegeben.",
       "cannot_resolve": "Der Server existiert nicht, höchst wahrscheinlich haben Sie das Kürzel der Schule falsch eingegeben.",
-      "puils_empty": "Die Liste der Schüler:innen ist leer"
+      "students_empty": "Die Liste der Schüler:innen ist leer"
     },
     "step": {
       "user": {
@@ -58,6 +58,7 @@
         "data": {
           "register_start_min": "Start (min)",
           "register_start_max": "Start (max)",
+          "register_show_empty": "Zeige Einträge mit \"Keine Hausaufgabe eingetragen\"",
           "calendar_register": "Kalender fürs Klassenbuch",
           "sensor_register": "Sensor fürs Klassenbuch",
           "register_completion_treshold": "Fertigstellung (Anzeigegrenze)"

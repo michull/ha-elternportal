@@ -34,12 +34,12 @@ async def async_setup_entry(
     coordinator: ElternPortalCoordinator = hass.data[DOMAIN][entry.entry_id]
 
     entities: list[CalendarEntity] = []
-    for pupil in coordinator.api.pupils:
+    for student in coordinator.api.students:
         if entry.options.get(CONF_CALENDAR_APPOINTMENT, DEFAULT_CALENDAR_APPOINTMENT):
-            entities.append(ElternPortalAppointmentCalendar(coordinator, pupil))
+            entities.append(ElternPortalAppointmentCalendar(coordinator, student))
 
         if entry.options.get(CONF_CALENDAR_REGISTER, DEFAULT_CALENDAR_REGISTER):
-            entities.append(ElternPortalRegisterCalendar(coordinator, pupil))
+            entities.append(ElternPortalRegisterCalendar(coordinator, student))
 
     async_add_entities(entities, update_before_add=True)
     _LOGGER.debug("Setup elternportal calendar platform ended")
@@ -50,18 +50,21 @@ class ElternPortalAppointmentCalendar(
 ):
     """Representation of a elternportal appointment calendar."""
 
-    def __init__(self, coordinator: ElternPortalCoordinator, pupil: pyelternportal.Pupil) -> None:
+    def __init__(
+        self, coordinator: ElternPortalCoordinator, student: pyelternportal.Student
+    ) -> None:
         """Initialize the elternportal appointment calendar."""
 
         _LOGGER.debug("Setup calendar appointment started")
         super().__init__(coordinator)
 
-        self.entity_id = f"{Platform.CALENDAR}.{DOMAIN}_apppointment_{pupil.pupil_id}"
-        self._attr_unique_id = f"{DOMAIN}_appointment_{pupil.pupil_id}"
-        self._name = f"{FRIENDLY_NAME} Appointment {pupil.firstname}"
+        self.entity_id = f"{Platform.CALENDAR}.{DOMAIN}_apppointment_{student.student_id}"
+        self._attr_unique_id = f"{DOMAIN}_appointment_{student.student_id}"
+        self._name = f"{FRIENDLY_NAME} Appointment {student.firstname}"
         self._icon = "mdi:school-outline"
 
-        self.pupil: pyelternportal.Pupil = pupil
+        self.api: pyelternportal.ElternPortalAPI = coordinator.api
+        self.student_id: str = student.student_id
         self._event: CalendarEvent = None
         self._events: list[CalendarEvent] = []
 
@@ -106,14 +109,16 @@ class ElternPortalAppointmentCalendar(
 
         _LOGGER.debug("ElternPortalAppointmentCalendar.async_update")
         self._events = []
-        for appointment in self.pupil.appointments:
-            # start, end, summary, description, location, uid, recurrence_id, rrule
-            cevent = CalendarEvent(
-                start=appointment.start,
-                end=appointment.end + datetime.timedelta(days=1),
-                summary=appointment.title,
-            )
-            self._events.append(cevent)
+        for student in self.api.students:
+            if student.student_id == self.student_id:
+                for appointment in student.appointments:
+                    # start, end, summary, description, location, uid, recurrence_id, rrule
+                    cevent = CalendarEvent(
+                        start=appointment.start,
+                        end=appointment.end + datetime.timedelta(days=1),
+                        summary=appointment.title,
+                    )
+                    self._events.append(cevent)
 
         if self._events:
             self._events.sort(key=lambda e: (e.end))
@@ -132,16 +137,19 @@ class ElternPortalRegisterCalendar(
 ):
     """Representation of a elternportal register calendar."""
 
-    def __init__(self, coordinator: ElternPortalCoordinator, pupil: pyelternportal.Pupil) -> None:
+    def __init__(
+        self, coordinator: ElternPortalCoordinator, student: pyelternportal.Student
+    ) -> None:
         """Initialize the elternportal register calendar."""
 
         _LOGGER.debug("ElternPortalRegisterCalendar.__init__")
         super().__init__(coordinator)
 
-        self._name = f"{FRIENDLY_NAME} Register {pupil.firstname}"
+        self._name = f"{FRIENDLY_NAME} Register {student.firstname}"
         self._icon = "mdi:school-outline"
 
-        self.pupil: pyelternportal.Pupil = pupil
+        self.api: pyelternportal.ElternPortalAPI = coordinator.api
+        self.student_id: str = student.student_id
         self._event: CalendarEvent = None
         self._events: list[CalendarEvent] = []
 
@@ -166,7 +174,7 @@ class ElternPortalRegisterCalendar(
 
         # Use the timezone of the start_date (or Home Assistant timezone)
         timezone = start_date.tzinfo or datetime.timezone.utc
-        events_in_range : list[CalendarEvent] = []
+        events_in_range: list[CalendarEvent] = []
         for event in self._events:
             event_start = datetime.datetime(
                 event.start.year, event.start.month, event.start.day
@@ -183,15 +191,18 @@ class ElternPortalRegisterCalendar(
         """Update status."""
 
         self._events = []
-        for register in self.pupil.registers:
-            # start, end, summary, description, location, uid, recurrence_id, rrule
-            cevent = CalendarEvent(
-                start=register.start,
-                end=register.completion + datetime.timedelta(days=1),
-                summary=(register.subject + ", " if register.subject else "") + register.teacher,
-                description=register.description,
-            )
-            self._events.append(cevent)
+        for student in self.api.students:
+            if student.student_id == self.student_id:
+                for register in student.registers:
+                    # start, end, summary, description, location, uid, recurrence_id, rrule
+                    cevent = CalendarEvent(
+                        start=register.start,
+                        end=register.completion + datetime.timedelta(days=1),
+                        summary=(register.subject + ", " if register.subject else "")
+                        + register.teacher,
+                        description=register.description,
+                    )
+                    self._events.append(cevent)
 
         if self._events:
             self._events.sort(key=lambda e: (e.end))
