@@ -14,6 +14,7 @@ from .const import (
     CONF_REGISTER_START_MAX,
     CONF_REGISTER_START_MIN,
     CONF_SECTION_APPOINTMENTS,
+    CONF_SECTION_BLACKBOARDS,
     CONF_SECTION_LESSONS,
     CONF_SECTION_LETTERS,
     CONF_SECTION_POLLS,
@@ -23,6 +24,7 @@ from .const import (
     DEFAULT_REGISTER_START_MAX,
     DEFAULT_REGISTER_START_MIN,
     DEFAULT_SECTION_APPOINTMENTS,
+    DEFAULT_SECTION_BLACKBOARDS,
     DEFAULT_SECTION_LESSONS,
     DEFAULT_SECTION_LETTERS,
     DEFAULT_SECTION_POLLS,
@@ -52,6 +54,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     # Initialize the API and coordinator.
     try:
+        _LOGGER.debug("The version of pyelternportal is %s", pyelternportal.version)
         api = await hass.async_add_executor_job(pyelternportal.ElternPortalAPI)
         config = {
             "school": entry.data.get(CONF_SCHOOL),
@@ -62,6 +65,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         options = {
             "appointment": entry.options.get(
                 CONF_SECTION_APPOINTMENTS, DEFAULT_SECTION_APPOINTMENTS
+            ),
+            "blackboard": entry.options.get(
+                CONF_SECTION_BLACKBOARDS, DEFAULT_SECTION_BLACKBOARDS
             ),
             "lesson": entry.options.get(CONF_SECTION_LESSONS, DEFAULT_SECTION_LESSONS),
             "letter": entry.options.get(CONF_SECTION_LETTERS, DEFAULT_SECTION_LETTERS),

@@ -35,6 +35,7 @@
         "description": "Which modules of the elternportal should be made available?",
         "data": {
           "section_appointments": "Appointments (Service)",
+          "section_blackboards": "Black board (News)",
           "section_lessons": "Lessons (Service)",
           "section_letters": "Letters to parents (News)",
           "section_polls": "Polls (News)",

@@ -88,15 +88,18 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
     @property
     def native_value(self) -> int | None:
         """Return the state of the sensor."""
-        _LOGGER.debug("ElternPortalSensor.native_value")
-        _LOGGER.debug("api=%s", self.api)
-        _LOGGER.debug("student_id=%s", self.student_id)
         for student in self.api.students:
             if student.student_id == self.student_id:
-                _LOGGER.debug("student=%s", student)
-                _LOGGER.debug("registers=%s", student.registers)
-                _LOGGER.debug("registers=%d", len(student.registers))
-                return student.get_count()
+                count = (
+                    len(student.appointments)
+                    + len(student.blackboards)
+                    + len(student.lessons)
+                    + len(student.letters)
+                    + len(student.polls)
+                    + len(student.registers)
+                    + len(student.sicknotes)
+                )
+                return count
         return None
 
     @property
@@ -112,6 +115,7 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
                     "lastname": student.lastname,
                     "classname": student.classname,
                     "appointments": student.appointments,
+                    "blackboards": student.blackboards,
                     "lessons": student.lessons,
                     "letters": student.letters,
                     "polls": student.polls,
@@ -126,6 +130,7 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
             "lastname": None,
             "classname": None,
             "appointments": None,
+            "blackboards": None,
             "lessons": None,
             "letters": None,
             "polls": None,
@@ -182,7 +187,8 @@ class ElternPortalRegisterSensor(
             if student.student_id == self.student_id:
                 registers = list(
                     filter(
-                        lambda register: register.completion > treshold, student.registers
+                        lambda register: register.completion > treshold,
+                        student.registers,
                     )
                 )
                 return len(registers)

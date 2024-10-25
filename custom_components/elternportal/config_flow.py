@@ -22,6 +22,7 @@ from .const import (
     CONF_REGISTER_START_MIN,
     CONF_SCHOOL,
     CONF_SECTION_APPOINTMENTS,
+    CONF_SECTION_BLACKBOARDS,
     CONF_SECTION_LESSONS,
     CONF_SECTION_LETTERS,
     CONF_SECTION_POLLS,
@@ -35,6 +36,7 @@ from .const import (
     DEFAULT_REGISTER_START_MAX,
     DEFAULT_REGISTER_START_MIN,
     DEFAULT_SECTION_APPOINTMENTS,
+    DEFAULT_SECTION_BLACKBOARDS,
     DEFAULT_SECTION_LESSONS,
     DEFAULT_SECTION_LETTERS,
     DEFAULT_SECTION_POLLS,
@@ -135,6 +137,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             # Validate user input
             if (
                 not user_input[CONF_SECTION_APPOINTMENTS]
+                and not user_input[CONF_SECTION_BLACKBOARDS]
                 and not user_input[CONF_SECTION_LESSONS]
                 and not user_input[CONF_SECTION_LETTERS]
                 and not user_input[CONF_SECTION_POLLS]
@@ -152,6 +155,12 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 CONF_SECTION_APPOINTMENTS,
                 default=self.config_entry.options.get(
                     CONF_SECTION_APPOINTMENTS, DEFAULT_SECTION_APPOINTMENTS
+                ),
+            ): bool,
+            vol.Optional(
+                CONF_SECTION_BLACKBOARDS,
+                default=self.config_entry.options.get(
+                    CONF_SECTION_BLACKBOARDS, DEFAULT_SECTION_BLACKBOARDS
                 ),
             ): bool,
             vol.Optional(
@@ -301,6 +310,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             CONF_REGISTER_START_MAX: self.register_input.get(CONF_REGISTER_START_MAX),
             CONF_REGISTER_START_MIN: self.register_input.get(CONF_REGISTER_START_MIN),
             CONF_SECTION_APPOINTMENTS: self.section_input[CONF_SECTION_APPOINTMENTS],
+            CONF_SECTION_BLACKBOARDS: self.section_input[CONF_SECTION_BLACKBOARDS],
             CONF_SECTION_LESSONS: self.section_input[CONF_SECTION_LESSONS],
             CONF_SECTION_LETTERS: self.section_input[CONF_SECTION_LETTERS],
             CONF_SECTION_POLLS: self.section_input[CONF_SECTION_POLLS],

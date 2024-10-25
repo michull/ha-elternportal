@@ -35,6 +35,7 @@
         "description": "Welche Module des Elternportals sollen zu Verfügung gestellt werden?",
         "data": {
           "section_appointments": "Termine (Service)",
+          "section_blackboards": "Schwarzes Brett (Aktuelles)",
           "section_lessons": "Stundenplan (Service)",
           "section_letters": "Elternbriefe (Aktuelles)",
           "section_polls": "Umfragen (Aktuelles)",
