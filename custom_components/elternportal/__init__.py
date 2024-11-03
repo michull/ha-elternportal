@@ -8,6 +8,7 @@ import pyelternportal
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .const import (
     CONF_REGISTER_SHOW_EMPTY,
@@ -42,7 +43,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up a config entry."""
+    """Set up Eltern-Portal from a config entry."""
     if hass.data.get(DOMAIN) is None:
         hass.data.setdefault(DOMAIN, {})
 
@@ -53,50 +54,53 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     _LOGGER.debug("The username is %s", username)
 
     # Initialize the API and coordinator.
+    _LOGGER.debug("The version of pyelternportal is %s", pyelternportal.version)
+    # session = async_get_clientsession(hass)
+    # api = pyelternportal.ElternPortalAPI(session)
+    api = await hass.async_add_executor_job(pyelternportal.ElternPortalAPI)
+    config = {
+        "school": entry.data.get(CONF_SCHOOL),
+        "username": entry.data.get(CONF_USERNAME),
+        "password": entry.data.get(CONF_PASSWORD),
+    }
+    api.set_config_data(config)
+    options = {
+        "appointment": entry.options.get(
+            CONF_SECTION_APPOINTMENTS, DEFAULT_SECTION_APPOINTMENTS
+        ),
+        "blackboard": entry.options.get(
+            CONF_SECTION_BLACKBOARDS, DEFAULT_SECTION_BLACKBOARDS
+        ),
+        "lesson": entry.options.get(CONF_SECTION_LESSONS, DEFAULT_SECTION_LESSONS),
+        "letter": entry.options.get(CONF_SECTION_LETTERS, DEFAULT_SECTION_LETTERS),
+        "poll": entry.options.get(CONF_SECTION_POLLS, DEFAULT_SECTION_POLLS),
+        "register": entry.options.get(
+            CONF_SECTION_REGISTERS, DEFAULT_SECTION_REGISTERS
+        ),
+        "sicknote": entry.options.get(
+            CONF_SECTION_SICKNOTES, DEFAULT_SECTION_SICKNOTES
+        ),
+        "register_start_min": entry.options.get(
+            CONF_REGISTER_START_MIN, DEFAULT_REGISTER_START_MIN
+        ),
+        "register_start_max": entry.options.get(
+            CONF_REGISTER_START_MAX, DEFAULT_REGISTER_START_MAX
+        ),
+        "register_show_empty": entry.options.get(
+            CONF_REGISTER_SHOW_EMPTY, DEFAULT_REGISTER_SHOW_EMPTY
+        ),
+    }
+    api.set_option_data(options)
+
     try:
-        _LOGGER.debug("The version of pyelternportal is %s", pyelternportal.version)
-        api = await hass.async_add_executor_job(pyelternportal.ElternPortalAPI)
-        config = {
-            "school": entry.data.get(CONF_SCHOOL),
-            "username": entry.data.get(CONF_USERNAME),
-            "password": entry.data.get(CONF_PASSWORD),
-        }
-        api.set_config_data(config)
-        options = {
-            "appointment": entry.options.get(
-                CONF_SECTION_APPOINTMENTS, DEFAULT_SECTION_APPOINTMENTS
-            ),
-            "blackboard": entry.options.get(
-                CONF_SECTION_BLACKBOARDS, DEFAULT_SECTION_BLACKBOARDS
-            ),
-            "lesson": entry.options.get(CONF_SECTION_LESSONS, DEFAULT_SECTION_LESSONS),
-            "letter": entry.options.get(CONF_SECTION_LETTERS, DEFAULT_SECTION_LETTERS),
-            "poll": entry.options.get(CONF_SECTION_POLLS, DEFAULT_SECTION_POLLS),
-            "register": entry.options.get(
-                CONF_SECTION_REGISTERS, DEFAULT_SECTION_REGISTERS
-            ),
-            "sicknote": entry.options.get(
-                CONF_SECTION_SICKNOTES, DEFAULT_SECTION_SICKNOTES
-            ),
-            "register_start_min": entry.options.get(
-                CONF_REGISTER_START_MIN, DEFAULT_REGISTER_START_MIN
-            ),
-            "register_start_max": entry.options.get(
-                CONF_REGISTER_START_MAX, DEFAULT_REGISTER_START_MAX
-            ),
-            "register_show_empty": entry.options.get(
-                CONF_REGISTER_SHOW_EMPTY, DEFAULT_REGISTER_SHOW_EMPTY
-            ),
-        }
-        api.set_option_data(options)
         await api.async_validate_config()
-        coordinator = ElternPortalCoordinator(hass, api)
     except:
         _LOGGER.exception(
             "Setup of school %s with username %s failed.", school, username
         )
         return False
 
+    coordinator = ElternPortalCoordinator(hass, api)
     await coordinator.async_config_entry_first_refresh()
 
     hass.data[DOMAIN][entry.entry_id] = coordinator

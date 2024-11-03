@@ -1,12 +1,18 @@
 # Dashboard examples
 
+Note:
+All sensor names from the following examples must be adapted.
+To do this, replace the end `_n` with the appropriate value (e.g. `_1`).
+
 
 ## Helper template sensors
+
+If you want to hide a card, you can create the following helper template sensors. These sensors can be used for [conditional cards](https://www.home-assistant.io/dashboards/conditional) or the [visibility of cards](https://www.home-assistant.io/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally).
 ```
-{{ state_attr('sensor.elternportal_base_x', 'appointments') | selectattr('start', 'le', now().date() + timedelta(days=6) ) | selectattr('end', 'ge', now().date() ) | list | count }}
-{{ state_attr('sensor.elternportal_base_x', 'letters') | selectattr('new') | list | count }}
-{{ state_attr('sensor.elternportal_base_x', 'registers') | selectattr('completion', 'ge', now().date() + timedelta(days=1) ) | list | count }}
-{{ state_attr('sensor.elternportal_base_x', 'sicknotes') | selectattr('date_to', 'ge', now().date()) | list | count }}
+{{ state_attr('sensor.elternportal_base_n', 'appointments') | selectattr('start', 'le', now().date() + timedelta(days=6) ) | selectattr('end', 'ge', now().date() ) | list | count }}
+{{ state_attr('sensor.elternportal_base_n', 'letters') | selectattr('new') | list | count }}
+{{ state_attr('sensor.elternportal_base_n', 'registers') | selectattr('completion', 'ge', now().date() + timedelta(days=1) ) | list | count }}
+{{ state_attr('sensor.elternportal_base_n', 'sicknotes') | selectattr('end', 'ge', now().date()) | list | count }}
 ```
 
 
@@ -20,7 +26,7 @@ The statement in the third line sorts the dates by start date, with the closest 
 type: markdown
 title: Appointments
 content: |-
-  {% set appointments = state_attr('sensor.elternportal_base_x', 'appointments') %}
+  {% set appointments = state_attr('sensor.elternportal_base_n', 'appointments') %}
   {% set appointments = appointments | selectattr('start', 'le', now().date() + timedelta(days=6) ) | selectattr('end', 'ge', now().date() ) | list %}
   {% set appointments = appointments | sort(attribute='start') %}
   {% for appointment in appointments %}
@@ -47,7 +53,7 @@ The statement in the third line sorts the letters by sent date with newest lette
 type: markdown
 title: Letters
 content: |-
-  {% set letters = state_attr('sensor.elternportal_base_x', 'letters') %}
+  {% set letters = state_attr('sensor.elternportal_base_n', 'letters') %}
   {% set letters = letters | selectattr('new') %}
   {% set letters = letters | sort(attribute='sent', reverse=True) %}
   {% for letter in letters %}
@@ -75,7 +81,7 @@ With the filter in the second line, only registers with upcoming due dates are d
 type: markdown
 title: Class register
 content: |-
-  {% set registers = state_attr('sensor.elternportal_base_x', 'registers') %}
+  {% set registers = state_attr('sensor.elternportal_base_n', 'registers') %}
   {% set registers = registers | selectattr('completion', 'gt', now().date() ) %}
   {% set registers = registers | sort(attribute='start,completion') %}
   {% for register in registers %}
@@ -102,23 +108,23 @@ The statement in the second line hides previous sick notes.
 type: markdown
 title: Sick notes
 content: |-
-  {% set sicknotes = state_attr('sensor.elternportal_base_x', 'sicknotes') %}
-  {% set sicknotes = sicknotes | selectattr('date_to', 'ge', now().date()) %}
-  {% set sicknotes = sicknotes | sort(attribute='date_from,date_to') %}
+  {% set sicknotes = state_attr('sensor.elternportal_base_n', 'sicknotes') %}
+  {% set sicknotes = sicknotes | selectattr('end', 'ge', now().date()) %}
+  {% set sicknotes = sicknotes | sort(attribute='start,end') %}
   {% for sicknote in sicknotes %}
-  **{{ sicknote.date_from }}**: {{ sicknote.comment if sicknote.comment!="" else '[Ohne Kommentar]' }}
+  **{{ sicknote.start }}**: {{ sicknote.comment if sicknote.comment else '[Ohne Kommentar]' }}
   {% endfor %}
 ```
 
 
 ## Class register II
 
-With the help of [flex-table-card](https://github.com/custom-cards/flex-table-card) and the checked elternportal integration option `sensor_register` you can show the class register in a table.
+With the help of [flex-table-card](https://github.com/custom-cards/flex-table-card) and the checked elternportal integration option "Sensor for class register" you can show the class register in a table.
 For a German name of the weekday change the string `en-US` to `de-DE`.
 
 ``` yaml
 type: custom:flex-table-card
-title: Klassenbuch
+title: Class register
 entities:
   include: sensor.elternportal_register_x
 sort_by:
@@ -146,7 +152,7 @@ columns:
   - name: Subject
     data: list
     modify: >-
-      let content = x.subject_short || x.teacher_short;
+      let content = x.short || x.subject || x.teacher;
       let title = x.subject + " - " + x.teacher;
       "<span title='" + title + "'>" + content + "</span>";
     align: center

@@ -8,10 +8,12 @@ from homeassistant.components.calendar import CalendarEntity, CalendarEvent
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import (
+    ATTRIBUTION,
     CONF_CALENDAR_APPOINTMENT,
     CONF_CALENDAR_REGISTER,
     DEFAULT_CALENDAR_APPOINTMENT,
@@ -62,6 +64,14 @@ class ElternPortalAppointmentCalendar(
         self._attr_unique_id = f"{DOMAIN}_appointment_{student.student_id}"
         self._name = f"{FRIENDLY_NAME} Appointment {student.firstname}"
         self._icon = "mdi:school-outline"
+
+        self._attr_device_info = DeviceInfo(
+            identifiers={(DOMAIN, student.student_id)},
+            manufacturer=f"{coordinator.api.school}.eltern-portal.org",
+            model=f"{FRIENDLY_NAME} for {student.firstname}",
+            entry_type=DeviceEntryType.SERVICE,
+        )
+        self._attr_attribution = f"Data provided by {ATTRIBUTION}"
 
         self.api: pyelternportal.ElternPortalAPI = coordinator.api
         self.student_id: str = student.student_id
@@ -147,6 +157,14 @@ class ElternPortalRegisterCalendar(
 
         self._name = f"{FRIENDLY_NAME} Register {student.firstname}"
         self._icon = "mdi:school-outline"
+
+        self._attr_device_info = DeviceInfo(
+            identifiers={(DOMAIN, student.student_id)},
+            manufacturer=f"{coordinator.api.school}.eltern-portal.org",
+            model=f"{FRIENDLY_NAME} for {student.firstname}",
+            entry_type=DeviceEntryType.SERVICE,
+        )
+        self._attr_attribution = f"Data provided by {ATTRIBUTION}"
 
         self.api: pyelternportal.ElternPortalAPI = coordinator.api
         self.student_id: str = student.student_id

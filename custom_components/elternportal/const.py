@@ -6,11 +6,11 @@ import datetime
 
 from homeassistant.const import Platform
 
-DOMAIN = "elternportal"
-ATTRIBUTION = "Data provided by art soft and more GmbH"
-FRIENDLY_NAME = "Eltern-Portal"
+DOMAIN: str = "elternportal"
+ATTRIBUTION: str = "Data provided by art soft and more GmbH"
+FRIENDLY_NAME: str = "Eltern-Portal"
 
-CONF_SCHOOL = "school"
+CONF_SCHOOL: str = "school"
 
 CONF_REGISTER_START_MIN: str = "register_start_min"
 DEFAULT_REGISTER_START_MIN: int = -6
@@ -35,15 +35,15 @@ DEFAULT_SENSOR_REGISTER: bool = False
 
 DEFAULT_SCAN_INTERVAL: datetime.timedelta = datetime.timedelta(minutes=180)
 
-PLATFORMS = [Platform.CALENDAR, Platform.SENSOR]
+PLATFORMS: list[Platform] = [Platform.CALENDAR, Platform.SENSOR]
 
 CONF_SECTION_APPOINTMENTS: str = "section_appointments"
 CONF_SECTION_BLACKBOARDS: str = "section_blackboards"
 CONF_SECTION_LESSONS: str = "section_lessons"
 CONF_SECTION_LETTERS: str = "section_letters"
 CONF_SECTION_POLLS: str = "section_polls"
-CONF_SECTION_REGISTERS: str = "section_registers"  # /service/klassenbuch
-CONF_SECTION_SICKNOTES: str = "section_sicknotes"  # /meldungen/krankmeldung
+CONF_SECTION_REGISTERS: str = "section_registers"
+CONF_SECTION_SICKNOTES: str = "section_sicknotes"
 
 DEFAULT_SECTION_APPOINTMENTS: bool = True
 DEFAULT_SECTION_BLACKBOARDS: bool = False

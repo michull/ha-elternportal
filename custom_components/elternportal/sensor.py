@@ -15,10 +15,12 @@ from homeassistant.components.sensor import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import (
+    ATTRIBUTION,
     CONF_REGISTER_COMPLETION_TRESHOLD,
     CONF_SENSOR_REGISTER,
     DEFAULT_REGISTER_COMPLETION_TRESHOLD,
@@ -73,6 +75,14 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
         self._attr_native_unit_of_measurement = None
         self._attr_device_class = None
         self._attr_state_class = SensorStateClass.MEASUREMENT
+
+        self._attr_device_info = DeviceInfo(
+            identifiers={(DOMAIN, student.student_id)},
+            manufacturer=f"{coordinator.api.school}.eltern-portal.org",
+            model=f"{FRIENDLY_NAME} for {student.firstname}",
+            entry_type=DeviceEntryType.SERVICE,
+        )
+        self._attr_attribution = f"Data provided by {ATTRIBUTION}"
 
         self.api: pyelternportal.ElternPortalAPI = coordinator.api
         self.student_id: str = student.student_id
@@ -167,6 +177,14 @@ class ElternPortalRegisterSensor(
         self._attr_native_unit_of_measurement = None
         self._attr_device_class = None
         self._attr_state_class = SensorStateClass.MEASUREMENT
+
+        self._attr_device_info = DeviceInfo(
+            identifiers={(DOMAIN, student.student_id)},
+            manufacturer=f"{coordinator.api.school}.eltern-portal.org",
+            model=f"{FRIENDLY_NAME} for {student.firstname}",
+            entry_type=DeviceEntryType.SERVICE,
+        )
+        self._attr_attribution = f"Data provided by {ATTRIBUTION}"
 
     @property
     def available(self) -> bool:

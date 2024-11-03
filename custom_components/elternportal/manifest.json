@@ -6,11 +6,11 @@
   ],
   "config_flow": true,
   "documentation": "https://github.com/michull/ha-elternportal",
-  "integration_type": "hub",
+  "integration_type": "service",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/michull/ha-elternportal/issues",
   "requirements": [
     "pyelternportal>=0.0.13"
   ],
-  "version": "0.1.8"
+  "version": "0.1.9"
 }

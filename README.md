@@ -73,17 +73,20 @@ Field name       | Description
 Field name     | Section | Default   | Description
 :--------------| :------ | :-------: | :----------
 `Appointments` | Service | &#9744;   | Schoolwork and other appointments
+`Black board`  | News    | &#9744;   | Black board
 `Lessons`      | Service | &#9744;   | Time table
 `Letters`      | News    | &#128505; | Letters to parents
 `Polls`        | News    | &#9744;   | 
 `Registers`    | Service | &#9744;   | Homework tasks
 `Sick notes`   | Notes   | &#9744;   | 
 
+
 ### Page: Option for appointments
 
 Field name                    | Default | Description
 :---------------------------- | :-----: | :------------------------------------
 `Calendar for appointments`   | &#9744; | Create an additional calendar?
+
 
 ### Page: Option for class registers
 
