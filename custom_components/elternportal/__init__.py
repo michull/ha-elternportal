@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import logging
+
 import pyelternportal
+# from .pyelternportal import *  # local lib
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
@@ -18,6 +20,7 @@ from .const import (
     CONF_SECTION_BLACKBOARDS,
     CONF_SECTION_LESSONS,
     CONF_SECTION_LETTERS,
+    CONF_SECTION_MESSAGES,
     CONF_SECTION_POLLS,
     CONF_SECTION_REGISTERS,
     CONF_SECTION_SICKNOTES,
@@ -28,6 +31,7 @@ from .const import (
     DEFAULT_SECTION_BLACKBOARDS,
     DEFAULT_SECTION_LESSONS,
     DEFAULT_SECTION_LETTERS,
+    DEFAULT_SECTION_MESSAGES,
     DEFAULT_SECTION_POLLS,
     DEFAULT_SECTION_REGISTERS,
     DEFAULT_SECTION_SICKNOTES,
@@ -55,9 +59,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     # Initialize the API and coordinator.
     _LOGGER.debug("The version of pyelternportal is %s", pyelternportal.version)
-    # session = async_get_clientsession(hass)
-    # api = pyelternportal.ElternPortalAPI(session)
-    api = await hass.async_add_executor_job(pyelternportal.ElternPortalAPI)
+    session = async_get_clientsession(hass)
+    api = pyelternportal.ElternPortalAPI(session)
     config = {
         "school": entry.data.get(CONF_SCHOOL),
         "username": entry.data.get(CONF_USERNAME),
@@ -73,6 +76,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         ),
         "lesson": entry.options.get(CONF_SECTION_LESSONS, DEFAULT_SECTION_LESSONS),
         "letter": entry.options.get(CONF_SECTION_LETTERS, DEFAULT_SECTION_LETTERS),
+        "message": entry.options.get(CONF_SECTION_MESSAGES, DEFAULT_SECTION_MESSAGES),
         "poll": entry.options.get(CONF_SECTION_POLLS, DEFAULT_SECTION_POLLS),
         "register": entry.options.get(
             CONF_SECTION_REGISTERS, DEFAULT_SECTION_REGISTERS

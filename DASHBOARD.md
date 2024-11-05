@@ -60,7 +60,7 @@ content: |-
   **Subject: {{ letter.subject }}**
   **Sent: {{ letter.sent.strftime("%Y-%m-%d %H:%M") }}**
 
-  {{ letter.description }}
+  {{ letter.body }}
     {% if not loop.last %}---{% endif %}
   {% endfor %}
 ```
@@ -86,7 +86,7 @@ content: |-
   {% set registers = registers | sort(attribute='start,completion') %}
   {% for register in registers %}
   **{{ register.start }} &rarr; {{ register.completion }}, {{ register.subject }}, {{ register.teacher }}**
-  {{ register.description }}
+  {{ register.body }}
   {% endfor %}
 ```
 
@@ -158,7 +158,7 @@ columns:
     align: center
   - name: Description
     data: list
-    modify: x.description
+    modify: x.body
 css:
   td: "white-space: pre-line;"
 ````

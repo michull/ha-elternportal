@@ -5,5 +5,9 @@ __pycache__
 .vs/
 *.pyproj
 *.sln
+
 # Test
 test*.py
+
+# lib
+custom_components/elternportal/pyelternportal/

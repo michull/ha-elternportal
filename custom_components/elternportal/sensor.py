@@ -82,7 +82,7 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
             model=f"{FRIENDLY_NAME} for {student.firstname}",
             entry_type=DeviceEntryType.SERVICE,
         )
-        self._attr_attribution = f"Data provided by {ATTRIBUTION}"
+        self._attr_attribution = ATTRIBUTION
 
         self.api: pyelternportal.ElternPortalAPI = coordinator.api
         self.student_id: str = student.student_id
@@ -105,6 +105,7 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
                     + len(student.blackboards)
                     + len(student.lessons)
                     + len(student.letters)
+                    + len(student.messages)
                     + len(student.polls)
                     + len(student.registers)
                     + len(student.sicknotes)
@@ -128,6 +129,7 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
                     "blackboards": student.blackboards,
                     "lessons": student.lessons,
                     "letters": student.letters,
+                    "messages": student.messages,
                     "polls": student.polls,
                     "registers": student.registers,
                     "sicknotes": student.sicknotes,
@@ -143,6 +145,7 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
             "blackboards": None,
             "lessons": None,
             "letters": None,
+            "messages": None,
             "polls": None,
             "registers": None,
             "sicknotes": None,
@@ -184,7 +187,7 @@ class ElternPortalRegisterSensor(
             model=f"{FRIENDLY_NAME} for {student.firstname}",
             entry_type=DeviceEntryType.SERVICE,
         )
-        self._attr_attribution = f"Data provided by {ATTRIBUTION}"
+        self._attr_attribution = ATTRIBUTION
 
     @property
     def available(self) -> bool:
@@ -205,7 +208,8 @@ class ElternPortalRegisterSensor(
             if student.student_id == self.student_id:
                 registers = list(
                     filter(
-                        lambda register: register.completion > treshold,
+                        lambda register: not register.empty
+                        and register.completion >= treshold,
                         student.registers,
                     )
                 )
@@ -223,7 +227,8 @@ class ElternPortalRegisterSensor(
             if student.student_id == self.student_id:
                 registers: list[pyelternportal.Register] = list(
                     filter(
-                        lambda register: register.completion >= treshold,
+                        lambda register: not register.empty
+                        and register.completion >= treshold,
                         student.registers,
                     )
                 )

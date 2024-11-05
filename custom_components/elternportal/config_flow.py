@@ -12,6 +12,7 @@ from homeassistant import config_entries
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .const import (
     CONF_CALENDAR_APPOINTMENT,
@@ -25,6 +26,7 @@ from .const import (
     CONF_SECTION_BLACKBOARDS,
     CONF_SECTION_LESSONS,
     CONF_SECTION_LETTERS,
+    CONF_SECTION_MESSAGES,
     CONF_SECTION_POLLS,
     CONF_SECTION_REGISTERS,
     CONF_SECTION_SICKNOTES,
@@ -39,6 +41,7 @@ from .const import (
     DEFAULT_SECTION_BLACKBOARDS,
     DEFAULT_SECTION_LESSONS,
     DEFAULT_SECTION_LETTERS,
+    DEFAULT_SECTION_MESSAGES,
     DEFAULT_SECTION_POLLS,
     DEFAULT_SECTION_REGISTERS,
     DEFAULT_SECTION_SICKNOTES,
@@ -52,21 +55,22 @@ _LOGGER = logging.getLogger(__name__)
 class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """ElternPortal config flow."""
 
-    # The schema version of the entries that it creates
-    # Home Assistant will call your migrate method if the version changes
-    VERSION = 1
-    MINOR_VERSION = 1
+    VERSION: int = 1
+    MINOR_VERSION: int = 1
 
     async def async_step_user(
         self,
         user_input: dict[str, Any] | None = None,
         errors: dict[str, Any] | None = None,
     ) -> FlowResult:
-
-        errors = {}
+        """Handle the initial step."""
+        errors: dict[str, Any] = {}
         if user_input is not None:
             try:
-                api = await self.hass.async_add_executor_job(pyelternportal.ElternPortalAPI)
+                session = async_get_clientsession(self.hass)
+                api: pyelternportal.ElternPortalAPI = pyelternportal.ElternPortalAPI(
+                    session
+                )
                 api.set_config_data(user_input)
                 await api.async_validate_config()
             except pyelternportal.ResolveHostnameException as ex:
@@ -132,7 +136,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         """Manage the main options."""
 
         errors = {}
-        #_LOGGER.debug(f"User input of option flow (init): {user_input}")
+        # _LOGGER.debug(f"User input of option flow (init): {user_input}")
         if user_input is not None:
             # Validate user input
             if (
@@ -140,6 +144,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 and not user_input[CONF_SECTION_BLACKBOARDS]
                 and not user_input[CONF_SECTION_LESSONS]
                 and not user_input[CONF_SECTION_LETTERS]
+                and not user_input[CONF_SECTION_MESSAGES]
                 and not user_input[CONF_SECTION_POLLS]
                 and not user_input[CONF_SECTION_REGISTERS]
                 and not user_input[CONF_SECTION_SICKNOTES]
@@ -173,6 +178,13 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 CONF_SECTION_LETTERS,
                 default=self.config_entry.options.get(
                     CONF_SECTION_LETTERS, DEFAULT_SECTION_LETTERS
+                ),
+            ): bool,
+            vol.Optional(
+                CONF_SECTION_MESSAGES,
+                default=self.config_entry.options.get(
+                    CONF_SECTION_MESSAGES,
+                    DEFAULT_SECTION_MESSAGES,
                 ),
             ): bool,
             vol.Optional(
@@ -210,7 +222,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             return await self.async_step_register()
 
         errors = {}
-        #_LOGGER.debug(f"User input of option flow (appointment): {user_input}")
+        # _LOGGER.debug(f"User input of option flow (appointment): {user_input}")
         if user_input is not None:
             # Validate user input
 
@@ -241,12 +253,11 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             return await self.async_step_finish()
 
         errors = {}
-        #_LOGGER.debug(f"User input of option flow (register): {user_input}")
+        # _LOGGER.debug(f"User input of option flow (register): {user_input}")
         if user_input is not None:
             # Validate user input
-            if (
-                int(user_input[CONF_REGISTER_START_MIN])
-                > int(user_input[CONF_REGISTER_START_MAX])
+            if int(user_input[CONF_REGISTER_START_MIN]) > int(
+                user_input[CONF_REGISTER_START_MAX]
             ):
                 errors[CONF_REGISTER_START_MIN] = "register_start_min_max"
                 errors[CONF_REGISTER_START_MAX] = "register_start_min_max"
@@ -303,9 +314,13 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         """Manage the option flow finish."""
 
         option_data = {
-            CONF_CALENDAR_APPOINTMENT: self.appointment_input.get(CONF_CALENDAR_APPOINTMENT),
+            CONF_CALENDAR_APPOINTMENT: self.appointment_input.get(
+                CONF_CALENDAR_APPOINTMENT
+            ),
             CONF_CALENDAR_REGISTER: self.register_input.get(CONF_CALENDAR_REGISTER),
-            CONF_REGISTER_COMPLETION_TRESHOLD: self.register_input.get(CONF_REGISTER_COMPLETION_TRESHOLD),
+            CONF_REGISTER_COMPLETION_TRESHOLD: self.register_input.get(
+                CONF_REGISTER_COMPLETION_TRESHOLD
+            ),
             CONF_REGISTER_SHOW_EMPTY: self.register_input.get(CONF_REGISTER_SHOW_EMPTY),
             CONF_REGISTER_START_MAX: self.register_input.get(CONF_REGISTER_START_MAX),
             CONF_REGISTER_START_MIN: self.register_input.get(CONF_REGISTER_START_MIN),
@@ -313,10 +328,11 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             CONF_SECTION_BLACKBOARDS: self.section_input[CONF_SECTION_BLACKBOARDS],
             CONF_SECTION_LESSONS: self.section_input[CONF_SECTION_LESSONS],
             CONF_SECTION_LETTERS: self.section_input[CONF_SECTION_LETTERS],
+            CONF_SECTION_MESSAGES: self.section_input[CONF_SECTION_MESSAGES],
             CONF_SECTION_POLLS: self.section_input[CONF_SECTION_POLLS],
             CONF_SECTION_REGISTERS: self.section_input[CONF_SECTION_REGISTERS],
             CONF_SECTION_SICKNOTES: self.section_input[CONF_SECTION_SICKNOTES],
             CONF_SENSOR_REGISTER: self.register_input.get(CONF_SENSOR_REGISTER),
         }
-        #_LOGGER.debug(f"option_data={option_data}")
+        # _LOGGER.debug(f"option_data={option_data}")
         return self.async_create_entry(title="", data=option_data)

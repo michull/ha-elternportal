@@ -76,6 +76,7 @@ Field name     | Section | Default   | Description
 `Black board`  | News    | &#9744;   | Black board
 `Lessons`      | Service | &#9744;   | Time table
 `Letters`      | News    | &#128505; | Letters to parents
+`Messages`     | Notes   | &#9744;   | Communication with teachers
 `Polls`        | News    | &#9744;   | 
 `Registers`    | Service | &#9744;   | Homework tasks
 `Sick notes`   | Notes   | &#9744;   | 

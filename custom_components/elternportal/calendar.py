@@ -60,7 +60,9 @@ class ElternPortalAppointmentCalendar(
         _LOGGER.debug("Setup calendar appointment started")
         super().__init__(coordinator)
 
-        self.entity_id = f"{Platform.CALENDAR}.{DOMAIN}_apppointment_{student.student_id}"
+        self.entity_id = (
+            f"{Platform.CALENDAR}.{DOMAIN}_apppointment_{student.student_id}"
+        )
         self._attr_unique_id = f"{DOMAIN}_appointment_{student.student_id}"
         self._name = f"{FRIENDLY_NAME} Appointment {student.firstname}"
         self._icon = "mdi:school-outline"
@@ -71,7 +73,7 @@ class ElternPortalAppointmentCalendar(
             model=f"{FRIENDLY_NAME} for {student.firstname}",
             entry_type=DeviceEntryType.SERVICE,
         )
-        self._attr_attribution = f"Data provided by {ATTRIBUTION}"
+        self._attr_attribution = ATTRIBUTION
 
         self.api: pyelternportal.ElternPortalAPI = coordinator.api
         self.student_id: str = student.student_id
@@ -99,7 +101,6 @@ class ElternPortalAppointmentCalendar(
     ) -> list[CalendarEvent]:
         """Return calendar events within a datetime range."""
 
-        # Use the timezone of the start_date (or Home Assistant timezone)
         timezone = start_date.tzinfo or datetime.timezone.utc
         events_in_range: list[CalendarEvent] = []
         for event in self._events:
@@ -164,7 +165,7 @@ class ElternPortalRegisterCalendar(
             model=f"{FRIENDLY_NAME} for {student.firstname}",
             entry_type=DeviceEntryType.SERVICE,
         )
-        self._attr_attribution = f"Data provided by {ATTRIBUTION}"
+        self._attr_attribution = ATTRIBUTION
 
         self.api: pyelternportal.ElternPortalAPI = coordinator.api
         self.student_id: str = student.student_id
@@ -190,7 +191,6 @@ class ElternPortalRegisterCalendar(
     ) -> list[CalendarEvent]:
         """Return calendar events within a datetime range."""
 
-        # Use the timezone of the start_date (or Home Assistant timezone)
         timezone = start_date.tzinfo or datetime.timezone.utc
         events_in_range: list[CalendarEvent] = []
         for event in self._events:
@@ -215,10 +215,15 @@ class ElternPortalRegisterCalendar(
                     # start, end, summary, description, location, uid, recurrence_id, rrule
                     cevent = CalendarEvent(
                         start=register.start,
-                        end=register.completion + datetime.timedelta(days=1),
+                        end=(
+                            register.completion
+                            if register.completion
+                            else register.start
+                        )
+                        + datetime.timedelta(days=1),
                         summary=(register.subject + ", " if register.subject else "")
                         + register.teacher,
-                        description=register.description,
+                        description=register.body,
                     )
                     self._events.append(cevent)
 
