@@ -51,7 +51,7 @@
       "appointment": {
         "title": "Termin Optionen",
         "data": {
-          "calendar_appointment": "Kalender für die Termine"
+          "appointment_calendar": "Kalender für die Termine"
         }
       },
       "register": {
@@ -61,14 +61,13 @@
           "register_start_min": "Start (min)",
           "register_start_max": "Start (max)",
           "register_show_empty": "Zeige Einträge mit \"Keine Hausaufgabe eingetragen\"",
-          "calendar_register": "Kalender fürs Klassenbuch",
-          "sensor_register": "Sensor fürs Klassenbuch",
-          "register_completion_treshold": "Fertigstellung (Anzeigegrenze)"
+          "register_calendar": "Kalender fürs Klassenbuch",
+          "register_treshold": "Fertigstellung (Anzeigegrenze)"
         },
         "data_description": {
           "register_start_min": "Es werden nur Einträge aus dem Eltern-Portal abgerufen, deren Startdatum größer oder gleich dem Tag in ? Tagen ist.",
           "register_start_max": "Es werden nur Einträge aus dem Eltern-Portal abgerufen, deren Startdatum kleiner oder gleich dem Tag in ? Tagen ist.",
-          "register_completion_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Extra-Sensor fürs Klassenbuch angezeigt, deren Fertigstellungsdatum größer oder gleich dem Tag in ? Tagen ist."
+          "register_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor fürs Klassenbuch angezeigt, deren Fertigstellungsdatum größer oder gleich dem Tag in ? Tagen ist."
         }
       }
     }

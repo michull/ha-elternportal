@@ -2,10 +2,8 @@
 
 from __future__ import annotations
 
-import logging
-
-import pyelternportal
-# from .pyelternportal import *  # local lib
+#from .pyelternportal import ElternPortalAPI, VERSION # local lib
+from pyelternportal import ElternPortalAPI, VERSION
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
@@ -36,14 +34,12 @@ from .const import (
     DEFAULT_SECTION_REGISTERS,
     DEFAULT_SECTION_SICKNOTES,
     DOMAIN,
+    LOGGER,
     PLATFORMS,
     CONF_SCHOOL,
 )
 
-# from .api import ElternPortalAPI
 from .coordinator import ElternPortalCoordinator
-
-_LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
@@ -51,16 +47,16 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     if hass.data.get(DOMAIN) is None:
         hass.data.setdefault(DOMAIN, {})
 
-    _LOGGER.debug("Setup of the config entry %s started", entry.entry_id)
+    LOGGER.debug("Setup of the config entry %s started", entry.entry_id)
     school: str = entry.data.get(CONF_SCHOOL)
     username: str = entry.data.get(CONF_USERNAME)
-    _LOGGER.debug("The school is %s", school)
-    _LOGGER.debug("The username is %s", username)
+    LOGGER.debug("The school is %s", school)
+    LOGGER.debug("The username is %s", username)
 
     # Initialize the API and coordinator.
-    _LOGGER.debug("The version of pyelternportal is %s", pyelternportal.version)
+    LOGGER.debug("The version of pyelternportal is %s", VERSION)
     session = async_get_clientsession(hass)
-    api = pyelternportal.ElternPortalAPI(session)
+    api = ElternPortalAPI(session)
     config = {
         "school": entry.data.get(CONF_SCHOOL),
         "username": entry.data.get(CONF_USERNAME),
@@ -98,38 +94,37 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     try:
         await api.async_validate_config()
-    except:
-        _LOGGER.exception(
-            "Setup of school %s with username %s failed.", school, username
+    except Exception as ex:
+        LOGGER.exception(
+            "Setup of school %s with username %s failed: %s", school, username, ex
         )
         return False
 
     coordinator = ElternPortalCoordinator(hass, api)
-    await coordinator.async_config_entry_first_refresh()
 
     hass.data[DOMAIN][entry.entry_id] = coordinator
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
     entry.add_update_listener(async_reload_entry)
-    _LOGGER.debug("Setup of the config entry ended")
+    LOGGER.debug("Setup of the config entry ended")
     return True
 
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
 
-    _LOGGER.debug("Unload of the config entry %s started", entry.entry_id)
+    LOGGER.debug("Unload of the config entry %s started", entry.entry_id)
     unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
     if unload_ok:
         hass.data[DOMAIN].pop(entry.entry_id)
-    _LOGGER.debug("Unload of the config entry ended")
+    LOGGER.debug("Unload of the config entry ended")
     return unload_ok
 
 
 async def async_reload_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
     """Reload config entry."""
 
-    _LOGGER.debug("Reload of the config entry {entry.entry_id} started")
+    LOGGER.debug(f"Reload of the config entry {entry.entry_id} started")
     await async_unload_entry(hass, entry)
     await async_setup_entry(hass, entry)
-    _LOGGER.debug("Reload of the config entry ended")
+    LOGGER.debug("Reload of the config entry ended")

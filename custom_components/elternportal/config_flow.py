@@ -2,25 +2,35 @@
 
 from __future__ import annotations
 
-import logging
 from typing import Any
 
-import pyelternportal
+from pyelternportal import (
+    ElternPortalAPI,
+    BadCredentialsException,
+    CannotConnectException,
+    ResolveHostnameException,
+    StudentListException,
+)
 import voluptuous as vol
 
 from homeassistant import config_entries
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import callback
+from homeassistant.helpers import selector
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .const import (
-    CONF_CALENDAR_APPOINTMENT,
-    CONF_CALENDAR_REGISTER,
-    CONF_REGISTER_COMPLETION_TRESHOLD,
+    CONF_APPOINTMENT_CAL,
+    CONF_BLACKBOARD_TRESHOLD,
+    CONF_LETTER_TRESHOLD,
+    CONF_MESSAGE_TRESHOLD,
+    CONF_POLL_TRESHOLD,
+    CONF_REGISTER_CAL,
     CONF_REGISTER_SHOW_EMPTY,
     CONF_REGISTER_START_MAX,
     CONF_REGISTER_START_MIN,
+    CONF_REGISTER_TRESHOLD,
     CONF_SCHOOL,
     CONF_SECTION_APPOINTMENTS,
     CONF_SECTION_BLACKBOARDS,
@@ -30,13 +40,17 @@ from .const import (
     CONF_SECTION_POLLS,
     CONF_SECTION_REGISTERS,
     CONF_SECTION_SICKNOTES,
-    CONF_SENSOR_REGISTER,
-    DEFAULT_CALENDAR_APPOINTMENT,
-    DEFAULT_CALENDAR_REGISTER,
-    DEFAULT_REGISTER_COMPLETION_TRESHOLD,
+    CONF_SICKNOTE_TRESHOLD,
+    DEFAULT_APPOINTMENT_CAL,
+    DEFAULT_BLACKBOARD_TRESHOLD,
+    DEFAULT_LETTER_TRESHOLD,
+    DEFAULT_MESSAGE_TRESHOLD,
+    DEFAULT_POLL_TRESHOLD,
+    DEFAULT_REGISTER_CAL,
     DEFAULT_REGISTER_SHOW_EMPTY,
     DEFAULT_REGISTER_START_MAX,
     DEFAULT_REGISTER_START_MIN,
+    DEFAULT_REGISTER_TRESHOLD,
     DEFAULT_SECTION_APPOINTMENTS,
     DEFAULT_SECTION_BLACKBOARDS,
     DEFAULT_SECTION_LESSONS,
@@ -45,18 +59,17 @@ from .const import (
     DEFAULT_SECTION_POLLS,
     DEFAULT_SECTION_REGISTERS,
     DEFAULT_SECTION_SICKNOTES,
-    DEFAULT_SENSOR_REGISTER,
+    DEFAULT_SICKNOTE_TRESHOLD,
     DOMAIN,
+    LOGGER,
 )
-
-_LOGGER = logging.getLogger(__name__)
 
 
 class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """ElternPortal config flow."""
 
     VERSION: int = 1
-    MINOR_VERSION: int = 1
+    # MINOR_VERSION: int = 1
 
     async def async_step_user(
         self,
@@ -64,30 +77,28 @@ class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         errors: dict[str, Any] | None = None,
     ) -> FlowResult:
         """Handle the initial step."""
-        errors: dict[str, Any] = {}
+        # errors: dict[str, Any] = {}
         if user_input is not None:
             try:
                 session = async_get_clientsession(self.hass)
-                api: pyelternportal.ElternPortalAPI = pyelternportal.ElternPortalAPI(
-                    session
-                )
+                api: ElternPortalAPI = ElternPortalAPI(session)
                 api.set_config_data(user_input)
                 await api.async_validate_config()
-            except pyelternportal.ResolveHostnameException as ex:
-                _LOGGER.exception("Cannot resolve hostname: %s", ex)
+            except ResolveHostnameException as ex:
+                LOGGER.exception("Cannot resolve hostname: %s", ex)
                 errors[CONF_SCHOOL] = "cannot_resolve"
-            except pyelternportal.CannotConnectException as ex:
-                _LOGGER.exception("Cannot connect: %s", ex)
+            except CannotConnectException as ex:
+                LOGGER.exception("Cannot connect: %s", ex)
                 errors[CONF_SCHOOL] = "cannot_connect"
-            except pyelternportal.BadCredentialsException as ex:
-                _LOGGER.exception("Bad credentials: %s", ex)
+            except BadCredentialsException as ex:
+                LOGGER.exception("Bad credentials: %s", ex)
                 errors[CONF_USERNAME] = "bad_credentials"
                 errors[CONF_PASSWORD] = "bad_credentials"
-            except pyelternportal.StudentListException:
-                _LOGGER.exception("List of students is empty")
+            except StudentListException:
+                LOGGER.exception("List of students is empty")
                 errors["base"] = "students_empty"
             except Exception as ex:
-                _LOGGER.exception("Unknown error: %s", ex)
+                LOGGER.exception("Unknown error: %s", ex)
                 errors["base"] = "unknown_error"
 
             if not errors:
@@ -102,9 +113,27 @@ class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 return self.async_create_entry(title=api.school_name, data=config_data)
 
         data_schema = {
-            vol.Required(CONF_SCHOOL): str,
-            vol.Required(CONF_USERNAME): str,
-            vol.Required(CONF_PASSWORD): str,
+            vol.Required(
+                CONF_SCHOOL,
+                default=(user_input or {}).get(CONF_SCHOOL, vol.UNDEFINED),
+            ): selector.TextSelector(
+                selector.TextSelectorConfig(
+                    type=selector.TextSelectorType.TEXT,
+                ),
+            ),
+            vol.Required(
+                CONF_USERNAME,
+                default=(user_input or {}).get(CONF_USERNAME, vol.UNDEFINED),
+            ): selector.TextSelector(
+                selector.TextSelectorConfig(
+                    type=selector.TextSelectorType.TEXT,
+                ),
+            ),
+            vol.Required(CONF_PASSWORD): selector.TextSelector(
+                selector.TextSelectorConfig(
+                    type=selector.TextSelectorType.PASSWORD,
+                ),
+            ),
         }
 
         return self.async_show_form(
@@ -136,7 +165,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         """Manage the main options."""
 
         errors = {}
-        # _LOGGER.debug(f"User input of option flow (init): {user_input}")
+        # LOGGER.debug(f"User input of option flow (init): {user_input}")
         if user_input is not None:
             # Validate user input
             if (
@@ -222,7 +251,6 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             return await self.async_step_register()
 
         errors = {}
-        # _LOGGER.debug(f"User input of option flow (appointment): {user_input}")
         if user_input is not None:
             # Validate user input
 
@@ -232,9 +260,9 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
         data_schema = {
             vol.Optional(
-                CONF_CALENDAR_APPOINTMENT,
+                CONF_APPOINTMENT_CAL,
                 default=self.config_entry.options.get(
-                    CONF_CALENDAR_APPOINTMENT, DEFAULT_CALENDAR_APPOINTMENT
+                    CONF_APPOINTMENT_CAL, DEFAULT_APPOINTMENT_CAL
                 ),
             ): bool,
         }
@@ -253,7 +281,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             return await self.async_step_finish()
 
         errors = {}
-        # _LOGGER.debug(f"User input of option flow (register): {user_input}")
+        # LOGGER.debug(f"User input of option flow (register): {user_input}")
         if user_input is not None:
             # Validate user input
             if int(user_input[CONF_REGISTER_START_MIN]) > int(
@@ -286,22 +314,16 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 ),
             ): bool,
             vol.Optional(
-                CONF_CALENDAR_REGISTER,
+                CONF_REGISTER_CAL,
                 default=self.config_entry.options.get(
-                    CONF_CALENDAR_REGISTER, DEFAULT_CALENDAR_REGISTER
+                    CONF_REGISTER_CAL, DEFAULT_REGISTER_CAL
                 ),
             ): bool,
             vol.Optional(
-                CONF_SENSOR_REGISTER,
+                CONF_REGISTER_TRESHOLD,
                 default=self.config_entry.options.get(
-                    CONF_SENSOR_REGISTER, DEFAULT_SENSOR_REGISTER
-                ),
-            ): bool,
-            vol.Optional(
-                CONF_REGISTER_COMPLETION_TRESHOLD,
-                default=self.config_entry.options.get(
-                    CONF_REGISTER_COMPLETION_TRESHOLD,
-                    DEFAULT_REGISTER_COMPLETION_TRESHOLD,
+                    CONF_REGISTER_TRESHOLD,
+                    DEFAULT_REGISTER_TRESHOLD,
                 ),
             ): int,
         }
@@ -314,16 +336,16 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         """Manage the option flow finish."""
 
         option_data = {
-            CONF_CALENDAR_APPOINTMENT: self.appointment_input.get(
-                CONF_CALENDAR_APPOINTMENT
-            ),
-            CONF_CALENDAR_REGISTER: self.register_input.get(CONF_CALENDAR_REGISTER),
-            CONF_REGISTER_COMPLETION_TRESHOLD: self.register_input.get(
-                CONF_REGISTER_COMPLETION_TRESHOLD
-            ),
+            CONF_APPOINTMENT_CAL: self.appointment_input.get(CONF_APPOINTMENT_CAL),
+            CONF_BLACKBOARD_TRESHOLD: DEFAULT_BLACKBOARD_TRESHOLD,
+            CONF_LETTER_TRESHOLD: DEFAULT_LETTER_TRESHOLD,
+            CONF_MESSAGE_TRESHOLD: DEFAULT_MESSAGE_TRESHOLD,
+            CONF_POLL_TRESHOLD: DEFAULT_POLL_TRESHOLD,
+            CONF_REGISTER_CAL: self.register_input.get(CONF_REGISTER_CAL),
             CONF_REGISTER_SHOW_EMPTY: self.register_input.get(CONF_REGISTER_SHOW_EMPTY),
             CONF_REGISTER_START_MAX: self.register_input.get(CONF_REGISTER_START_MAX),
             CONF_REGISTER_START_MIN: self.register_input.get(CONF_REGISTER_START_MIN),
+            CONF_REGISTER_TRESHOLD: self.register_input.get(CONF_REGISTER_TRESHOLD),
             CONF_SECTION_APPOINTMENTS: self.section_input[CONF_SECTION_APPOINTMENTS],
             CONF_SECTION_BLACKBOARDS: self.section_input[CONF_SECTION_BLACKBOARDS],
             CONF_SECTION_LESSONS: self.section_input[CONF_SECTION_LESSONS],
@@ -332,7 +354,6 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             CONF_SECTION_POLLS: self.section_input[CONF_SECTION_POLLS],
             CONF_SECTION_REGISTERS: self.section_input[CONF_SECTION_REGISTERS],
             CONF_SECTION_SICKNOTES: self.section_input[CONF_SECTION_SICKNOTES],
-            CONF_SENSOR_REGISTER: self.register_input.get(CONF_SENSOR_REGISTER),
+            CONF_SICKNOTE_TRESHOLD: DEFAULT_SICKNOTE_TRESHOLD,
         }
-        # _LOGGER.debug(f"option_data={option_data}")
         return self.async_create_entry(title="", data=option_data)

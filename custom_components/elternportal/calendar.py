@@ -1,8 +1,10 @@
+"""Platform for calendar integration."""
+
 from __future__ import annotations
 
-import datetime
-import logging
-import pyelternportal
+from datetime import datetime, timedelta, timezone
+
+from pyelternportal import ElternPortalAPI, Student
 
 from homeassistant.components.calendar import CalendarEntity, CalendarEvent
 from homeassistant.config_entries import ConfigEntry
@@ -14,16 +16,19 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import (
     ATTRIBUTION,
-    CONF_CALENDAR_APPOINTMENT,
-    CONF_CALENDAR_REGISTER,
-    DEFAULT_CALENDAR_APPOINTMENT,
-    DEFAULT_CALENDAR_REGISTER,
+    CALENDAR_APPOINTMENT,
+    CALENDAR_REGISTER,
+    CALENDAR_SICKNOTE,
     DOMAIN,
-    FRIENDLY_NAME,
+    LOGGER,
 )
 from .coordinator import ElternPortalCoordinator
 
-_LOGGER = logging.getLogger(__name__)
+CALENDAR_KEYS: list[str] = [
+    CALENDAR_APPOINTMENT,
+    CALENDAR_REGISTER,
+    CALENDAR_SICKNOTE,
+]
 
 
 async def async_setup_entry(
@@ -31,206 +36,163 @@ async def async_setup_entry(
 ) -> None:
     """Setup elternportal calendar platform."""
 
-    _LOGGER.debug("Setup elternportal calendar platform started")
-
+    LOGGER.debug("Setup elternportal calendar platform started")
     coordinator: ElternPortalCoordinator = hass.data[DOMAIN][entry.entry_id]
 
     entities: list[CalendarEntity] = []
-    for student in coordinator.api.students:
-        if entry.options.get(CONF_CALENDAR_APPOINTMENT, DEFAULT_CALENDAR_APPOINTMENT):
-            entities.append(ElternPortalAppointmentCalendar(coordinator, student))
-
-        if entry.options.get(CONF_CALENDAR_REGISTER, DEFAULT_CALENDAR_REGISTER):
-            entities.append(ElternPortalRegisterCalendar(coordinator, student))
-
+    for calendar_key in CALENDAR_KEYS:
+        # if coordinator.api.get_option(calendar_key.rstrip("s")):
+        if calendar_key == CALENDAR_APPOINTMENT:  # FixMe
+            for student in coordinator.api.students:
+                entities.append(
+                    ElternPortalCalendar(coordinator, entry, student, calendar_key)
+                )
     async_add_entities(entities, update_before_add=True)
-    _LOGGER.debug("Setup elternportal calendar platform ended")
+    LOGGER.debug("Setup elternportal calendar platform ended")
 
 
-class ElternPortalAppointmentCalendar(
-    CoordinatorEntity[ElternPortalCoordinator], CalendarEntity
-):
-    """Representation of a elternportal appointment calendar."""
+class ElternPortalCalendar(CoordinatorEntity[ElternPortalCoordinator], CalendarEntity):
+    """Sensor representation."""
+
+    _attr_has_entity_name = True
 
     def __init__(
-        self, coordinator: ElternPortalCoordinator, student: pyelternportal.Student
+        self,
+        coordinator: ElternPortalCoordinator,
+        entry: ConfigEntry,
+        student: Student,
+        calendar_key: str,
     ) -> None:
-        """Initialize the elternportal appointment calendar."""
-
-        _LOGGER.debug("Setup calendar appointment started")
+        """Initialize the sensor."""
+        LOGGER.debug(
+            "Setup elternportal calendar %s %s started", student.firstname, calendar_key
+        )
         super().__init__(coordinator)
+        self.api: ElternPortalAPI = coordinator.api
+        self.student_id: str = student.student_id
+        self.calendar_key: str = calendar_key
 
         self.entity_id = (
-            f"{Platform.CALENDAR}.{DOMAIN}_apppointment_{student.student_id}"
+            f"{Platform.CALENDAR}.{DOMAIN}_{calendar_key}_{student.student_id}"
         )
-        self._attr_unique_id = f"{DOMAIN}_appointment_{student.student_id}"
-        self._name = f"{FRIENDLY_NAME} Appointment {student.firstname}"
-        self._icon = "mdi:school-outline"
-
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, student.student_id)},
-            manufacturer=f"{coordinator.api.school}.eltern-portal.org",
-            model=f"{FRIENDLY_NAME} for {student.firstname}",
-            entry_type=DeviceEntryType.SERVICE,
-        )
-        self._attr_attribution = ATTRIBUTION
-
-        self.api: pyelternportal.ElternPortalAPI = coordinator.api
-        self.student_id: str = student.student_id
+        self._attr_unique_id = f"{entry.unique_id}_{calendar_key}_{student.student_id}"
+        self._name = f"{student.firstname} {calendar_key}"
+        self._icon = "mdi:account-school"
         self._event: CalendarEvent = None
         self._events: list[CalendarEvent] = []
 
-        _LOGGER.debug("Setup calendar appointment ended")
+        self._attr_device_info = DeviceInfo(
+            identifiers={(DOMAIN, entry.entry_id, student.student_id)},
+            manufacturer=self.api.school_name,
+            model=student.firstname,
+            entry_type=DeviceEntryType.SERVICE,
+        )
+        self._attr_attribution = ATTRIBUTION
+        LOGGER.debug("Setting up calendar: %s", self._attr_unique_id)
 
     @property
     def name(self) -> str:
         """Return the name of the entity."""
+        LOGGER.debug("ElternPortalCalendar.name")
         return self._name
 
     @property
     def event(self) -> CalendarEvent:
         """Return the next upcoming event."""
+        LOGGER.debug("ElternPortalCalendar.event")
         return self._event
 
     # pylint: disable=unused-argument
     async def async_get_events(
         self,
         hass: HomeAssistant,
-        start_date: datetime.datetime,
-        end_date: datetime.datetime,
+        start_date: datetime,
+        end_date: datetime,
     ) -> list[CalendarEvent]:
         """Return calendar events within a datetime range."""
+        LOGGER.debug(
+            "ElternPortalCalendar.async_get_events: len(self._events)=%d",
+            len(self._events),
+        )
+        LOGGER.debug(
+            "ElternPortalCalendar.async_get_events: start=%s, end=%s",
+            start_date,
+            end_date,
+        )
 
-        timezone = start_date.tzinfo or datetime.timezone.utc
+        tzinfo = start_date.tzinfo or timezone.utc
+        LOGGER.debug("ElternPortalCalendar.async_get_events: timezone=%s", tzinfo)
         events_in_range: list[CalendarEvent] = []
         for event in self._events:
-            event_start = datetime.datetime(
+            event_start = datetime(
                 event.start.year, event.start.month, event.start.day
-            ).replace(tzinfo=timezone)
-            event_end = datetime.datetime(
+            ).replace(tzinfo=tzinfo)
+            event_end = datetime(
                 event.end.year, event.end.month, event.end.day
-            ).replace(tzinfo=timezone)
+            ).replace(tzinfo=tzinfo)
             if event_start >= start_date and event_end <= end_date:
                 events_in_range.append(event)
 
+        LOGGER.debug(
+            "ElternPortalCalendar.async_get_events: len(events_in_range)=%d",
+            len(events_in_range),
+        )
         return events_in_range
 
     async def async_update(self) -> None:
         """Update status."""
 
-        _LOGGER.debug("ElternPortalAppointmentCalendar.async_update")
+        LOGGER.debug(
+            "ElternPortalCalendar.async_update: %s(%s)",
+            self.calendar_key,
+            self.student_id,
+        )
         self._events = []
+
+        # start, end, summary, description, location, uid, recurrence_id, rrule
         for student in self.api.students:
             if student.student_id == self.student_id:
-                for appointment in student.appointments:
-                    # start, end, summary, description, location, uid, recurrence_id, rrule
-                    cevent = CalendarEvent(
-                        start=appointment.start,
-                        end=appointment.end + datetime.timedelta(days=1),
-                        summary=appointment.title,
+                if self.calendar_key == CALENDAR_APPOINTMENT:
+                    LOGGER.debug(
+                        "ElternPortalCalendar.async_update: len(student.appointments)=%d",
+                        len(student.appointments),
                     )
-                    self._events.append(cevent)
-
-        if self._events:
-            self._events.sort(key=lambda e: (e.end))
-            now = datetime.datetime.now()
-
-            for event in self._events:
-                if event.end_datetime_local.astimezone() > now.astimezone():
-                    self._event = event
-                    break
-        else:
-            self._event = None
-
-
-class ElternPortalRegisterCalendar(
-    CoordinatorEntity[ElternPortalCoordinator], CalendarEntity
-):
-    """Representation of a elternportal register calendar."""
-
-    def __init__(
-        self, coordinator: ElternPortalCoordinator, student: pyelternportal.Student
-    ) -> None:
-        """Initialize the elternportal register calendar."""
-
-        _LOGGER.debug("ElternPortalRegisterCalendar.__init__")
-        super().__init__(coordinator)
-
-        self._name = f"{FRIENDLY_NAME} Register {student.firstname}"
-        self._icon = "mdi:school-outline"
-
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, student.student_id)},
-            manufacturer=f"{coordinator.api.school}.eltern-portal.org",
-            model=f"{FRIENDLY_NAME} for {student.firstname}",
-            entry_type=DeviceEntryType.SERVICE,
-        )
-        self._attr_attribution = ATTRIBUTION
-
-        self.api: pyelternportal.ElternPortalAPI = coordinator.api
-        self.student_id: str = student.student_id
-        self._event: CalendarEvent = None
-        self._events: list[CalendarEvent] = []
-
-    @property
-    def name(self) -> str:
-        """Return the name of the entity."""
-        return self._name
-
-    @property
-    def event(self) -> CalendarEvent:
-        """Return the next upcoming event."""
-        return self._event
-
-    # pylint: disable=unused-argument
-    async def async_get_events(
-        self,
-        hass: HomeAssistant,
-        start_date: datetime.datetime,
-        end_date: datetime.datetime,
-    ) -> list[CalendarEvent]:
-        """Return calendar events within a datetime range."""
-
-        timezone = start_date.tzinfo or datetime.timezone.utc
-        events_in_range: list[CalendarEvent] = []
-        for event in self._events:
-            event_start = datetime.datetime(
-                event.start.year, event.start.month, event.start.day
-            ).replace(tzinfo=timezone)
-            event_end = datetime.datetime(
-                event.end.year, event.end.month, event.end.day
-            ).replace(tzinfo=timezone)
-            if event_start >= start_date and event_end <= end_date:
-                events_in_range.append(event)
-
-        return events_in_range
-
-    async def async_update(self) -> None:
-        """Update status."""
-
-        self._events = []
-        for student in self.api.students:
-            if student.student_id == self.student_id:
-                for register in student.registers:
-                    # start, end, summary, description, location, uid, recurrence_id, rrule
-                    cevent = CalendarEvent(
-                        start=register.start,
-                        end=(
-                            register.completion
-                            if register.completion
-                            else register.start
+                    for appointment in student.appointments:
+                        event = CalendarEvent(
+                            start=appointment.start,
+                            end=appointment.end + timedelta(days=1),
+                            summary=appointment.title,
+                            description=None,
+                            location=None,
                         )
-                        + datetime.timedelta(days=1),
-                        summary=(register.subject + ", " if register.subject else "")
-                        + register.teacher,
-                        description=register.body,
-                    )
-                    self._events.append(cevent)
+                        self._events.append(event)
+                        LOGGER.debug("ElternPortalCalendar.fill_events: %s", event)
+
+                if self.calendar_key == CALENDAR_REGISTER:
+                    for register in student.registers:
+                        event = CalendarEvent(
+                            start=register.start,
+                            end=register.completion + timedelta(days=1),
+                            summary=register.title,
+                            description=register.body,
+                            location=None,
+                        )
+                        self._events.append(event)
+
+                if self.calendar_key == CALENDAR_SICKNOTE:
+                    for sicknote in student.sicknotes:
+                        event = CalendarEvent(
+                            start=sicknote.start,
+                            end=sicknote.end + timedelta(days=1),
+                            summary="Krankmeldung",
+                            description=sicknote.comment,
+                            location=None,
+                        )
+                        self._events.append(event)
 
         if self._events:
-            self._events.sort(key=lambda e: (e.end))
-            now = datetime.datetime.now()
-
+            self._events.sort(key=lambda e: e.end)
+            now = datetime.now()
             for event in self._events:
                 if event.end_datetime_local.astimezone() > now.astimezone():
                     self._event = event

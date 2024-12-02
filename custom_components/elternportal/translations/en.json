@@ -51,7 +51,7 @@
       "appointment": {
         "title": "Appointment options",
         "data": {
-          "calendar_appointment": "Calendar for appointments"
+          "appointment_calendar": "Calendar for appointments"
         }
       },
       "register": {
@@ -61,14 +61,13 @@
           "register_start_min": "Start (min)",
           "register_start_max": "Start (max)",
           "register_show_empty": "Show entries with \"Keine Hausaufgabe eingetragen\"",
-          "calendar_register": "Calendar for class register",
-          "sensor_register": "Sensor for class register",
-          "register_completion_treshold": "Completion (treshold)"
+          "register_calendar": "Calendar for class register",
+          "register_treshold": "Completion (treshold)"
         },
         "data_description": {
           "register_start_min": "Only entries whose start date is greater than or equal to the day in ? days are retrieved from the parent portal.",
           "register_start_max": "Only entries whose start date is less than or equal to the day in ? days are retrieved from the parent portal.",
-          "register_completion_treshold": "Only entries from the parent portal whose completion date is greater than or equal to the day in ? days are displayed in the extra sensor for the class register."
+          "register_treshold": "Only entries from the parent portal whose completion date is greater than or equal to the day in ? days are displayed in the sensor for the class register."
         }
       }
     }

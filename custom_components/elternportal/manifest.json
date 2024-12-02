@@ -10,7 +10,7 @@
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/michull/ha-elternportal/issues",
   "requirements": [
-    "pyelternportal>=0.0.15"
+    "pyelternportal>=0.0.16"
   ],
   "version": "0.1.10"
 }
