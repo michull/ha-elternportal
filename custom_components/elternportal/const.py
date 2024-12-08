@@ -19,35 +19,8 @@ CONF_SCHOOL: str = "school"
 CONF_APPOINTMENT_CAL: str = "appointment_calendar"
 DEFAULT_APPOINTMENT_CAL: bool = False
 
-CONF_BLACKBOARD_TRESHOLD: str = "blackboard_treshold"
-DEFAULT_BLACKBOARD_TRESHOLD: int = -7
-
-CONF_LETTER_TRESHOLD: str = "letter_treshold"
-DEFAULT_LETTER_TRESHOLD: int = -7
-
-CONF_MESSAGE_TRESHOLD: str = "message_treshold"
-DEFAULT_MESSAGE_TRESHOLD: int = -7
-
-CONF_POLL_TRESHOLD: str = "poll_treshold"
-DEFAULT_POLL_TRESHOLD: int = -7
-
 CONF_REGISTER_CAL: str = "register_calendar"
 DEFAULT_REGISTER_CAL: bool = False
-
-CONF_REGISTER_START_MIN: str = "register_start_min"
-DEFAULT_REGISTER_START_MIN: int = -6
-
-CONF_REGISTER_START_MAX: str = "register_start_max"
-DEFAULT_REGISTER_START_MAX: int = +2
-
-CONF_REGISTER_SHOW_EMPTY: str = "register_show_empty"
-DEFAULT_REGISTER_SHOW_EMPTY: bool = False
-
-CONF_REGISTER_TRESHOLD: str = "register_treshold"
-DEFAULT_REGISTER_TRESHOLD: int = +1
-
-CONF_SICKNOTE_TRESHOLD: str = "sicknote_treshold"
-DEFAULT_SICKNOTE_TRESHOLD: int = +1
 
 DEFAULT_SCAN_INTERVAL: timedelta = timedelta(minutes=180)
 

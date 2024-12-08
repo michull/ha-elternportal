@@ -2,18 +2,33 @@
 
 from __future__ import annotations
 
-#from .pyelternportal import ElternPortalAPI, VERSION # local lib
-from pyelternportal import ElternPortalAPI, VERSION
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
-from .const import (
+from pyelternportal import ElternPortalAPI, VERSION
+from pyelternportal.const import (
     CONF_REGISTER_SHOW_EMPTY,
     CONF_REGISTER_START_MAX,
     CONF_REGISTER_START_MIN,
+    DEFAULT_REGISTER_SHOW_EMPTY,
+    DEFAULT_REGISTER_START_MAX,
+    DEFAULT_REGISTER_START_MIN,
+)
+
+# local lib
+# from .pyelternportal import ElternPortalAPI, VERSION
+# from .pyelternportal.const import (
+#     CONF_REGISTER_SHOW_EMPTY,
+#     CONF_REGISTER_START_MAX,
+#     CONF_REGISTER_START_MIN,
+#     DEFAULT_REGISTER_SHOW_EMPTY,
+#     DEFAULT_REGISTER_START_MAX,
+#     DEFAULT_REGISTER_START_MIN,
+# )
+
+from .const import (
     CONF_SECTION_APPOINTMENTS,
     CONF_SECTION_BLACKBOARDS,
     CONF_SECTION_LESSONS,
@@ -22,9 +37,6 @@ from .const import (
     CONF_SECTION_POLLS,
     CONF_SECTION_REGISTERS,
     CONF_SECTION_SICKNOTES,
-    DEFAULT_REGISTER_SHOW_EMPTY,
-    DEFAULT_REGISTER_START_MAX,
-    DEFAULT_REGISTER_START_MIN,
     DEFAULT_SECTION_APPOINTMENTS,
     DEFAULT_SECTION_BLACKBOARDS,
     DEFAULT_SECTION_LESSONS,
@@ -80,13 +92,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         "sicknote": entry.options.get(
             CONF_SECTION_SICKNOTES, DEFAULT_SECTION_SICKNOTES
         ),
-        "register_start_min": entry.options.get(
+        CONF_REGISTER_START_MIN: entry.options.get(
             CONF_REGISTER_START_MIN, DEFAULT_REGISTER_START_MIN
         ),
-        "register_start_max": entry.options.get(
+        CONF_REGISTER_START_MAX: entry.options.get(
             CONF_REGISTER_START_MAX, DEFAULT_REGISTER_START_MAX
         ),
-        "register_show_empty": entry.options.get(
+        CONF_REGISTER_SHOW_EMPTY: entry.options.get(
             CONF_REGISTER_SHOW_EMPTY, DEFAULT_REGISTER_SHOW_EMPTY
         ),
     }
@@ -124,7 +136,7 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 async def async_reload_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
     """Reload config entry."""
 
-    LOGGER.debug(f"Reload of the config entry {entry.entry_id} started")
+    LOGGER.debug("Reload of the config entry %s started", entry.entry_id)
     await async_unload_entry(hass, entry)
     await async_setup_entry(hass, entry)
     LOGGER.debug("Reload of the config entry ended")

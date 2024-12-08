@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from datetime import date, timedelta
 from typing import Any
 
 from pyelternportal import ElternPortalAPI, Student
@@ -53,7 +54,7 @@ async def async_setup_entry(
     coordinator: ElternPortalCoordinator = hass.data[DOMAIN][entry.entry_id]
     entities: list[ElternPortalSensor] = []
     for sensor_key in SENSOR_KEYS:
-        if coordinator.api.get_option(sensor_key): # FixMe
+        if coordinator.api.get_option(sensor_key):  # FixMe
             for student in coordinator.api.students:
                 entities.append(
                     ElternPortalSensor(coordinator, entry, student, sensor_key)
@@ -104,29 +105,42 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
         """Get elements"""
         for student in self.api.students:
             if student.student_id == self.student_id:
-                if self.sensor_key==SENSOR_APPOINTMENT:
-                    result = student.appointments
+                result = None
 
-                if self.sensor_key==SENSOR_BLACKBOARD:
+                if self.sensor_key == SENSOR_APPOINTMENT:
+                    treshold_start = date.today() + timedelta(
+                        days=self.api.appointment_treshold_start
+                    )
+                    treshold_end = date.today() + timedelta(
+                        days=self.api.appointment_treshold_end
+                    )
+                    result = [
+                        a
+                        for a in student.appointments
+                        if a.start <= treshold_start and a.end >= treshold_end
+                    ]
+
+                if self.sensor_key == SENSOR_BLACKBOARD:
                     result = student.blackboards
 
-                if self.sensor_key==SENSOR_LESSON:
+                if self.sensor_key == SENSOR_LESSON:
                     result = student.lessons
 
-                if self.sensor_key==SENSOR_LETTER:
+                if self.sensor_key == SENSOR_LETTER:
                     result = student.letters
 
-                if self.sensor_key==SENSOR_MESSAGE:
+                if self.sensor_key == SENSOR_MESSAGE:
                     result = student.messages
 
-                if self.sensor_key==SENSOR_POLL:
+                if self.sensor_key == SENSOR_POLL:
                     result = student.polls
 
-                if self.sensor_key==SENSOR_REGISTER:
+                if self.sensor_key == SENSOR_REGISTER:
                     result = student.registers
 
-                if self.sensor_key==SENSOR_SICKNOTE:
-                    result = student.sicknotes
+                if self.sensor_key == SENSOR_SICKNOTE:
+                    treshold = date.today() + timedelta(days=self.api.sicknote_treshold)
+                    result = [s for s in student.sicknotes if s.end >= treshold]
 
                 return result
 
