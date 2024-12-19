@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from pyelternportal import ElternPortalAPI
-
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
+
+from pyelternportal import ElternPortalAPI
 
 from .const import DOMAIN, DEFAULT_SCAN_INTERVAL, LOGGER
 

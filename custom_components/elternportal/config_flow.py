@@ -4,37 +4,6 @@ from __future__ import annotations
 
 from typing import Any
 
-from pyelternportal import (
-    ElternPortalAPI,
-    BadCredentialsException,
-    CannotConnectException,
-    ResolveHostnameException,
-    StudentListException,
-)
-from pyelternportal.const import (
-    CONF_APPOINTMENT_TRESHOLD_END,
-    CONF_APPOINTMENT_TRESHOLD_START,
-    CONF_BLACKBOARD_TRESHOLD,
-    CONF_LETTER_TRESHOLD,
-    CONF_MESSAGE_TRESHOLD,
-    CONF_POLL_TRESHOLD,
-    CONF_REGISTER_SHOW_EMPTY,
-    CONF_REGISTER_START_MAX,
-    CONF_REGISTER_START_MIN,
-    CONF_REGISTER_TRESHOLD,
-    CONF_SICKNOTE_TRESHOLD,
-    DEFAULT_APPOINTMENT_TRESHOLD_END,
-    DEFAULT_APPOINTMENT_TRESHOLD_START,
-    DEFAULT_BLACKBOARD_TRESHOLD,
-    DEFAULT_LETTER_TRESHOLD,
-    DEFAULT_MESSAGE_TRESHOLD,
-    DEFAULT_POLL_TRESHOLD,
-    DEFAULT_REGISTER_SHOW_EMPTY,
-    DEFAULT_REGISTER_START_MAX,
-    DEFAULT_REGISTER_START_MIN,
-    DEFAULT_REGISTER_TRESHOLD,
-    DEFAULT_SICKNOTE_TRESHOLD,
-)
 import voluptuous as vol
 
 from homeassistant import config_entries
@@ -44,9 +13,45 @@ from homeassistant.helpers import selector
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
+from pyelternportal import (
+    ElternPortalAPI,
+    BadCredentialsException,
+    CannotConnectException,
+    ResolveHostnameException,
+    StudentListException,
+)
+from pyelternportal.const import (
+    CONF_APPOINTMENT_CALENDAR,
+    CONF_APPOINTMENT_TRESHOLD_END,
+    CONF_APPOINTMENT_TRESHOLD_START,
+    CONF_BLACKBOARD_TRESHOLD,
+    CONF_LETTER_TRESHOLD,
+    CONF_MESSAGE_TRESHOLD,
+    CONF_POLL_TRESHOLD,
+    CONF_REGISTER_CALENDAR,
+    CONF_REGISTER_SHOW_EMPTY,
+    CONF_REGISTER_START_MAX,
+    CONF_REGISTER_START_MIN,
+    CONF_REGISTER_TRESHOLD,
+    CONF_SICKNOTE_CALENDAR,
+    CONF_SICKNOTE_TRESHOLD,
+    DEFAULT_APPOINTMENT_CALENDAR,
+    DEFAULT_APPOINTMENT_TRESHOLD_END,
+    DEFAULT_APPOINTMENT_TRESHOLD_START,
+    DEFAULT_BLACKBOARD_TRESHOLD,
+    DEFAULT_LETTER_TRESHOLD,
+    DEFAULT_MESSAGE_TRESHOLD,
+    DEFAULT_POLL_TRESHOLD,
+    DEFAULT_REGISTER_CALENDAR,
+    DEFAULT_REGISTER_SHOW_EMPTY,
+    DEFAULT_REGISTER_START_MAX,
+    DEFAULT_REGISTER_START_MIN,
+    DEFAULT_REGISTER_TRESHOLD,
+    DEFAULT_SICKNOTE_CALENDAR,
+    DEFAULT_SICKNOTE_TRESHOLD,
+)
+
 from .const import (
-    CONF_APPOINTMENT_CAL,
-    CONF_REGISTER_CAL,
     CONF_SCHOOL,
     CONF_SECTION_APPOINTMENTS,
     CONF_SECTION_BLACKBOARDS,
@@ -56,8 +61,6 @@ from .const import (
     CONF_SECTION_POLLS,
     CONF_SECTION_REGISTERS,
     CONF_SECTION_SICKNOTES,
-    DEFAULT_APPOINTMENT_CAL,
-    DEFAULT_REGISTER_CAL,
     DEFAULT_SECTION_APPOINTMENTS,
     DEFAULT_SECTION_BLACKBOARDS,
     DEFAULT_SECTION_LESSONS,
@@ -157,13 +160,16 @@ class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
 
 class OptionsFlowHandler(config_entries.OptionsFlow):
+    """Options flow handler."""
+
     def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
         """Initialize options flow."""
 
-        self.config_entry = config_entry
+        self._config_entry = config_entry
         self.section_input: dict[str, Any] = {}
         self.appointment_input: dict[str, Any] = {}
         self.register_input: dict[str, Any] = {}
+        self.sicknote_input: dict[str, Any] = {}
 
     async def async_step_init(
         self, user_input: dict[str, Any] | None = None
@@ -171,7 +177,6 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         """Manage the main options."""
 
         errors = {}
-        # LOGGER.debug(f"User input of option flow (init): {user_input}")
         if user_input is not None:
             # Validate user input
             if (
@@ -193,51 +198,51 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         data_schema = {
             vol.Optional(
                 CONF_SECTION_APPOINTMENTS,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_SECTION_APPOINTMENTS, DEFAULT_SECTION_APPOINTMENTS
                 ),
             ): bool,
             vol.Optional(
                 CONF_SECTION_BLACKBOARDS,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_SECTION_BLACKBOARDS, DEFAULT_SECTION_BLACKBOARDS
                 ),
             ): bool,
             vol.Optional(
                 CONF_SECTION_LESSONS,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_SECTION_LESSONS, DEFAULT_SECTION_LESSONS
                 ),
             ): bool,
             vol.Optional(
                 CONF_SECTION_LETTERS,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_SECTION_LETTERS, DEFAULT_SECTION_LETTERS
                 ),
             ): bool,
             vol.Optional(
                 CONF_SECTION_MESSAGES,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_SECTION_MESSAGES,
                     DEFAULT_SECTION_MESSAGES,
                 ),
             ): bool,
             vol.Optional(
                 CONF_SECTION_POLLS,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_SECTION_POLLS,
                     DEFAULT_SECTION_POLLS,
                 ),
             ): bool,
             vol.Optional(
                 CONF_SECTION_REGISTERS,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_SECTION_REGISTERS, DEFAULT_SECTION_REGISTERS
                 ),
             ): bool,
             vol.Optional(
                 CONF_SECTION_SICKNOTES,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_SECTION_SICKNOTES, DEFAULT_SECTION_SICKNOTES
                 ),
             ): bool,
@@ -266,9 +271,9 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
         data_schema = {
             vol.Optional(
-                CONF_APPOINTMENT_CAL,
-                default=self.config_entry.options.get(
-                    CONF_APPOINTMENT_CAL, DEFAULT_APPOINTMENT_CAL
+                CONF_APPOINTMENT_CALENDAR,
+                default=self._config_entry.options.get(
+                    CONF_APPOINTMENT_CALENDAR, DEFAULT_APPOINTMENT_CALENDAR
                 ),
             ): bool,
         }
@@ -284,10 +289,9 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
         if not self.section_input[CONF_SECTION_REGISTERS]:
             self.register_input = {}
-            return await self.async_step_finish()
+            return await self.async_step_sicknote()
 
         errors = {}
-        # LOGGER.debug(f"User input of option flow (register): {user_input}")
         if user_input is not None:
             # Validate user input
             if int(user_input[CONF_REGISTER_START_MIN]) > int(
@@ -298,36 +302,36 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
             if not errors:
                 self.register_input = user_input
-                return await self.async_step_finish()
+                return await self.async_step_sicknote()
 
         data_schema = {
             vol.Optional(
                 CONF_REGISTER_START_MIN,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_REGISTER_START_MIN, DEFAULT_REGISTER_START_MIN
                 ),
             ): int,
             vol.Optional(
                 CONF_REGISTER_START_MAX,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_REGISTER_START_MAX, DEFAULT_REGISTER_START_MAX
                 ),
             ): int,
             vol.Optional(
                 CONF_REGISTER_SHOW_EMPTY,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_REGISTER_SHOW_EMPTY, DEFAULT_REGISTER_SHOW_EMPTY
                 ),
             ): bool,
             vol.Optional(
-                CONF_REGISTER_CAL,
-                default=self.config_entry.options.get(
-                    CONF_REGISTER_CAL, DEFAULT_REGISTER_CAL
+                CONF_REGISTER_CALENDAR,
+                default=self._config_entry.options.get(
+                    CONF_REGISTER_CALENDAR, DEFAULT_REGISTER_CALENDAR
                 ),
             ): bool,
             vol.Optional(
                 CONF_REGISTER_TRESHOLD,
-                default=self.config_entry.options.get(
+                default=self._config_entry.options.get(
                     CONF_REGISTER_TRESHOLD,
                     DEFAULT_REGISTER_TRESHOLD,
                 ),
@@ -338,30 +342,61 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             step_id="register", data_schema=vol.Schema(data_schema), errors=errors
         )
 
+    async def async_step_sicknote(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
+        """Manage the sicknote options."""
+
+        if not self.section_input[CONF_SECTION_SICKNOTES]:
+            self.sicknote_input = {}
+            return await self.async_step_finish()
+
+        errors = {}
+        if user_input is not None:
+            # Validate user input
+
+            if not errors:
+                self.sicknote_input = user_input
+                return await self.async_step_finish()
+
+        data_schema = {
+            vol.Optional(
+                CONF_SICKNOTE_CALENDAR,
+                default=self._config_entry.options.get(
+                    CONF_SICKNOTE_CALENDAR, DEFAULT_SICKNOTE_CALENDAR
+                ),
+            ): bool,
+        }
+
+        return self.async_show_form(
+            step_id="sicknote", data_schema=vol.Schema(data_schema), errors=errors
+        )
+
     async def async_step_finish(self) -> FlowResult:
         """Manage the option flow finish."""
 
         option_data = {
-            CONF_APPOINTMENT_CAL: self.appointment_input.get(CONF_APPOINTMENT_CAL),
+            CONF_APPOINTMENT_CALENDAR: self.appointment_input.get(CONF_APPOINTMENT_CALENDAR),
             CONF_APPOINTMENT_TRESHOLD_END: DEFAULT_APPOINTMENT_TRESHOLD_END,
             CONF_APPOINTMENT_TRESHOLD_START: DEFAULT_APPOINTMENT_TRESHOLD_START,
             CONF_BLACKBOARD_TRESHOLD: DEFAULT_BLACKBOARD_TRESHOLD,
             CONF_LETTER_TRESHOLD: DEFAULT_LETTER_TRESHOLD,
             CONF_MESSAGE_TRESHOLD: DEFAULT_MESSAGE_TRESHOLD,
             CONF_POLL_TRESHOLD: DEFAULT_POLL_TRESHOLD,
-            CONF_REGISTER_CAL: self.register_input.get(CONF_REGISTER_CAL),
+            CONF_REGISTER_CALENDAR: self.register_input.get(CONF_REGISTER_CALENDAR),
             CONF_REGISTER_SHOW_EMPTY: self.register_input.get(CONF_REGISTER_SHOW_EMPTY),
             CONF_REGISTER_START_MAX: self.register_input.get(CONF_REGISTER_START_MAX),
             CONF_REGISTER_START_MIN: self.register_input.get(CONF_REGISTER_START_MIN),
             CONF_REGISTER_TRESHOLD: self.register_input.get(CONF_REGISTER_TRESHOLD),
-            CONF_SECTION_APPOINTMENTS: self.section_input[CONF_SECTION_APPOINTMENTS],
-            CONF_SECTION_BLACKBOARDS: self.section_input[CONF_SECTION_BLACKBOARDS],
-            CONF_SECTION_LESSONS: self.section_input[CONF_SECTION_LESSONS],
-            CONF_SECTION_LETTERS: self.section_input[CONF_SECTION_LETTERS],
-            CONF_SECTION_MESSAGES: self.section_input[CONF_SECTION_MESSAGES],
-            CONF_SECTION_POLLS: self.section_input[CONF_SECTION_POLLS],
-            CONF_SECTION_REGISTERS: self.section_input[CONF_SECTION_REGISTERS],
-            CONF_SECTION_SICKNOTES: self.section_input[CONF_SECTION_SICKNOTES],
+            CONF_SECTION_APPOINTMENTS: self.section_input.get(CONF_SECTION_APPOINTMENTS),
+            CONF_SECTION_BLACKBOARDS: self.section_input.get(CONF_SECTION_BLACKBOARDS),
+            CONF_SECTION_LESSONS: self.section_input.get(CONF_SECTION_LESSONS),
+            CONF_SECTION_LETTERS: self.section_input.get(CONF_SECTION_LETTERS),
+            CONF_SECTION_MESSAGES: self.section_input.get(CONF_SECTION_MESSAGES),
+            CONF_SECTION_POLLS: self.section_input.get(CONF_SECTION_POLLS),
+            CONF_SECTION_REGISTERS: self.section_input.get(CONF_SECTION_REGISTERS),
+            CONF_SECTION_SICKNOTES: self.section_input.get(CONF_SECTION_SICKNOTES),
+            CONF_SICKNOTE_CALENDAR: self.sicknote_input.get(CONF_SICKNOTE_CALENDAR),
             CONF_SICKNOTE_TRESHOLD: DEFAULT_SICKNOTE_TRESHOLD,
         }
         return self.async_create_entry(title="", data=option_data)

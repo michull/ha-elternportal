@@ -69,6 +69,12 @@
           "register_start_max": "Only entries whose start date is less than or equal to the day in ? days are retrieved from the parent portal.",
           "register_treshold": "Only entries from the parent portal whose completion date is greater than or equal to the day in ? days are displayed in the sensor for the class register."
         }
+      },
+      "sicknote": {
+        "title": "Sick note Optionen",
+        "data": {
+          "sicknote_calendar": "Calendar for sick note"
+        }
       }
     }
   }

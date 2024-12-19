@@ -13,12 +13,21 @@ Unofficial integration for eltern-portal.org
 
 **This integration will set up the calendar and sensor platform.**
 
-Platform | Sensor name                             | Description
-:------- | :-------------------------------------- | :----------------------------------
-Sensor   | `sensor.elternportal_base_id`           | Provide all data from Eltern-Portal
-Calendar | `calendar.elternportal_appointments_id` | Calendar appointments (optional)
-Calendar | `calendar.elternportal_registers_id`    | Calendar class register (optional)
-Sensor   | `sensor.elternportal_register_id`       | Sensor Class register (optional)
+Platform | Sensor name                            | Description
+:------- | :------------------------------------- | :----------------------------------
+Calendar | `calendar.elternportal_appointments_n` | Calendar Appointment
+Calendar | `calendar.elternportal_registers_n`    | Calendar Class register
+Calendar | `calendar.elternportal_sicknote_n`     | Calendar Sick note
+Sensor   | `sensor.elternportal_appointment_n`    | Sensor Appointment
+Sensor   | `sensor.elternportal_blackboard_n`     | Sensor Black board
+Sensor   | `sensor.elternportal_lesson_n`         | Sensor Lesson
+Sensor   | `sensor.elternportal_letter_n`         | Sensor Letter
+Sensor   | `sensor.elternportal_message_n`        | Sensor Message
+Sensor   | `sensor.elternportal_poll_n`           | Sensor Poll
+Sensor   | `sensor.elternportal_register_n`       | Sensor Class register
+Sensor   | `sensor.elternportal_sicknote_n`       | Sensor Sick note
+
+Note: all calendars and sensors are optional.
 
 
 # Setup

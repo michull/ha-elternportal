@@ -51,7 +51,7 @@
       "appointment": {
         "title": "Termin Optionen",
         "data": {
-          "appointment_calendar": "Kalender für die Termine"
+          "appointment_calendar": "Kalender für Termine"
         }
       },
       "register": {
@@ -68,6 +68,12 @@
           "register_start_min": "Es werden nur Einträge aus dem Eltern-Portal abgerufen, deren Startdatum größer oder gleich dem Tag in ? Tagen ist.",
           "register_start_max": "Es werden nur Einträge aus dem Eltern-Portal abgerufen, deren Startdatum kleiner oder gleich dem Tag in ? Tagen ist.",
           "register_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor fürs Klassenbuch angezeigt, deren Fertigstellungsdatum größer oder gleich dem Tag in ? Tagen ist."
+        }
+      },
+      "sicknote": {
+        "title": "Krankmeldung Optionen",
+        "data": {
+          "sicknote_calendar": "Kalender für Krankmeldung"
         }
       }
     }

@@ -9,24 +9,19 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from pyelternportal import ElternPortalAPI, VERSION
 from pyelternportal.const import (
+    CONF_APPOINTMENT_CALENDAR,
+    CONF_REGISTER_CALENDAR,
     CONF_REGISTER_SHOW_EMPTY,
     CONF_REGISTER_START_MAX,
     CONF_REGISTER_START_MIN,
+    CONF_SICKNOTE_CALENDAR,
+    DEFAULT_APPOINTMENT_CALENDAR,
+    DEFAULT_REGISTER_CALENDAR,
     DEFAULT_REGISTER_SHOW_EMPTY,
     DEFAULT_REGISTER_START_MAX,
     DEFAULT_REGISTER_START_MIN,
+    DEFAULT_SICKNOTE_CALENDAR,
 )
-
-# local lib
-# from .pyelternportal import ElternPortalAPI, VERSION
-# from .pyelternportal.const import (
-#     CONF_REGISTER_SHOW_EMPTY,
-#     CONF_REGISTER_START_MAX,
-#     CONF_REGISTER_START_MIN,
-#     DEFAULT_REGISTER_SHOW_EMPTY,
-#     DEFAULT_REGISTER_START_MAX,
-#     DEFAULT_REGISTER_START_MIN,
-# )
 
 from .const import (
     CONF_SECTION_APPOINTMENTS,
@@ -92,6 +87,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         "sicknote": entry.options.get(
             CONF_SECTION_SICKNOTES, DEFAULT_SECTION_SICKNOTES
         ),
+        CONF_APPOINTMENT_CALENDAR: entry.options.get(
+            CONF_APPOINTMENT_CALENDAR, DEFAULT_APPOINTMENT_CALENDAR
+        ),
+        CONF_REGISTER_CALENDAR: entry.options.get(
+            CONF_REGISTER_CALENDAR, DEFAULT_REGISTER_CALENDAR
+        ),
         CONF_REGISTER_START_MIN: entry.options.get(
             CONF_REGISTER_START_MIN, DEFAULT_REGISTER_START_MIN
         ),
@@ -100,6 +101,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         ),
         CONF_REGISTER_SHOW_EMPTY: entry.options.get(
             CONF_REGISTER_SHOW_EMPTY, DEFAULT_REGISTER_SHOW_EMPTY
+        ),
+        CONF_SICKNOTE_CALENDAR: entry.options.get(
+            CONF_SICKNOTE_CALENDAR, DEFAULT_SICKNOTE_CALENDAR
         ),
     }
     api.set_option_data(options)

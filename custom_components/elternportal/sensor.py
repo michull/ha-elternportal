@@ -5,8 +5,6 @@ from __future__ import annotations
 from datetime import date, timedelta
 from typing import Any
 
-from pyelternportal import ElternPortalAPI, Student
-
 from homeassistant.components.sensor import (
     SensorEntity,
     SensorStateClass,
@@ -17,6 +15,8 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
+
+from pyelternportal import ElternPortalAPI, Student
 
 from .const import (
     ATTRIBUTION,
@@ -54,7 +54,7 @@ async def async_setup_entry(
     coordinator: ElternPortalCoordinator = hass.data[DOMAIN][entry.entry_id]
     entities: list[ElternPortalSensor] = []
     for sensor_key in SENSOR_KEYS:
-        if coordinator.api.get_option(sensor_key):  # FixMe
+        if coordinator.api.get_option_sensor(sensor_key):
             for student in coordinator.api.students:
                 entities.append(
                     ElternPortalSensor(coordinator, entry, student, sensor_key)
@@ -83,10 +83,13 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
         self.api: ElternPortalAPI = coordinator.api
         self.student_id: str = student.student_id
         self.sensor_key: str = sensor_key
+        sensor_text: str = sensor_key.rstrip("_sensor")
 
-        self.entity_id = f"{Platform.SENSOR}.{DOMAIN}_{sensor_key}_{student.student_id}"
+        self.entity_id = (
+            f"{Platform.SENSOR}.{DOMAIN}_{sensor_text}_{student.student_id}"
+        )
         self._attr_unique_id = f"{entry.unique_id}_{sensor_key}_{student.student_id}"
-        self._attr_name = f"{student.firstname} {sensor_key}"
+        self._attr_name = f"{student.firstname} {sensor_text.title()}"
         self._attr_icon = "mdi:account-school"
         self._attr_native_unit_of_measurement = None
         self._attr_device_class = None

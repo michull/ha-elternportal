@@ -15,13 +15,6 @@ FRIENDLY_NAME: str = "Eltern-Portal"
 
 CONF_SCHOOL: str = "school"
 
-
-CONF_APPOINTMENT_CAL: str = "appointment_calendar"
-DEFAULT_APPOINTMENT_CAL: bool = False
-
-CONF_REGISTER_CAL: str = "register_calendar"
-DEFAULT_REGISTER_CAL: bool = False
-
 DEFAULT_SCAN_INTERVAL: timedelta = timedelta(minutes=180)
 
 PLATFORMS: list[Platform] = [Platform.CALENDAR, Platform.SENSOR]
@@ -52,7 +45,3 @@ SENSOR_MESSAGE: str = "message"
 SENSOR_POLL: str = "poll"
 SENSOR_REGISTER: str = "register"
 SENSOR_SICKNOTE: str = "sicknote"
-
-CALENDAR_APPOINTMENT: str = "appointment"
-CALENDAR_REGISTER: str = "register"
-CALENDAR_SICKNOTE: str = "sicknote"

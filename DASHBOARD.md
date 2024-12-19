@@ -5,112 +5,156 @@ All sensor names from the following examples must be adapted.
 To do this, replace the end `_n` with the appropriate value (e.g. `_1`).
 
 
-## Helper template sensors
-
-If you want to hide a card, you can create the following helper template sensors. These sensors can be used for [conditional cards](https://www.home-assistant.io/dashboards/conditional) or the [visibility of cards](https://www.home-assistant.io/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally).
-```
-{{ state_attr('sensor.elternportal_base_n', 'appointments') | selectattr('start', 'le', now().date() + timedelta(days=6) ) | selectattr('end', 'ge', now().date() ) | list | count }}
-{{ state_attr('sensor.elternportal_base_n', 'letters') | selectattr('new') | list | count }}
-{{ state_attr('sensor.elternportal_base_n', 'registers') | selectattr('completion', 'ge', now().date() + timedelta(days=1) ) | list | count }}
-{{ state_attr('sensor.elternportal_base_n', 'sicknotes') | selectattr('end', 'ge', now().date()) | list | count }}
-```
-
-
 ## Appointments (Termine)
 
-This card lists appointments in a markdown card.
-The statement in the second line selects only appointments that starts in the next 6 days.
-The statement in the third line sorts the dates by start date, with the closest date at the top.
+This card lists `appointments` in a markdown card.
 
 ``` yaml
 type: markdown
 title: Appointments
-content: |-
-  {% set appointments = state_attr('sensor.elternportal_base_n', 'appointments') %}
-  {% set appointments = appointments | selectattr('start', 'le', now().date() + timedelta(days=6) ) | selectattr('end', 'ge', now().date() ) | list %}
-  {% set appointments = appointments | sort(attribute='start') %}
-  {% for appointment in appointments %}
-  {{ appointment.start }}
-  {{ appointment.title }}  
+content: >-
+  {% for appointment in state_attr('sensor.elternportal_appointment_n', 'elements') or [] %}
+  {% if appointment.start == appointment.end -%}
+  {{ appointment.start.strftime("%m/%d") }}
+  {%- else -%}
+  {{ appointment.start.strftime("%m/%d") }} to {{
+  appointment.end.strftime("%m/%d") }}
+  {%- endif -%}
+  : {{ appointment.title }}
+
   {% endfor %}
+visibility:
+  - condition: numeric_state
+    entity: sensor.elternportal_appointment_n
+    above: 0
 ```
 
-The result could look like this:
-> 2024-10-21  
-> Schulaufgabe in Englisch  
->  
-> 2024-11-24  
-> Schulaufgabe in Deutsch  
+
+## Black board (Schwarzes Brett)
+
+This card lists `blackboards` in a markdown card.
+
+``` yaml
+type: markdown
+title: Black board
+content: >-
+  {% for blackboard in state_attr('sensor.elternportal_blackboard_n', 'elements') or [] %}
+  **Subject: {{ blackboard.subject }}**
+  _Sent: {{ blackboard.sent.strftime("%m/%d") }}_
+
+  {{ blackboard.body }}
+
+  {% if not loop.last %}---{% endif %}
+  {% endfor %}
+visibility:
+  - condition: numeric_state
+    entity: sensor.elternportal_blackboard_n
+    above: 0
+```
+
+
+## Communication (Mitteilungen)
+
+This card lists `communications` in a markdown card.
+
+``` yaml
+type: markdown
+title: Communication
+content: |-
+  {% for message in state_attr('sensor.elternportal_message_n', 'elements') or [] %}
+  **Subject: {{ message.subject.strip() }}**
+  _Sent: {{ message.sent.strftime("%m/%d %H:%M") }}_
+
+  {{ message.body }}
+
+  {% if not loop.last %}---{% endif %}
+  {% endfor %}
+visibility:
+  - condition: numeric_state
+    entity: sensor.elternportal_message_n
+    above: 0
+```
 
 
 ## Letters (Elternbriefe)
 
 This card lists `letters` in a markdown card.
-The statement in the second line selects only letters that have not yet been acknowledged.
-The statement in the third line sorts the letters by sent date with newest letter on top.
 
 ``` yaml
 type: markdown
 title: Letters
 content: |-
-  {% set letters = state_attr('sensor.elternportal_base_n', 'letters') %}
-  {% set letters = letters | selectattr('new') %}
-  {% set letters = letters | sort(attribute='sent', reverse=True) %}
-  {% for letter in letters %}
+  {% for letter in state_attr('sensor.elternportal_letter_n', 'elements') or [] %}
   **Subject: {{ letter.subject }}**
-  **Sent: {{ letter.sent.strftime("%Y-%m-%d %H:%M") }}**
+  _Sent: {{ letter.sent.strftime("%Y-%m-%d %H:%M") }}_
 
   {{ letter.body }}
-    {% if not loop.last %}---{% endif %}
-  {% endfor %}
-```
 
-The result could look like this:
-> Subject: 1. Elternabend  
-> Sent: 2024-09-17 14:30  
->  
-> Herzliche Einladung zum ersten Elternabend ...
+  {% if not loop.last %}---{% endif %}
+  {% endfor %}
+visibility:
+  - condition: numeric_state
+    entity: sensor.elternportal_letter_n
+    above: 0
+```
 
 
 ## Class register (Klassenbuch, Hausaufgaben)
 
 This card lists `registers` in a markdown card.
-With the filter in the second line, only registers with upcoming due dates are displayed.
 
 ``` yaml
 type: markdown
-title: Class register
-content: |-
-  {% set registers = state_attr('sensor.elternportal_base_n', 'registers') %}
-  {% set registers = registers | selectattr('completion', 'gt', now().date() ) %}
-  {% set registers = registers | sort(attribute='start,completion') %}
-  {% for register in registers %}
-  **{{ register.start }} &rarr; {{ register.completion }}, {{ register.subject }}, {{ register.teacher }}**
-  {{ register.body }}
+title: Class registers
+content: >-
+  {% for register in state_attr('sensor.elternportal_register_n', 'elements') or [] %}
+
+  **{{ register.start }} &rarr; {{ register.completion if register.completion
+  else register.start }}, {{ register.subject if register.subject else "[no
+  subject]" }}, {{ register.teacher }}**
+
+  {{ register.body if register.body else "[no homework entered]" }}
+
   {% endfor %}
+visibility:
+  - condition: numeric_state
+    entity: sensor.elternportal_register_n
+    above: 0
 ```
 
-The result could look like this:
-> 2024-09-30 &rarr; 2024-10-01, Deutsch, Heinz Mustermann  
-> Adjektive: Schulbuch S. 207  
->
-> 2024-09-30 &rarr; 2024-10-02, Englisch, Erika Mustermann  
-> Arbeitsblatt fertig machen  
-> Vokabeln Seite 199 und 200 wiederholen  
+
+## Polls (Umfragen)
+
+This card lists `polls` in a markdown card.
+
+``` yaml
+type: markdown
+title: Polls
+content: >-
+  {% for poll in state_attr('sensor.elternportal_poll_n', 'elements') or [] %}
+  **{{ poll.title }}{% if poll.attachment %} <ha-icon icon="mdi:attachment"/>{% endif %}**
+  *End: {{ poll.end }}, Vote: {{ poll.vote }}*
+
+  {{ poll.detail }}
+
+  {% if not loop.last -%}---{% endif %}
+  {% endfor %}
+visibility:
+  - condition: numeric_state
+    entity: sensor.elternportal_poll_n
+    above: 0
+```
 
 
 ## Sick notes (Krankmeldungen)
 
 This card lists `sicknotes` in a markdown card.
-The statement in the second line hides previous sick notes.
 
 ``` yaml
 type: markdown
 title: Sick notes
 content: |-
-  {% set sicknotes = state_attr('sensor.elternportal_base_n', 'sicknotes') %}
-  {% set sicknotes = sicknotes | selectattr('end', 'ge', now().date()) %}
-  {% set sicknotes = sicknotes | sort(attribute='start,end') %}
+  {% for sicknote in state_attr('sensor.elternportal_sicknote_n', 'elements') or [] %}
   {% for sicknote in sicknotes %}
   **{{ sicknote.start }}**: {{ sicknote.comment if sicknote.comment else '[Ohne Kommentar]' }}
   {% endfor %}
