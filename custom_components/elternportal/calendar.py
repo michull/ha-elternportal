@@ -104,7 +104,9 @@ class ElternPortalCalendar(CoordinatorEntity[ElternPortalCoordinator], CalendarE
     def update(self) -> None:
         """Update status."""
 
-        if not self.api.last_update or (self.last_update and self.last_update == self.api.last_update):
+        if not self.api.last_update:
+            return
+        if self.last_update and self.last_update == self.api.last_update:
             return
 
         self._events = []

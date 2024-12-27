@@ -119,7 +119,7 @@
           "sicknote_treshold": "End (treshold)"
         },
         "data_description": {
-          "register_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for the sick note."
+          "sicknote_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for the sick note."
         }
       }
     }

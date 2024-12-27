@@ -72,7 +72,7 @@
       "letter": {
         "title": "Elternbrief Optionen",
         "data": {
-          "lettere_treshold": "Ende (Anzeigegrenze)"
+          "letter_treshold": "Ende (Anzeigegrenze)"
         },
         "data_description": {
           "letter_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Elternbriefe angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
