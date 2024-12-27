@@ -51,7 +51,49 @@
       "appointment": {
         "title": "Appointment options",
         "data": {
-          "appointment_calendar": "Calendar for appointments"
+          "appointment_calendar": "Calendar for appointments",
+          "appointment_treshold_start": "Start (treshold)",
+          "appointment_treshold_end": "End (treshold)"
+        },
+        "data_description": {
+          "appointment_treshold_start": "Only entries from the parent portal whose start date is less than or equal to the day in ? days are displayed in the sensor for appointments.",
+          "appointment_treshold_end": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for appointments."
+        }
+      },
+      "blackboard": {
+        "title": "Black board options",
+        "data": {
+          "blackboard_treshold": "End (treshold)"
+        },
+        "data_description": {
+          "blackboard_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for black boards."
+        }
+      },
+      "letter": {
+        "title": "Letter options",
+        "data": {
+          "letter_treshold": "End (treshold)"
+        },
+        "data_description": {
+          "letter_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for letters."
+        }
+      },
+      "message": {
+        "title": "Message options",
+        "data": {
+          "message_treshold": "End (treshold)"
+        },
+        "data_description": {
+          "message_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for messages."
+        }
+      },
+      "poll": {
+        "title": "Poll options",
+        "data": {
+          "poll_treshold": "End (treshold)"
+        },
+        "data_description": {
+          "poll_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for polls."
         }
       },
       "register": {
@@ -71,9 +113,13 @@
         }
       },
       "sicknote": {
-        "title": "Sick note Optionen",
+        "title": "Sick note options",
         "data": {
-          "sicknote_calendar": "Calendar for sick note"
+          "sicknote_calendar": "Calendar for sick note",
+          "sicknote_treshold": "End (treshold)"
+        },
+        "data_description": {
+          "register_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for the sick note."
         }
       }
     }

@@ -13,21 +13,21 @@ Unofficial integration for eltern-portal.org
 
 **This integration will set up the calendar and sensor platform.**
 
-Platform | Sensor name                            | Description
-:------- | :------------------------------------- | :----------------------------------
-Calendar | `calendar.elternportal_appointments_n` | Calendar Appointment
-Calendar | `calendar.elternportal_registers_n`    | Calendar Class register
-Calendar | `calendar.elternportal_sicknote_n`     | Calendar Sick note
-Sensor   | `sensor.elternportal_appointment_n`    | Sensor Appointment
-Sensor   | `sensor.elternportal_blackboard_n`     | Sensor Black board
-Sensor   | `sensor.elternportal_lesson_n`         | Sensor Lesson
-Sensor   | `sensor.elternportal_letter_n`         | Sensor Letter
-Sensor   | `sensor.elternportal_message_n`        | Sensor Message
-Sensor   | `sensor.elternportal_poll_n`           | Sensor Poll
-Sensor   | `sensor.elternportal_register_n`       | Sensor Class register
-Sensor   | `sensor.elternportal_sicknote_n`       | Sensor Sick note
+Platform | Sensor name                           | Description
+:------- | :------------------------------------ | :----------------------
+Calendar | `calendar.elternportal_appointment_n` | Calendar Appointment
+Calendar | `calendar.elternportal_register_n`    | Calendar Class register
+Calendar | `calendar.elternportal_sicknote_n`    | Calendar Sick note
+Sensor   | `sensor.elternportal_appointment_n`   | Sensor Appointment
+Sensor   | `sensor.elternportal_blackboard_n`    | Sensor Black board
+Sensor   | `sensor.elternportal_lesson_n`        | Sensor Lesson
+Sensor   | `sensor.elternportal_letter_n`        | Sensor Letter
+Sensor   | `sensor.elternportal_message_n`       | Sensor Message
+Sensor   | `sensor.elternportal_poll_n`          | Sensor Poll
+Sensor   | `sensor.elternportal_register_n`      | Sensor Class register
+Sensor   | `sensor.elternportal_sicknote_n`      | Sensor Sick note
 
-Note: all calendars and sensors are optional.
+Note: All calendars and sensors are optional.
 
 
 # Setup
@@ -96,6 +96,36 @@ Field name     | Section | Default   | Description
 Field name                    | Default | Description
 :---------------------------- | :-----: | :------------------------------------
 `Calendar for appointments`   | &#9744; | Create an additional calendar?
+`Start (treshold)`            |   +14   | 
+`End (treshold)`              |    -0   | 
+
+
+### Page: Option for black board
+
+Field name                    | Default | Description
+:---------------------------- | :-----: | :------------------------------------
+`End (treshold)`              |    -7   | 
+
+
+### Page: Option for letters
+
+Field name                    | Default | Description
+:---------------------------- | :-----: | :------------------------------------
+`End (treshold)`              |    -7   | 
+
+
+### Page: Option for messages
+
+Field name                    | Default | Description
+:---------------------------- | :-----: | :------------------------------------
+`End (treshold)`              |    -7   | 
+
+
+### Page: Option for polls
+
+Field name                    | Default | Description
+:---------------------------- | :-----: | :------------------------------------
+`End (treshold)`              |    +1   | 
 
 
 ### Page: Option for class registers
@@ -105,13 +135,21 @@ Field name                    | Default | Description
 `Start (min)`                 |    -6   | First date for the field start
 `Start (max)`                 |    +2   | Last date for the field start
 `Calendar for class register` | &#9744; | Create an additional calendar?
-`Sensor for class register`   | &#9744; | Create an additional sensor?
+`Show empty entries?`         | &#9744; | Show entries with the text "Keine Hausaufgabe eingetragen"?
 `Completion (treshold)`       |    +1   | Treshold day on the field completion
 
 With the default values the following rule apply:
 1. Only entries with a start date greater or equal to the date 6 days before today are retrieved from Eltern-Portal.
 2. Only entries with a start date less or equal to the date 2 days after today are retrieved from Eltern-Portal.
 3. Only entries with a completion date greater or equal to tomorrow are shown in the additional sensor for register.
+
+
+### Page: Option for sick notes
+
+Field name                    | Default | Description
+:---------------------------- | :-----: | :------------------------------------
+`Calendar for sick notes`     | &#9744; | Create an additional calendar?
+`End (treshold)`              |    +7   | 
 
 
 # Dashboard

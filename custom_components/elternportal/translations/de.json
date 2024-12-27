@@ -51,7 +51,49 @@
       "appointment": {
         "title": "Termin Optionen",
         "data": {
-          "appointment_calendar": "Kalender für Termine"
+          "appointment_calendar": "Kalender für Termine",
+          "appointment_treshold_start": "Start (Anzeigegrenze)",
+          "appointment_treshold_end": "Ende (Anzeigegrenze)"
+        },
+        "data_description": {
+          "appointment_treshold_start": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Termine angezeigt, deren Start kleiner oder gleich dem Tag in ? Tagen ist.",
+          "appointment_treshold_end": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Termine angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
+        }
+      },
+      "blackboard": {
+        "title": "Schwarzes Brett Optionen",
+        "data": {
+          "blackboard_treshold": "Ende (Anzeigegrenze)"
+        },
+        "data_description": {
+          "blackboard_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für das Schwarzes Brett angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
+        }
+      },
+      "letter": {
+        "title": "Elternbrief Optionen",
+        "data": {
+          "lettere_treshold": "Ende (Anzeigegrenze)"
+        },
+        "data_description": {
+          "letter_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Elternbriefe angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
+        }
+      },
+      "message": {
+        "title": "Nachrichten Optionen",
+        "data": {
+          "message_treshold": "Ende (Anzeigegrenze)"
+        },
+        "data_description": {
+          "message_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Nachrichten angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
+        }
+      },
+      "poll": {
+        "title": "Umfragen Optionen",
+        "data": {
+          "poll_treshold": "Ende (Anzeigegrenze)"
+        },
+        "data_description": {
+          "poll_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Umfragen angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
         }
       },
       "register": {
@@ -73,7 +115,11 @@
       "sicknote": {
         "title": "Krankmeldung Optionen",
         "data": {
-          "sicknote_calendar": "Kalender für Krankmeldung"
+          "sicknote_calendar": "Kalender für Krankmeldung",
+          "sicknote_treshold": "Ende (Anzeigegrenze)"
+        },
+        "data_description": {
+          "sicknote_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Krankmeldungen angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
         }
       }
     }

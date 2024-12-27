@@ -190,8 +190,4 @@ class ElternPortalCalendar(CoordinatorEntity[ElternPortalCoordinator], CalendarE
             if event_start >= start_date and event_end <= end_date:
                 events_in_range.append(event)
 
-        LOGGER.debug(
-            "ElternPortalCalendar.async_get_events: len(events_in_range)=%d",
-            len(events_in_range),
-        )
         return events_in_range

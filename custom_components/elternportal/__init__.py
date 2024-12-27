@@ -10,17 +10,31 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from pyelternportal import ElternPortalAPI, VERSION
 from pyelternportal.const import (
     CONF_APPOINTMENT_CALENDAR,
+    CONF_APPOINTMENT_TRESHOLD_END,
+    CONF_APPOINTMENT_TRESHOLD_START,
+    CONF_BLACKBOARD_TRESHOLD,
+    CONF_LETTER_TRESHOLD,
+    CONF_MESSAGE_TRESHOLD,
+    CONF_POLL_TRESHOLD,
     CONF_REGISTER_CALENDAR,
     CONF_REGISTER_SHOW_EMPTY,
     CONF_REGISTER_START_MAX,
     CONF_REGISTER_START_MIN,
     CONF_SICKNOTE_CALENDAR,
+    CONF_SICKNOTE_TRESHOLD,
     DEFAULT_APPOINTMENT_CALENDAR,
+    DEFAULT_APPOINTMENT_TRESHOLD_END,
+    DEFAULT_APPOINTMENT_TRESHOLD_START,
+    DEFAULT_BLACKBOARD_TRESHOLD,
+    DEFAULT_LETTER_TRESHOLD,
+    DEFAULT_MESSAGE_TRESHOLD,
+    DEFAULT_POLL_TRESHOLD,
     DEFAULT_REGISTER_CALENDAR,
     DEFAULT_REGISTER_SHOW_EMPTY,
     DEFAULT_REGISTER_START_MAX,
     DEFAULT_REGISTER_START_MIN,
     DEFAULT_SICKNOTE_CALENDAR,
+    DEFAULT_SICKNOTE_TRESHOLD,
 )
 
 from .const import (
@@ -90,6 +104,24 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         CONF_APPOINTMENT_CALENDAR: entry.options.get(
             CONF_APPOINTMENT_CALENDAR, DEFAULT_APPOINTMENT_CALENDAR
         ),
+        CONF_APPOINTMENT_TRESHOLD_END: entry.options.get(
+            CONF_APPOINTMENT_TRESHOLD_END, DEFAULT_APPOINTMENT_TRESHOLD_END
+        ),
+        CONF_APPOINTMENT_TRESHOLD_START: entry.options.get(
+            CONF_APPOINTMENT_TRESHOLD_START, DEFAULT_APPOINTMENT_TRESHOLD_START
+        ),
+        CONF_BLACKBOARD_TRESHOLD: entry.options.get(
+            CONF_BLACKBOARD_TRESHOLD, DEFAULT_BLACKBOARD_TRESHOLD
+        ),
+        CONF_LETTER_TRESHOLD: entry.options.get(
+            CONF_LETTER_TRESHOLD, DEFAULT_LETTER_TRESHOLD
+        ),
+        CONF_MESSAGE_TRESHOLD: entry.options.get(
+            CONF_MESSAGE_TRESHOLD, DEFAULT_MESSAGE_TRESHOLD
+        ),
+        CONF_POLL_TRESHOLD: entry.options.get(
+            CONF_POLL_TRESHOLD, DEFAULT_POLL_TRESHOLD
+        ),
         CONF_REGISTER_CALENDAR: entry.options.get(
             CONF_REGISTER_CALENDAR, DEFAULT_REGISTER_CALENDAR
         ),
@@ -104,6 +136,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         ),
         CONF_SICKNOTE_CALENDAR: entry.options.get(
             CONF_SICKNOTE_CALENDAR, DEFAULT_SICKNOTE_CALENDAR
+        ),
+        CONF_SICKNOTE_TRESHOLD: entry.options.get(
+            CONF_SICKNOTE_TRESHOLD, DEFAULT_SICKNOTE_TRESHOLD
         ),
     }
     api.set_option_data(options)
