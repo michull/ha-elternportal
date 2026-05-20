@@ -30,6 +30,7 @@ from .const import (
     SENSOR_POLL,
     SENSOR_REGISTER,
     SENSOR_SICKNOTE,
+    SENSOR_SUBSTITUTION,
 )
 from .coordinator import ElternPortalCoordinator
 
@@ -43,6 +44,7 @@ SENSOR_KEYS: list[str] = [
     SENSOR_POLL,
     SENSOR_REGISTER,
     SENSOR_SICKNOTE,
+    SENSOR_SUBSTITUTION,
 ]
 
 
@@ -83,7 +85,7 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
         self.api: ElternPortalAPI = coordinator.api
         self.student_id: str = student.student_id
         self.sensor_key: str = sensor_key
-        sensor_text: str = sensor_key.rstrip("_sensor")
+        sensor_text: str = sensor_key
 
         self.entity_id = (
             f"{Platform.SENSOR}.{DOMAIN}_{sensor_text}_{student.student_id}"
@@ -111,16 +113,16 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
                 result = None
 
                 if self.sensor_key == SENSOR_APPOINTMENT:
-                    treshold_start = date.today() + timedelta(
-                        days=self.api.appointment_treshold_start
+                    threshold_start = date.today() + timedelta(
+                        days=self.api.appointment_threshold_start
                     )
-                    treshold_end = date.today() + timedelta(
-                        days=self.api.appointment_treshold_end
+                    threshold_end = date.today() + timedelta(
+                        days=self.api.appointment_threshold_end
                     )
                     result = [
                         a
                         for a in student.appointments
-                        if a.start <= treshold_start and a.end >= treshold_end
+                        if a.start.date() <= threshold_start and a.end.date() >= threshold_end
                     ]
 
                 if self.sensor_key == SENSOR_BLACKBOARD:
@@ -142,8 +144,11 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
                     result = student.registers
 
                 if self.sensor_key == SENSOR_SICKNOTE:
-                    treshold = date.today() + timedelta(days=self.api.sicknote_treshold)
-                    result = [s for s in student.sicknotes if s.end >= treshold]
+                    threshold = date.today() + timedelta(days=self.api.sicknote_threshold)
+                    result = [s for s in student.sicknotes if s.end >= threshold]
+
+                if self.sensor_key == SENSOR_SUBSTITUTION:
+                    result = student.substitutions
 
                 return result
 
@@ -154,7 +159,7 @@ class ElternPortalSensor(CoordinatorEntity[ElternPortalCoordinator], SensorEntit
     def native_value(self) -> int:
         """Return the state of the sensor."""
         elements = self.get_elements()
-        return len(elements)
+        return len(elements) if elements is not None else 0
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:

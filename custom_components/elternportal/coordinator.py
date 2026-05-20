@@ -13,7 +13,7 @@ from .const import DOMAIN, DEFAULT_SCAN_INTERVAL, LOGGER
 class ElternPortalCoordinator(DataUpdateCoordinator[None]):
     """Custom coordinator for the elternportal integration."""
 
-    def __init__(self, hass: HomeAssistant, api: ElternportalAPI) -> None:
+    def __init__(self, hass: HomeAssistant, api: ElternPortalAPI) -> None:
         """Initialize elternportal coordinator."""
         LOGGER.debug("ElternPortalCoordinator.__init__")
         super().__init__(

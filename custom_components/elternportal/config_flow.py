@@ -22,33 +22,35 @@ from pyelternportal import (
 )
 from pyelternportal.const import (
     CONF_APPOINTMENT_CALENDAR,
-    CONF_APPOINTMENT_TRESHOLD_END,
-    CONF_APPOINTMENT_TRESHOLD_START,
-    CONF_BLACKBOARD_TRESHOLD,
-    CONF_LETTER_TRESHOLD,
-    CONF_MESSAGE_TRESHOLD,
-    CONF_POLL_TRESHOLD,
+    CONF_APPOINTMENT_THRESHOLD_END,
+    CONF_APPOINTMENT_THRESHOLD_START,
+    CONF_BLACKBOARD_THRESHOLD,
+    CONF_LETTER_THRESHOLD,
+    CONF_MESSAGE_THRESHOLD,
+    CONF_POLL_THRESHOLD,
     CONF_REGISTER_CALENDAR,
     CONF_REGISTER_SHOW_EMPTY,
     CONF_REGISTER_START_MAX,
     CONF_REGISTER_START_MIN,
-    CONF_REGISTER_TRESHOLD,
+    CONF_REGISTER_THRESHOLD,
     CONF_SICKNOTE_CALENDAR,
-    CONF_SICKNOTE_TRESHOLD,
+    CONF_SICKNOTE_THRESHOLD,
+    CONF_SUBSTITUTION_THRESHOLD,
     DEFAULT_APPOINTMENT_CALENDAR,
-    DEFAULT_APPOINTMENT_TRESHOLD_END,
-    DEFAULT_APPOINTMENT_TRESHOLD_START,
-    DEFAULT_BLACKBOARD_TRESHOLD,
-    DEFAULT_LETTER_TRESHOLD,
-    DEFAULT_MESSAGE_TRESHOLD,
-    DEFAULT_POLL_TRESHOLD,
+    DEFAULT_APPOINTMENT_THRESHOLD_END,
+    DEFAULT_APPOINTMENT_THRESHOLD_START,
+    DEFAULT_BLACKBOARD_THRESHOLD,
+    DEFAULT_LETTER_THRESHOLD,
+    DEFAULT_MESSAGE_THRESHOLD,
+    DEFAULT_POLL_THRESHOLD,
     DEFAULT_REGISTER_CALENDAR,
     DEFAULT_REGISTER_SHOW_EMPTY,
     DEFAULT_REGISTER_START_MAX,
     DEFAULT_REGISTER_START_MIN,
-    DEFAULT_REGISTER_TRESHOLD,
+    DEFAULT_REGISTER_THRESHOLD,
     DEFAULT_SICKNOTE_CALENDAR,
-    DEFAULT_SICKNOTE_TRESHOLD,
+    DEFAULT_SICKNOTE_THRESHOLD,
+    DEFAULT_SUBSTITUTION_THRESHOLD,
 )
 
 from .const import (
@@ -61,6 +63,7 @@ from .const import (
     CONF_SECTION_POLLS,
     CONF_SECTION_REGISTERS,
     CONF_SECTION_SICKNOTES,
+    CONF_SECTION_SUBSTITUTIONS,
     DEFAULT_SECTION_APPOINTMENTS,
     DEFAULT_SECTION_BLACKBOARDS,
     DEFAULT_SECTION_LESSONS,
@@ -69,6 +72,7 @@ from .const import (
     DEFAULT_SECTION_POLLS,
     DEFAULT_SECTION_REGISTERS,
     DEFAULT_SECTION_SICKNOTES,
+    DEFAULT_SECTION_SUBSTITUTIONS,
     DOMAIN,
     LOGGER,
 )
@@ -82,10 +86,9 @@ class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     async def async_step_user(
         self,
         user_input: dict[str, Any] | None = None,
-        errors: dict[str, Any] | None = None,
     ) -> FlowResult:
         """Handle the initial step."""
-        # errors: dict[str, Any] = {}
+        errors: dict[str, Any] = {}
         if user_input is not None:
             try:
                 session = async_get_clientsession(self.hass)
@@ -173,6 +176,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         self.poll_input: dict[str, Any] = {}
         self.register_input: dict[str, Any] = {}
         self.sicknote_input: dict[str, Any] = {}
+        self.substitution_input: dict[str, Any] = {}
 
     async def async_step_init(
         self, user_input: dict[str, Any] | None = None
@@ -191,6 +195,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 and not user_input[CONF_SECTION_POLLS]
                 and not user_input[CONF_SECTION_REGISTERS]
                 and not user_input[CONF_SECTION_SICKNOTES]
+                and not user_input[CONF_SECTION_SUBSTITUTIONS]
             ):
                 errors["base"] = "sections_empty"
 
@@ -249,6 +254,12 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     CONF_SECTION_SICKNOTES, DEFAULT_SECTION_SICKNOTES
                 ),
             ): bool,
+            vol.Optional(
+                CONF_SECTION_SUBSTITUTIONS,
+                default=self._config_entry.options.get(
+                    CONF_SECTION_SUBSTITUTIONS, DEFAULT_SECTION_SUBSTITUTIONS
+                ),
+            ): bool,
         }
 
         return self.async_show_form(
@@ -280,17 +291,17 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 ),
             ): bool,
             vol.Optional(
-                CONF_APPOINTMENT_TRESHOLD_START,
+                CONF_APPOINTMENT_THRESHOLD_START,
                 default=self._config_entry.options.get(
-                    CONF_APPOINTMENT_TRESHOLD_START,
-                    DEFAULT_APPOINTMENT_TRESHOLD_START,
+                    CONF_APPOINTMENT_THRESHOLD_START,
+                    DEFAULT_APPOINTMENT_THRESHOLD_START,
                 ),
             ): int,
             vol.Optional(
-                CONF_APPOINTMENT_TRESHOLD_END,
+                CONF_APPOINTMENT_THRESHOLD_END,
                 default=self._config_entry.options.get(
-                    CONF_APPOINTMENT_TRESHOLD_END,
-                    DEFAULT_APPOINTMENT_TRESHOLD_END,
+                    CONF_APPOINTMENT_THRESHOLD_END,
+                    DEFAULT_APPOINTMENT_THRESHOLD_END,
                 ),
             ): int,
         }
@@ -318,10 +329,10 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
         data_schema = {
             vol.Optional(
-                CONF_BLACKBOARD_TRESHOLD,
+                CONF_BLACKBOARD_THRESHOLD,
                 default=self._config_entry.options.get(
-                    CONF_BLACKBOARD_TRESHOLD,
-                    DEFAULT_BLACKBOARD_TRESHOLD,
+                    CONF_BLACKBOARD_THRESHOLD,
+                    DEFAULT_BLACKBOARD_THRESHOLD,
                 ),
             ): int,
         }
@@ -349,10 +360,10 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
         data_schema = {
             vol.Optional(
-                CONF_LETTER_TRESHOLD,
+                CONF_LETTER_THRESHOLD,
                 default=self._config_entry.options.get(
-                    CONF_LETTER_TRESHOLD,
-                    DEFAULT_LETTER_TRESHOLD,
+                    CONF_LETTER_THRESHOLD,
+                    DEFAULT_LETTER_THRESHOLD,
                 ),
             ): int,
         }
@@ -380,10 +391,10 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
         data_schema = {
             vol.Optional(
-                CONF_MESSAGE_TRESHOLD,
+                CONF_MESSAGE_THRESHOLD,
                 default=self._config_entry.options.get(
-                    CONF_MESSAGE_TRESHOLD,
-                    DEFAULT_MESSAGE_TRESHOLD,
+                    CONF_MESSAGE_THRESHOLD,
+                    DEFAULT_MESSAGE_THRESHOLD,
                 ),
             ): int,
         }
@@ -411,10 +422,10 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
         data_schema = {
             vol.Optional(
-                CONF_POLL_TRESHOLD,
+                CONF_POLL_THRESHOLD,
                 default=self._config_entry.options.get(
-                    CONF_POLL_TRESHOLD,
-                    DEFAULT_POLL_TRESHOLD,
+                    CONF_POLL_THRESHOLD,
+                    DEFAULT_POLL_THRESHOLD,
                 ),
             ): int,
         }
@@ -471,10 +482,10 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 ),
             ): bool,
             vol.Optional(
-                CONF_REGISTER_TRESHOLD,
+                CONF_REGISTER_THRESHOLD,
                 default=self._config_entry.options.get(
-                    CONF_REGISTER_TRESHOLD,
-                    DEFAULT_REGISTER_TRESHOLD,
+                    CONF_REGISTER_THRESHOLD,
+                    DEFAULT_REGISTER_THRESHOLD,
                 ),
             ): int,
         }
@@ -490,7 +501,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
         if not self.section_input[CONF_SECTION_SICKNOTES]:
             self.sicknote_input = {}
-            return await self.async_step_finish()
+            return await self.async_step_substitution()
 
         errors = {}
         if user_input is not None:
@@ -498,7 +509,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
             if not errors:
                 self.sicknote_input = user_input
-                return await self.async_step_finish()
+                return await self.async_step_substitution()
 
         data_schema = {
             vol.Optional(
@@ -508,16 +519,45 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 ),
             ): bool,
             vol.Optional(
-                CONF_SICKNOTE_TRESHOLD,
+                CONF_SICKNOTE_THRESHOLD,
                 default=self._config_entry.options.get(
-                    CONF_SICKNOTE_TRESHOLD,
-                    DEFAULT_SICKNOTE_TRESHOLD,
+                    CONF_SICKNOTE_THRESHOLD,
+                    DEFAULT_SICKNOTE_THRESHOLD,
                 ),
             ): int,
         }
 
         return self.async_show_form(
             step_id="sicknote", data_schema=vol.Schema(data_schema), errors=errors
+        )
+
+    async def async_step_substitution(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
+        """Manage the substitution options."""
+
+        if not self.section_input[CONF_SECTION_SUBSTITUTIONS]:
+            self.substitution_input = {}
+            return await self.async_step_finish()
+
+        errors = {}
+        if user_input is not None:
+            if not errors:
+                self.substitution_input = user_input
+                return await self.async_step_finish()
+
+        data_schema = {
+            vol.Optional(
+                CONF_SUBSTITUTION_THRESHOLD,
+                default=self._config_entry.options.get(
+                    CONF_SUBSTITUTION_THRESHOLD,
+                    DEFAULT_SUBSTITUTION_THRESHOLD,
+                ),
+            ): int,
+        }
+
+        return self.async_show_form(
+            step_id="substitution", data_schema=vol.Schema(data_schema), errors=errors
         )
 
     async def async_step_finish(self) -> FlowResult:
@@ -527,23 +567,23 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             CONF_APPOINTMENT_CALENDAR: self.appointment_input.get(
                 CONF_APPOINTMENT_CALENDAR
             ),
-            CONF_APPOINTMENT_TRESHOLD_END: self.appointment_input.get(
-                CONF_APPOINTMENT_TRESHOLD_END
+            CONF_APPOINTMENT_THRESHOLD_END: self.appointment_input.get(
+                CONF_APPOINTMENT_THRESHOLD_END
             ),
-            CONF_APPOINTMENT_TRESHOLD_START: self.appointment_input.get(
-                CONF_APPOINTMENT_TRESHOLD_START
+            CONF_APPOINTMENT_THRESHOLD_START: self.appointment_input.get(
+                CONF_APPOINTMENT_THRESHOLD_START
             ),
-            CONF_BLACKBOARD_TRESHOLD: self.blackboard_input.get(
-                CONF_BLACKBOARD_TRESHOLD
+            CONF_BLACKBOARD_THRESHOLD: self.blackboard_input.get(
+                CONF_BLACKBOARD_THRESHOLD
             ),
-            CONF_LETTER_TRESHOLD: self.letter_input.get(CONF_LETTER_TRESHOLD),
-            CONF_MESSAGE_TRESHOLD: self.message_input.get(CONF_MESSAGE_TRESHOLD),
-            CONF_POLL_TRESHOLD: self.poll_input.get(CONF_POLL_TRESHOLD),
+            CONF_LETTER_THRESHOLD: self.letter_input.get(CONF_LETTER_THRESHOLD),
+            CONF_MESSAGE_THRESHOLD: self.message_input.get(CONF_MESSAGE_THRESHOLD),
+            CONF_POLL_THRESHOLD: self.poll_input.get(CONF_POLL_THRESHOLD),
             CONF_REGISTER_CALENDAR: self.register_input.get(CONF_REGISTER_CALENDAR),
             CONF_REGISTER_SHOW_EMPTY: self.register_input.get(CONF_REGISTER_SHOW_EMPTY),
             CONF_REGISTER_START_MAX: self.register_input.get(CONF_REGISTER_START_MAX),
             CONF_REGISTER_START_MIN: self.register_input.get(CONF_REGISTER_START_MIN),
-            CONF_REGISTER_TRESHOLD: self.register_input.get(CONF_REGISTER_TRESHOLD),
+            CONF_REGISTER_THRESHOLD: self.register_input.get(CONF_REGISTER_THRESHOLD),
             CONF_SECTION_APPOINTMENTS: self.section_input.get(
                 CONF_SECTION_APPOINTMENTS
             ),
@@ -554,7 +594,13 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             CONF_SECTION_POLLS: self.section_input.get(CONF_SECTION_POLLS),
             CONF_SECTION_REGISTERS: self.section_input.get(CONF_SECTION_REGISTERS),
             CONF_SECTION_SICKNOTES: self.section_input.get(CONF_SECTION_SICKNOTES),
+            CONF_SECTION_SUBSTITUTIONS: self.section_input.get(
+                CONF_SECTION_SUBSTITUTIONS
+            ),
             CONF_SICKNOTE_CALENDAR: self.sicknote_input.get(CONF_SICKNOTE_CALENDAR),
-            CONF_SICKNOTE_TRESHOLD: self.sicknote_input.get(CONF_SICKNOTE_TRESHOLD),
+            CONF_SICKNOTE_THRESHOLD: self.sicknote_input.get(CONF_SICKNOTE_THRESHOLD),
+            CONF_SUBSTITUTION_THRESHOLD: self.substitution_input.get(
+                CONF_SUBSTITUTION_THRESHOLD
+            ),
         }
         return self.async_create_entry(title="", data=option_data)

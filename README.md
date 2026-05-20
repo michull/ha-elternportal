@@ -26,6 +26,7 @@ Sensor   | `sensor.elternportal_message_n`       | Sensor Message
 Sensor   | `sensor.elternportal_poll_n`          | Sensor Poll
 Sensor   | `sensor.elternportal_register_n`      | Sensor Class register
 Sensor   | `sensor.elternportal_sicknote_n`      | Sensor Sick note
+Sensor   | `sensor.elternportal_substitution_n`  | Sensor Substitution
 
 Note: All calendars and sensors are optional.
 
@@ -89,6 +90,7 @@ Field name     | Section | Default   | Description
 `Polls`        | News    | &#9744;   | 
 `Registers`    | Service | &#9744;   | Homework tasks
 `Sick notes`   | Notes   | &#9744;   | 
+`Substitution` | Service | &#9744;   | Substitution schedule
 
 
 ### Page: Option for appointments
@@ -96,36 +98,36 @@ Field name     | Section | Default   | Description
 Field name                    | Default | Description
 :---------------------------- | :-----: | :------------------------------------
 `Calendar for appointments`   | &#9744; | Create an additional calendar?
-`Start (treshold)`            |   +14   | 
-`End (treshold)`              |    -0   | 
+`Start (threshold)`           |   +14   | 
+`End (threshold)`             |    -0   | 
 
 
 ### Page: Option for black board
 
 Field name                    | Default | Description
 :---------------------------- | :-----: | :------------------------------------
-`End (treshold)`              |    -7   | 
+`End (threshold)`             |    -7   | 
 
 
 ### Page: Option for letters
 
 Field name                    | Default | Description
 :---------------------------- | :-----: | :------------------------------------
-`End (treshold)`              |    -7   | 
+`End (threshold)`             |    -7   | 
 
 
 ### Page: Option for messages
 
 Field name                    | Default | Description
 :---------------------------- | :-----: | :------------------------------------
-`End (treshold)`              |    -7   | 
+`End (threshold)`             |    -7   | 
 
 
 ### Page: Option for polls
 
 Field name                    | Default | Description
 :---------------------------- | :-----: | :------------------------------------
-`End (treshold)`              |    +1   | 
+`End (threshold)`             |    +1   | 
 
 
 ### Page: Option for class registers
@@ -136,7 +138,7 @@ Field name                    | Default | Description
 `Start (max)`                 |    +2   | Last date for the field start
 `Calendar for class register` | &#9744; | Create an additional calendar?
 `Show empty entries?`         | &#9744; | Show entries with the text "Keine Hausaufgabe eingetragen"?
-`Completion (treshold)`       |    +1   | Treshold day on the field completion
+`Completion (threshold)`      |    +1   | Threshold day on the field completion
 
 With the default values the following rule apply:
 1. Only entries with a start date greater or equal to the date 6 days before today are retrieved from Eltern-Portal.
@@ -149,7 +151,14 @@ With the default values the following rule apply:
 Field name                    | Default | Description
 :---------------------------- | :-----: | :------------------------------------
 `Calendar for sick notes`     | &#9744; | Create an additional calendar?
-`End (treshold)`              |    +7   | 
+`End (threshold)`             |    +7   | 
+
+
+### Page: Option for substitution schedule
+
+Field name                    | Default | Description
+:---------------------------- | :-----: | :------------------------------------
+`Date (threshold)`            |    +0   | 
 
 
 # Dashboard
