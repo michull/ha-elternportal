@@ -71,7 +71,7 @@ class ElternPortalCalendar(CoordinatorEntity[ElternPortalCoordinator], CalendarE
         self.student_id: str = student.student_id
         self.calendar_key: str = calendar_key
         self.last_update: datetime = None
-        calendar_text: str = calendar_key.rstrip("_calendar")
+        calendar_text: str = calendar_key.removesuffix("_calendar")
 
         self.entity_id = (
             f"{Platform.CALENDAR}.{DOMAIN}_{calendar_text}_{student.student_id}"

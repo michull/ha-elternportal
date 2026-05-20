@@ -9,5 +9,5 @@ __pycache__
 # Test
 test*.py
 
-# lib
-custom_components/elternportal/pyelternportal/
+# other
+CLAUDE.md

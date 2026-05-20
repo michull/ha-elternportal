@@ -41,7 +41,8 @@
           "section_messages": "Kommunikation (Meldung)",
           "section_polls": "Umfragen (Aktuelles)",
           "section_registers": "Klassenbuch (Service)",
-          "section_sicknotes": "Krankmeldungen (Meldung)"
+          "section_sicknotes": "Krankmeldungen (Meldung)",
+          "section_substitutions": "Vertretungsplan (Service)"
         },
         "data_description": {
           "section_appointments": "Schulaufgaben- und andere Termine",
@@ -52,48 +53,48 @@
         "title": "Termin Optionen",
         "data": {
           "appointment_calendar": "Kalender für Termine",
-          "appointment_treshold_start": "Start (Anzeigegrenze)",
-          "appointment_treshold_end": "Ende (Anzeigegrenze)"
+          "appointment_threshold_start": "Start (Anzeigegrenze)",
+          "appointment_threshold_end": "Ende (Anzeigegrenze)"
         },
         "data_description": {
-          "appointment_treshold_start": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Termine angezeigt, deren Start kleiner oder gleich dem Tag in ? Tagen ist.",
-          "appointment_treshold_end": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Termine angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
+          "appointment_threshold_start": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Termine angezeigt, deren Start kleiner oder gleich dem Tag in ? Tagen ist.",
+          "appointment_threshold_end": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Termine angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
         }
       },
       "blackboard": {
         "title": "Schwarzes Brett Optionen",
         "data": {
-          "blackboard_treshold": "Ende (Anzeigegrenze)"
+          "blackboard_threshold": "Ende (Anzeigegrenze)"
         },
         "data_description": {
-          "blackboard_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für das Schwarzes Brett angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
+          "blackboard_threshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für das Schwarzes Brett angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
         }
       },
       "letter": {
         "title": "Elternbrief Optionen",
         "data": {
-          "letter_treshold": "Ende (Anzeigegrenze)"
+          "letter_threshold": "Ende (Anzeigegrenze)"
         },
         "data_description": {
-          "letter_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Elternbriefe angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
+          "letter_threshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Elternbriefe angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
         }
       },
       "message": {
         "title": "Nachrichten Optionen",
         "data": {
-          "message_treshold": "Ende (Anzeigegrenze)"
+          "message_threshold": "Ende (Anzeigegrenze)"
         },
         "data_description": {
-          "message_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Nachrichten angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
+          "message_threshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Nachrichten angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
         }
       },
       "poll": {
         "title": "Umfragen Optionen",
         "data": {
-          "poll_treshold": "Ende (Anzeigegrenze)"
+          "poll_threshold": "Ende (Anzeigegrenze)"
         },
         "data_description": {
-          "poll_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Umfragen angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
+          "poll_threshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Umfragen angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
         }
       },
       "register": {
@@ -104,22 +105,31 @@
           "register_start_max": "Start (max)",
           "register_show_empty": "Zeige Einträge mit \"Keine Hausaufgabe eingetragen\"",
           "register_calendar": "Kalender fürs Klassenbuch",
-          "register_treshold": "Fertigstellung (Anzeigegrenze)"
+          "register_threshold": "Fertigstellung (Anzeigegrenze)"
         },
         "data_description": {
           "register_start_min": "Es werden nur Einträge aus dem Eltern-Portal abgerufen, deren Startdatum größer oder gleich dem Tag in ? Tagen ist.",
           "register_start_max": "Es werden nur Einträge aus dem Eltern-Portal abgerufen, deren Startdatum kleiner oder gleich dem Tag in ? Tagen ist.",
-          "register_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor fürs Klassenbuch angezeigt, deren Fertigstellungsdatum größer oder gleich dem Tag in ? Tagen ist."
+          "register_threshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor fürs Klassenbuch angezeigt, deren Fertigstellungsdatum größer oder gleich dem Tag in ? Tagen ist."
         }
       },
       "sicknote": {
         "title": "Krankmeldung Optionen",
         "data": {
           "sicknote_calendar": "Kalender für Krankmeldung",
-          "sicknote_treshold": "Ende (Anzeigegrenze)"
+          "sicknote_threshold": "Ende (Anzeigegrenze)"
         },
         "data_description": {
-          "sicknote_treshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Krankmeldungen angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
+          "sicknote_threshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für Krankmeldungen angezeigt, deren Ende größer oder gleich dem Tag in ? Tagen ist."
+        }
+      },
+      "substitution": {
+        "title": "Vertretungsplan Optionen",
+        "data": {
+          "substitution_threshold": "Datum (Anzeigegrenze)"
+        },
+        "data_description": {
+          "substitution_threshold": "Es werden nur Einträge aus dem Eltern-Portal im Sensor für den Vertretungsplan angezeigt, deren Datum größer oder gleich dem Tag in ? Tagen ist."
         }
       }
     }

@@ -41,7 +41,8 @@
           "section_messages": "Communication (Notes)",
           "section_polls": "Polls (News)",
           "section_registers": "Registers (Service)",
-          "section_sicknotes": "Sick notes (Notes)"
+          "section_sicknotes": "Sick notes (Notes)",
+          "section_substitutions": "Substitution schedule (Service)"
         },
         "data_description": {
           "section_appointments": "Schoolwork and other appointments",
@@ -52,48 +53,48 @@
         "title": "Appointment options",
         "data": {
           "appointment_calendar": "Calendar for appointments",
-          "appointment_treshold_start": "Start (treshold)",
-          "appointment_treshold_end": "End (treshold)"
+          "appointment_threshold_start": "Start (threshold)",
+          "appointment_threshold_end": "End (threshold)"
         },
         "data_description": {
-          "appointment_treshold_start": "Only entries from the parent portal whose start date is less than or equal to the day in ? days are displayed in the sensor for appointments.",
-          "appointment_treshold_end": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for appointments."
+          "appointment_threshold_start": "Only entries from the parent portal whose start date is less than or equal to the day in ? days are displayed in the sensor for appointments.",
+          "appointment_threshold_end": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for appointments."
         }
       },
       "blackboard": {
         "title": "Black board options",
         "data": {
-          "blackboard_treshold": "End (treshold)"
+          "blackboard_threshold": "End (threshold)"
         },
         "data_description": {
-          "blackboard_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for black boards."
+          "blackboard_threshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for black boards."
         }
       },
       "letter": {
         "title": "Letter options",
         "data": {
-          "letter_treshold": "End (treshold)"
+          "letter_threshold": "End (threshold)"
         },
         "data_description": {
-          "letter_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for letters."
+          "letter_threshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for letters."
         }
       },
       "message": {
         "title": "Message options",
         "data": {
-          "message_treshold": "End (treshold)"
+          "message_threshold": "End (threshold)"
         },
         "data_description": {
-          "message_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for messages."
+          "message_threshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for messages."
         }
       },
       "poll": {
         "title": "Poll options",
         "data": {
-          "poll_treshold": "End (treshold)"
+          "poll_threshold": "End (threshold)"
         },
         "data_description": {
-          "poll_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for polls."
+          "poll_threshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for polls."
         }
       },
       "register": {
@@ -104,22 +105,31 @@
           "register_start_max": "Start (max)",
           "register_show_empty": "Show entries with \"Keine Hausaufgabe eingetragen\"",
           "register_calendar": "Calendar for class register",
-          "register_treshold": "Completion (treshold)"
+          "register_threshold": "Completion (threshold)"
         },
         "data_description": {
           "register_start_min": "Only entries whose start date is greater than or equal to the day in ? days are retrieved from the parent portal.",
           "register_start_max": "Only entries whose start date is less than or equal to the day in ? days are retrieved from the parent portal.",
-          "register_treshold": "Only entries from the parent portal whose completion date is greater than or equal to the day in ? days are displayed in the sensor for the class register."
+          "register_threshold": "Only entries from the parent portal whose completion date is greater than or equal to the day in ? days are displayed in the sensor for the class register."
         }
       },
       "sicknote": {
         "title": "Sick note options",
         "data": {
           "sicknote_calendar": "Calendar for sick note",
-          "sicknote_treshold": "End (treshold)"
+          "sicknote_threshold": "End (threshold)"
         },
         "data_description": {
-          "sicknote_treshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for the sick note."
+          "sicknote_threshold": "Only entries from the parent portal whose end date is greater than or equal to the day in ? days are displayed in the sensor for the sick note."
+        }
+      },
+      "substitution": {
+        "title": "Substitution schedule options",
+        "data": {
+          "substitution_threshold": "Date (threshold)"
+        },
+        "data_description": {
+          "substitution_threshold": "Only entries from the parent portal whose date is greater than or equal to the day in ? days are displayed in the sensor for the substitution schedule."
         }
       }
     }

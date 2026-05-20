@@ -27,6 +27,7 @@ CONF_SECTION_MESSAGES: str = "section_messages"
 CONF_SECTION_POLLS: str = "section_polls"
 CONF_SECTION_REGISTERS: str = "section_registers"
 CONF_SECTION_SICKNOTES: str = "section_sicknotes"
+CONF_SECTION_SUBSTITUTIONS: str = "section_substitutions"
 
 DEFAULT_SECTION_APPOINTMENTS: bool = True
 DEFAULT_SECTION_BLACKBOARDS: bool = False
@@ -36,6 +37,7 @@ DEFAULT_SECTION_MESSAGES: bool = False
 DEFAULT_SECTION_POLLS: bool = False
 DEFAULT_SECTION_REGISTERS: bool = False
 DEFAULT_SECTION_SICKNOTES: bool = False
+DEFAULT_SECTION_SUBSTITUTIONS: bool = False
 
 SENSOR_APPOINTMENT: str = "appointment"
 SENSOR_BLACKBOARD: str = "blackboard"
@@ -45,3 +47,4 @@ SENSOR_MESSAGE: str = "message"
 SENSOR_POLL: str = "poll"
 SENSOR_REGISTER: str = "register"
 SENSOR_SICKNOTE: str = "sicknote"
+SENSOR_SUBSTITUTION: str = "substitution"
