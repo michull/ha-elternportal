@@ -161,6 +161,42 @@ content: |-
 ```
 
 
+## Substitution (Vertretungsplan)
+
+This card lists `substitutions` in a table using [html-template-card](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-HTML-Jinja2-Template-card).
+
+``` yaml
+type: custom:html-template-card
+title: Vertretungsplan
+ignore_line_breaks: true
+content: >
+  <table style="width:100%;border-collapse:collapse;font-size:0.7em;">
+  <tr style="background:var(--primary-color);color:white;">
+  <th style="padding:2px;">Date</th>
+  <th style="padding:2px;">Lesson</th>
+  <th style="padding:2px;">Subject</th>
+  <th style="padding:2px;">Substitute</th>
+  <th style="padding:2px;">Room</th>
+  <th style="padding:2px;">Info</th>
+  </tr>
+  {% for item in state_attr('sensor.elternportal_substitution_n', 'elements') or [] %}
+  <tr style="border-bottom:1px solid var(--divider-color);">
+  <td style="padding:2px;white-space:nowrap;">{{ item.date }}</td>
+  <td style="padding:2px;text-align:center;">{{ item.lesson }}</td>
+  <td style="padding:2px;">{{ item.subject }}</td>
+  <td style="padding:2px;">{{ item.substitute_teacher }}</td>
+  <td style="padding:2px;">{{ item.room }}</td>
+  <td style="padding:2px;color:var(--secondary-text-color);">{{ item.info }}</td>
+  </tr>
+  {% endfor %}
+  </table>
+visibility:
+  - condition: numeric_state
+    entity: sensor.elternportal_substitution_n
+    above: 0
+```
+
+
 ## Class register II
 
 With the help of [flex-table-card](https://github.com/custom-cards/flex-table-card) and the checked elternportal integration option "Sensor for class register" you can show the class register in a table.
