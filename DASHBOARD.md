@@ -174,7 +174,6 @@ content: >
   <tr style="background:var(--primary-color);color:white;">
   <th style="padding:2px;">Date</th>
   <th style="padding:2px;">Lesson</th>
-  <th style="padding:2px;">Subject</th>
   <th style="padding:2px;">Substitute</th>
   <th style="padding:2px;">Room</th>
   <th style="padding:2px;">Info</th>
@@ -183,7 +182,6 @@ content: >
   <tr style="border-bottom:1px solid var(--divider-color);">
   <td style="padding:2px;white-space:nowrap;">{{ item.date }}</td>
   <td style="padding:2px;text-align:center;">{{ item.lesson }}</td>
-  <td style="padding:2px;">{{ item.subject }}</td>
   <td style="padding:2px;">{{ item.substitute_teacher }}</td>
   <td style="padding:2px;">{{ item.room }}</td>
   <td style="padding:2px;color:var(--secondary-text-color);">{{ item.info }}</td>
