@@ -11,7 +11,9 @@ from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import callback
 from homeassistant.helpers import selector
 from homeassistant.data_entry_flow import FlowResult
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
+import aiohttp
+
+from homeassistant.helpers.aiohttp_client import async_create_clientsession
 
 from pyelternportal import (
     ElternPortalAPI,
@@ -53,6 +55,7 @@ from pyelternportal.const import (
     DEFAULT_SUBSTITUTION_THRESHOLD,
 )
 
+from .api import ElternPortalAPIExt
 from .const import (
     CONF_SCHOOL,
     CONF_SECTION_APPOINTMENTS,
@@ -90,9 +93,11 @@ class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle the initial step."""
         errors: dict[str, Any] = {}
         if user_input is not None:
+            session = async_create_clientsession(
+                self.hass, auto_cleanup=False, cookie_jar=aiohttp.CookieJar()
+            )
             try:
-                session = async_get_clientsession(self.hass)
-                api: ElternPortalAPI = ElternPortalAPI(session)
+                api: ElternPortalAPI = ElternPortalAPIExt(session)
                 api.set_config_data(user_input)
                 await api.async_validate_config()
             except ResolveHostnameException as ex:
@@ -111,6 +116,8 @@ class ElternPortalConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             except Exception as ex:
                 LOGGER.exception("Unknown error: %s", ex)
                 errors["base"] = "unknown_error"
+            finally:
+                session.detach()
 
             if not errors:
                 await self.async_set_unique_id(f"{DOMAIN}_{api.school}")
